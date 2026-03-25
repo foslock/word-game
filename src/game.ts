@@ -99,7 +99,7 @@ export class Game {
     if (!this.record.completed) {
       const hint = document.createElement("p");
       hint.className = "instruction";
-      hint.textContent = "Guess the three words connected by the theme.";
+      hint.textContent = "Find the three words threaded together by the theme.";
       this.container.appendChild(hint);
     }
 
@@ -612,6 +612,7 @@ export class Game {
         if (pending === 0) {
           this.animating = false;
           if (finalComplete) {
+            this.launchConfetti();
             setTimeout(() => {
               this.render();
             }, 600);
@@ -622,6 +623,73 @@ export class Game {
         }
       }, totalDuration);
     });
+  }
+
+  // -------------------------------------------------------------------------
+  // Confetti effect
+  // -------------------------------------------------------------------------
+
+  private launchConfetti(): void {
+    const canvas = document.createElement("canvas");
+    canvas.className = "confetti-canvas";
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    document.body.appendChild(canvas);
+    const ctx = canvas.getContext("2d")!;
+
+    const colors = ["#538d4e", "#b59f3b", "#e94560", "#6aaf63", "#ff9f43", "#a78bfa", "#38bdf8"];
+    const pieces: { x: number; y: number; r: number; dx: number; dy: number; rot: number; dr: number; color: string; w: number; h: number; life: number }[] = [];
+
+    for (let i = 0; i < 120; i++) {
+      pieces.push({
+        x: Math.random() * canvas.width,
+        y: -10 - Math.random() * canvas.height * 0.5,
+        r: Math.random() * Math.PI * 2,
+        dx: (Math.random() - 0.5) * 4,
+        dy: Math.random() * 3 + 2,
+        rot: 0,
+        dr: (Math.random() - 0.5) * 0.2,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        w: Math.random() * 8 + 4,
+        h: Math.random() * 6 + 2,
+        life: 1,
+      });
+    }
+
+    let frame = 0;
+    const maxFrames = 180;
+
+    const animate = () => {
+      frame++;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (const p of pieces) {
+        p.x += p.dx;
+        p.y += p.dy;
+        p.dy += 0.05;
+        p.rot += p.dr;
+        if (frame > maxFrames * 0.6) {
+          p.life -= 0.02;
+        }
+        if (p.life <= 0) continue;
+
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+        ctx.globalAlpha = Math.max(0, p.life);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        ctx.restore();
+      }
+
+      if (frame < maxFrames) {
+        requestAnimationFrame(animate);
+      } else {
+        canvas.remove();
+      }
+    };
+
+    requestAnimationFrame(animate);
   }
 
   // -------------------------------------------------------------------------
@@ -696,9 +764,9 @@ export class Game {
 
 export function renderRulesContent(container: HTMLElement): void {
   container.innerHTML = `
-    <p>Each day features a new <strong>Theme Word</strong> and three mystery words connected to it.</p>
+    <p>Each day, three mystery words are <strong>threaded</strong> together by a single <strong>theme word</strong>.</p>
+    <p>Your job: uncover the thread. Guess all three words — a <strong>4-letter</strong>, a <strong>5-letter</strong>, and a <strong>6-letter</strong> word — that connect back to the day's theme.</p>
     <ul>
-      <li>Guess all three words — a <strong>4-letter</strong>, a <strong>5-letter</strong>, and a <strong>6-letter</strong> word.</li>
       <li>Fill every square, then press <strong>Submit</strong> (or hit <kbd>Enter</kbd>).</li>
     </ul>
     <div class="rules-legend">
@@ -716,7 +784,7 @@ export function renderRulesContent(container: HTMLElement): void {
       </div>
     </div>
     <p>Correct letters <strong>lock in</strong> (green). Adjust the remaining letters and keep submitting until all three words are solved.</p>
-    <p>When a word is fully solved, the sentence explaining its link to the theme is revealed.</p>
+    <p>When a word is fully solved, the sentence explaining how it's threaded to the theme is revealed.</p>
     <p>A new puzzle drops every midnight (local time). Come back daily to keep your streak!</p>
   `;
 }
