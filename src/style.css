@@ -1,37 +1,77 @@
 /* ============================================================
-   CSS Custom Properties
+   CSS Custom Properties — Dark theme (default)
    ============================================================ */
 :root {
-  --color-bg: #121213;
-  --color-surface: #1a1a2e;
-  --color-header: #16213e;
-  --color-border: #3a3a3c;
-  --color-text: #ffffff;
-  --color-text-secondary: #8e8ea0;
-  --color-text-muted: #565672;
+  --color-bg: #0f0f10;
+  --color-surface: #1c1c2a;
+  --color-header: #161625;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-text: #f0f0f5;
+  --color-text-secondary: #9d9db5;
+  --color-text-muted: #5a5a78;
 
-  --color-correct: #538d4e;
-  --color-correct-light: #6aaf63;
-  --color-present: #b59f3b;
-  --color-absent: #3a3a3c;
-  --color-empty: #2a2a3e;
-  --color-cell-border: #565672;
-  --color-cursor-border: #ffffff;
+  --color-correct: #4caf6a;
+  --color-correct-light: #66cc80;
+  --color-present: #c9a227;
+  --color-absent: #3a3a4a;
+  --color-empty: #24243a;
+  --color-cell-border: #44445a;
+  --color-cursor-border: #f0f0f5;
 
-  --color-submit: #538d4e;
-  --color-submit-hover: #6aaf63;
-  --color-submit-disabled: #3a3a3c;
+  --color-submit: #4caf6a;
+  --color-submit-hover: #66cc80;
+  --color-submit-disabled: #3a3a4a;
 
-  --color-theme-bg: #0f3460;
+  --color-theme-bg: #1a1a40;
   --color-theme-accent: #e94560;
 
-  --header-height: 56px;
+  --header-height: 52px;
   --cell-gap: 5px;
-  --cell-size: clamp(44px, 10vw, 62px);
-  --radius: 6px;
+  --cell-size: clamp(44px, 10vw, 60px);
+  --radius: 8px;
 
-  --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-main: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+
+  color-scheme: dark;
+}
+
+/* ============================================================
+   Light theme
+   ============================================================ */
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-bg: #f5f5f7;
+    --color-surface: #ffffff;
+    --color-header: #ffffff;
+    --color-border: rgba(0, 0, 0, 0.08);
+    --color-text: #1a1a2e;
+    --color-text-secondary: #5a5a78;
+    --color-text-muted: #9d9db5;
+
+    --color-correct: #4caf6a;
+    --color-correct-light: #3d9e5a;
+    --color-present: #c9a227;
+    --color-absent: #c4c4cc;
+    --color-empty: #eeeef2;
+    --color-cell-border: #d0d0da;
+    --color-cursor-border: #1a1a2e;
+
+    --color-submit: #4caf6a;
+    --color-submit-hover: #3d9e5a;
+    --color-submit-disabled: #c4c4cc;
+
+    --color-theme-bg: #eef0ff;
+    --color-theme-accent: #d63851;
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    color-scheme: light;
+  }
 }
 
 /* ============================================================
@@ -52,6 +92,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  transition: background 0.3s, color 0.3s;
 }
 
 body.modal-open { overflow: hidden; }
@@ -79,12 +120,13 @@ body.modal-open { overflow: hidden; }
   position: sticky;
   top: 0;
   z-index: 10;
+  box-shadow: var(--shadow-sm);
 }
 
 #header h1 {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text);
 }
@@ -98,22 +140,23 @@ body.modal-open { overflow: hidden; }
 
 .icon-btn {
   background: none;
-  border: none;
+  border: 1px solid var(--color-border);
   color: var(--color-text);
-  font-size: 1.2rem;
+  font-size: 1rem;
   cursor: pointer;
   padding: 6px;
-  border-radius: 50%;
-  transition: background 0.15s;
+  border-radius: 10px;
+  transition: background 0.15s, border-color 0.15s;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   font-weight: 700;
 }
 .icon-btn:hover, .icon-btn:focus-visible {
-  background: rgba(255,255,255,0.1);
+  background: var(--color-empty);
+  border-color: var(--color-cell-border);
   outline: none;
 }
 
@@ -125,9 +168,9 @@ body.modal-open { overflow: hidden; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px 16px 40px;
-  gap: 8px;
-  max-width: 520px;
+  padding: 16px 16px 40px;
+  gap: 10px;
+  max-width: 500px;
   margin: 0 auto;
   width: 100%;
 }
@@ -136,11 +179,12 @@ body.modal-open { overflow: hidden; }
    Day label
    ============================================================ */
 .day-label {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   color: var(--color-text-muted);
   align-self: flex-end;
+  font-weight: 500;
 }
 
 /* ============================================================
@@ -151,38 +195,40 @@ body.modal-open { overflow: hidden; }
   flex-direction: column;
   align-items: center;
   background: var(--color-theme-bg);
-  border: 2px solid rgba(233, 69, 96, 0.4);
-  border-radius: 12px;
+  border: 1px solid rgba(233, 69, 96, 0.2);
+  border-radius: 14px;
   padding: 14px 28px;
   width: 100%;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
+  box-shadow: var(--shadow-sm);
 }
 
 .theme-label {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 4px;
+  letter-spacing: 0.18em;
+  color: var(--color-text-muted);
+  margin-bottom: 2px;
+  font-weight: 600;
 }
 
 .theme-word {
-  font-size: clamp(1.6rem, 6vw, 2.2rem);
+  font-size: clamp(1.5rem, 6vw, 2.1rem);
   font-weight: 800;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--color-theme-accent);
-  text-shadow: 0 0 20px rgba(233, 69, 96, 0.4);
+  text-shadow: 0 0 24px rgba(233, 69, 96, 0.3);
 }
 
 /* ============================================================
    Instruction
    ============================================================ */
 .instruction {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--color-text-secondary);
   text-align: center;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 /* ============================================================
@@ -191,7 +237,7 @@ body.modal-open { overflow: hidden; }
 .words-section {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 10px;
   width: 100%;
 }
 
@@ -203,20 +249,23 @@ body.modal-open { overflow: hidden; }
   padding: 12px 16px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: 10px;
-  transition: border-color 0.3s;
+  border-radius: 12px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  box-shadow: var(--shadow-sm);
 }
 
 .word-row-wrapper.solved {
   border-color: var(--color-correct);
+  box-shadow: 0 0 0 1px var(--color-correct), var(--shadow-sm);
 }
 
 .word-length-badge {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-text-muted);
   align-self: flex-start;
+  font-weight: 600;
 }
 
 /* ============================================================
@@ -237,7 +286,7 @@ body.modal-open { overflow: hidden; }
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: clamp(1rem, 4vw, 1.5rem);
+  font-size: clamp(1rem, 4vw, 1.4rem);
   font-weight: 700;
   text-transform: uppercase;
   border: 2px solid var(--color-cell-border);
@@ -245,7 +294,7 @@ body.modal-open { overflow: hidden; }
   background: var(--color-empty);
   cursor: pointer;
   user-select: none;
-  transition: background 0.2s, border-color 0.2s, transform 0.1s;
+  transition: background 0.2s, border-color 0.2s, transform 0.1s, box-shadow 0.2s;
   position: relative;
   letter-spacing: 0;
 }
@@ -265,7 +314,7 @@ body.modal-open { overflow: hidden; }
 /* Cursor (active input cell) */
 .cell.cursor {
   border-color: var(--color-cursor-border);
-  box-shadow: 0 0 0 2px rgba(255,255,255,0.25);
+  box-shadow: 0 0 0 2px rgba(128, 128, 255, 0.25);
 }
 
 /* Filled but not yet evaluated */
@@ -276,7 +325,7 @@ body.modal-open { overflow: hidden; }
 
 @keyframes pop {
   0%   { transform: scale(1); }
-  50%  { transform: scale(1.12); }
+  50%  { transform: scale(1.1); }
   100% { transform: scale(1); }
 }
 
@@ -299,7 +348,20 @@ body.modal-open { overflow: hidden; }
 .legend-cell.status-absent {
   background: var(--color-absent);
   border-color: var(--color-absent);
-  color: rgba(255,255,255,0.7);
+}
+
+@media (prefers-color-scheme: dark) {
+  .cell.status-absent,
+  .legend-cell.status-absent {
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .cell.status-absent,
+  .legend-cell.status-absent {
+    color: rgba(0, 0, 0, 0.5);
+  }
 }
 
 .cell.locked {
@@ -324,7 +386,7 @@ body.modal-open { overflow: hidden; }
    Relation text
    ============================================================ */
 .relation-text {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: var(--color-text-secondary);
   text-align: center;
   font-style: italic;
@@ -358,22 +420,24 @@ body.modal-open { overflow: hidden; }
 
 .submit-btn {
   width: 100%;
-  max-width: 280px;
-  padding: 14px;
-  font-size: 1rem;
+  max-width: 260px;
+  padding: 12px;
+  font-size: 0.9rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #fff;
   background: var(--color-submit);
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background 0.2s, transform 0.1s, opacity 0.2s;
+  transition: background 0.2s, transform 0.1s, opacity 0.2s, box-shadow 0.2s;
+  box-shadow: var(--shadow-sm);
 }
 
 .submit-btn:hover:not(:disabled) {
   background: var(--color-submit-hover);
+  box-shadow: var(--shadow-md);
 }
 
 .submit-btn:active:not(:disabled) {
@@ -384,11 +448,13 @@ body.modal-open { overflow: hidden; }
   background: var(--color-submit-disabled);
   opacity: 0.5;
   cursor: not-allowed;
+  box-shadow: none;
 }
 
 .attempt-label {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: var(--color-text-muted);
+  font-weight: 500;
 }
 
 .guessed-letters {
@@ -402,15 +468,15 @@ body.modal-open { overflow: hidden; }
 }
 
 .guessed-letter {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
-  border-radius: 4px;
+  border-radius: 6px;
   color: #fff;
 }
 
@@ -420,7 +486,14 @@ body.modal-open { overflow: hidden; }
 
 .guessed-letter.status-absent {
   background: var(--color-absent);
-  color: rgba(255,255,255,0.7);
+}
+
+@media (prefers-color-scheme: dark) {
+  .guessed-letter.status-absent { color: rgba(255, 255, 255, 0.6); }
+}
+
+@media (prefers-color-scheme: light) {
+  .guessed-letter.status-absent { color: rgba(0, 0, 0, 0.5); }
 }
 
 /* ============================================================
@@ -434,10 +507,11 @@ body.modal-open { overflow: hidden; }
   padding: 24px 20px;
   background: var(--color-surface);
   border: 2px solid var(--color-correct);
-  border-radius: 12px;
+  border-radius: 14px;
   width: 100%;
   text-align: center;
   margin-top: 8px;
+  box-shadow: 0 0 0 1px var(--color-correct), var(--shadow-md);
 }
 
 .completion-emoji {
@@ -445,23 +519,23 @@ body.modal-open { overflow: hidden; }
 }
 
 .completion-banner h2 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
 .completion-banner p {
   color: var(--color-text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .streak-line {
-  font-size: 1rem !important;
+  font-size: 0.95rem !important;
   color: #ff9f43 !important;
   font-weight: 600;
 }
 
 .next-label {
-  font-size: 0.78rem !important;
+  font-size: 0.75rem !important;
   color: var(--color-text-muted) !important;
   margin-top: 4px;
 }
@@ -487,17 +561,19 @@ body.modal-open { overflow: hidden; }
   top: calc(var(--header-height) + 12px);
   left: 50%;
   transform: translateX(-50%) translateY(-8px);
-  background: rgba(255,255,255,0.95);
-  color: #111;
+  background: var(--color-surface);
+  color: var(--color-text);
   padding: 10px 20px;
   border-radius: 24px;
-  font-size: 0.85rem;
+  border: 1px solid var(--color-border);
+  font-size: 0.82rem;
   font-weight: 600;
   z-index: 200;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.25s, transform 0.25s;
   white-space: nowrap;
+  box-shadow: var(--shadow-md);
 }
 
 .toast.show {
@@ -511,9 +587,9 @@ body.modal-open { overflow: hidden; }
 #modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 50;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(4px);
 }
 
 .modal {
@@ -537,27 +613,28 @@ body.modal-open { overflow: hidden; }
   pointer-events: all;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: 16px 16px 0 0;
+  border-radius: 18px 18px 0 0;
   padding: 24px 20px 32px;
   width: 100%;
-  max-width: 460px;
+  max-width: 440px;
   max-height: 90dvh;
   overflow-y: auto;
   position: relative;
+  box-shadow: var(--shadow-md);
 }
 
 @media (min-width: 480px) {
   .modal-content {
-    border-radius: 16px;
+    border-radius: 18px;
     padding: 28px 28px 32px;
   }
 }
 
 .modal-content h2 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   margin-bottom: 16px;
   text-align: center;
 }
@@ -572,15 +649,15 @@ body.modal-open { overflow: hidden; }
   font-size: 1rem;
   cursor: pointer;
   padding: 4px 8px;
-  border-radius: 4px;
+  border-radius: 6px;
   transition: background 0.15s;
 }
-.modal-close:hover { background: rgba(255,255,255,0.08); }
+.modal-close:hover { background: var(--color-empty); }
 
 /* Rules modal content */
 .rules-body p {
   margin-bottom: 12px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--color-text-secondary);
   line-height: 1.6;
 }
@@ -589,7 +666,7 @@ body.modal-open { overflow: hidden; }
   margin-bottom: 12px;
 }
 .rules-body li {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--color-text-secondary);
   margin-bottom: 6px;
   line-height: 1.5;
@@ -598,10 +675,11 @@ body.modal-open { overflow: hidden; }
 .rules-body kbd {
   display: inline-block;
   padding: 2px 6px;
-  background: var(--color-absent);
-  border-radius: 4px;
+  background: var(--color-empty);
+  border: 1px solid var(--color-border);
+  border-radius: 5px;
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--color-text);
 }
 
@@ -619,20 +697,20 @@ body.modal-open { overflow: hidden; }
 }
 
 .legend-cell {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.95rem;
   border-radius: var(--radius);
   border: 2px solid transparent;
   flex-shrink: 0;
 }
 
 .legend-row span {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--color-text-secondary);
 }
 
@@ -640,7 +718,7 @@ body.modal-open { overflow: hidden; }
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 8px;
   margin-bottom: 16px;
 }
 
@@ -649,34 +727,47 @@ body.modal-open { overflow: hidden; }
   flex-direction: column;
   align-items: center;
   background: var(--color-bg);
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 12px 8px;
+  border: 1px solid var(--color-border);
 }
 
 .stat-value {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 700;
   line-height: 1;
   margin-bottom: 4px;
 }
 
 .stat-key {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--color-text-muted);
   text-align: center;
+  font-weight: 500;
 }
 
 .stats-note {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: var(--color-text-secondary);
   text-align: center;
   padding: 10px;
   background: var(--color-bg);
-  border-radius: 8px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
 }
 .stats-note strong { color: var(--color-text); }
+
+/* ============================================================
+   Confetti canvas
+   ============================================================ */
+.confetti-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  pointer-events: none;
+}
 
 /* ============================================================
    Hidden utility
@@ -687,6 +778,6 @@ body.modal-open { overflow: hidden; }
    Focus-visible for accessibility
    ============================================================ */
 :focus-visible {
-  outline: 2px solid rgba(255,255,255,0.5);
+  outline: 2px solid var(--color-theme-accent);
   outline-offset: 2px;
 }
