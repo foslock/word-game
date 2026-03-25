@@ -252,6 +252,7 @@ body.modal-open { overflow: hidden; }
   border-radius: 12px;
   transition: border-color 0.3s, box-shadow 0.3s;
   box-shadow: var(--shadow-sm);
+  position: relative;
 }
 
 .word-row-wrapper.solved {
@@ -260,12 +261,14 @@ body.modal-open { overflow: hidden; }
 }
 
 .word-warning {
-  font-size: 0.75rem;
+  font-size: 1rem;
   color: #e94560;
-  display: flex;
-  align-items: center;
-  gap: 4px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   font-weight: 600;
+  line-height: 1;
 }
 
 .word-length-badge {
@@ -275,6 +278,7 @@ body.modal-open { overflow: hidden; }
   color: var(--color-text-muted);
   align-self: flex-start;
   font-weight: 600;
+  margin-bottom: -4px;
 }
 
 /* ============================================================
@@ -378,8 +382,20 @@ body.modal-open { overflow: hidden; }
 }
 
 /* ============================================================
-   Reveal animation (correct word solved)
+   Reveal animation (letter flip on submit)
    ============================================================ */
+@keyframes flip-reveal {
+  0%   { transform: scaleY(1); }
+  45%  { transform: scaleY(0); }
+  55%  { transform: scaleY(0); }
+  100% { transform: scaleY(1); }
+}
+
+.cell.flip-reveal {
+  animation: flip-reveal 0.5s ease;
+}
+
+/* Legacy: correct word solved (kept for compatibility) */
 @keyframes flip-in {
   0%   { transform: scaleY(1); }
   40%  { transform: scaleY(0); }
@@ -507,6 +523,15 @@ body.modal-open { overflow: hidden; }
   text-transform: uppercase;
   border-radius: 6px;
   color: #fff;
+}
+
+@keyframes guessed-letter-enter {
+  from { opacity: 0; transform: translateY(8px) scale(0.8); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.guessed-letter.guessed-letter-enter {
+  animation: guessed-letter-enter 0.35s ease forwards;
 }
 
 .guessed-letter.status-present {

@@ -235,8 +235,9 @@ export class Game {
 
     el.addEventListener("pointerdown", (e) => {
       e.preventDefault();
+      if (this.animating) return;
       if (this.record.words[wi].solved) return;
-      if (cell.locked) return;
+      if (this.record.words[wi].cells[ci].locked) return;
       this.setCursor(wi, ci);
       this.focusHiddenInput();
     });
@@ -387,7 +388,7 @@ export class Game {
   private attachListeners(): void {
     // Focus hidden input on tap anywhere in the game area (when not complete)
     this.container.addEventListener("pointerdown", (e) => {
-      if (this.record.completed) return;
+      if (this.record.completed || this.animating) return;
       const target = e.target as HTMLElement;
       // Don't interfere with cell pointerdown (handled separately)
       if (!target.closest(".cell") && !target.closest(".submit-btn")) {
@@ -597,6 +598,19 @@ export class Game {
       return;
     }
 
+    // Track which cells are already locked (green from previous rounds)
+    const previouslyLocked = new Set<string>();
+    this.record.words.forEach((ws, wi) => {
+      ws.cells.forEach((cell, ci) => {
+        if (cell.locked) previouslyLocked.add(`${wi}-${ci}`);
+      });
+    });
+
+    // Snapshot current guessed letters before evaluation
+    const oldGuessedLetters = new Set(
+      this.getGuessedLetters().map((g) => g.letter)
+    );
+
     // Evaluate each unsolved word
     this.record.totalAttempts++;
 
@@ -641,72 +655,194 @@ export class Game {
       saveStats(updated);
     }
 
-    // Re-render without animations first, then animate solved words
-    this.render();
-    this.updateSubmitState();
+    // Collect cells to animate (not previously locked, from words that were evaluated)
+    const cellsToAnimate: { wi: number; ci: number }[] = [];
+    this.record.words.forEach((ws, wi) => {
+      // Skip words that were already solved before this round
+      if (ws.solved && !solvedThisRound.includes(wi)) return;
+      ws.cells.forEach((_, ci) => {
+        if (!previouslyLocked.has(`${wi}-${ci}`)) {
+          cellsToAnimate.push({ wi, ci });
+        }
+      });
+    });
 
-    if (solvedThisRound.length > 0) {
-      this.animateSolvedWords(solvedThisRound, allSolved);
-    } else {
-      this.placeCursorAtFirstEditable();
-      if (!allSolved) this.focusHiddenInput();
-    }
+    // Remove cursor and warnings during animation
+    const oldCursor = this.container.querySelector(".cell.cursor");
+    if (oldCursor) oldCursor.classList.remove("cursor");
+    this.container.querySelectorAll(".word-warning").forEach((el) => el.remove());
+
+    // Disable submit button during animation
+    if (this.submitBtn) this.submitBtn.disabled = true;
+
+    // Compute final guessed letters state
+    const newGuessedLetters = allSolved ? [] : this.getGuessedLetters();
+
+    // Animate the letter reveal
+    this.animateLetterReveal(
+      cellsToAnimate,
+      oldGuessedLetters,
+      newGuessedLetters,
+      solvedThisRound,
+      allSolved
+    );
   }
 
   // -------------------------------------------------------------------------
   // Animations
   // -------------------------------------------------------------------------
 
-  private animateSolvedWords(solvedIndexes: number[], finalComplete: boolean): void {
+  private animateLetterReveal(
+    cellsToAnimate: { wi: number; ci: number }[],
+    oldGuessedLetters: Set<string>,
+    newGuessedLetters: { letter: string; status: "present" | "absent" }[],
+    solvedThisRound: number[],
+    allSolved: boolean
+  ): void {
     this.animating = true;
-    let pending = solvedIndexes.length;
 
-    solvedIndexes.forEach((wi) => {
-      const ws = this.record.words[wi];
-      const cells = this.container.querySelectorAll<HTMLElement>(
-        `.cell[data-word="${wi}"]`
-      );
+    if (cellsToAnimate.length === 0) {
+      this.animating = false;
+      return;
+    }
 
-      cells.forEach((cellEl, ci) => {
-        const delay = ci * 120; // stagger per cell
-        setTimeout(() => {
-          cellEl.classList.add("reveal-correct");
-        }, delay);
-      });
+    const flipDuration = 500;
+    const staggerDelay = 80;
+    const flipMidpoint = flipDuration * 0.45;
 
-      const totalDuration = (ws.cells.length - 1) * 120 + 600;
+    // Track which guessed letters have already been added during animation
+    const addedGuessedLetters = new Set<string>();
+
+    // Get or prepare guessed letters container
+    let guessedRow = this.container.querySelector<HTMLElement>(".guessed-letters");
+
+    cellsToAnimate.forEach(({ wi, ci }, index) => {
+      const delay = index * staggerDelay;
 
       setTimeout(() => {
-        // Show relation text
-        const rowWrapper = this.container.querySelectorAll<HTMLElement>(
-          ".word-row-wrapper"
-        )[wi];
-        if (rowWrapper) {
-          rowWrapper.classList.add("solved");
-          const existing = rowWrapper.querySelector(".relation-text");
-          if (!existing) {
-            const rel = document.createElement("p");
-            rel.className = "relation-text reveal-fade";
-            rel.textContent = this.level.words[wi].relation;
-            rowWrapper.appendChild(rel);
-          }
-        }
+        const cellEl = this.getCellEl(wi, ci);
+        if (!cellEl) return;
 
-        pending--;
-        if (pending === 0) {
-          this.animating = false;
-          if (finalComplete) {
-            this.launchConfetti();
-            setTimeout(() => {
-              this.render();
-            }, 600);
-          } else {
-            this.placeCursorAtFirstEditable();
-            this.focusHiddenInput();
+        cellEl.classList.add("flip-reveal");
+
+        // At midpoint, swap the visual state
+        setTimeout(() => {
+          const cell = this.record.words[wi].cells[ci];
+
+          // Update cell visual to show evaluated color
+          cellEl.classList.remove(
+            "status-empty",
+            "status-correct",
+            "status-present",
+            "status-absent",
+            "cursor"
+          );
+          cellEl.classList.add(`status-${cell.status}`);
+          if (cell.locked) cellEl.classList.add("locked");
+
+          const letter = cell.letter;
+
+          // If letter is now correct, remove from guessed display if present
+          if (cell.status === "correct" && letter && guessedRow) {
+            const existingChip = Array.from(guessedRow.children).find(
+              (el) => el.textContent === letter
+            ) as HTMLElement | undefined;
+            if (existingChip) {
+              existingChip.style.transition = "opacity 0.3s, transform 0.3s";
+              existingChip.style.opacity = "0";
+              existingChip.style.transform = "scale(0.5)";
+              setTimeout(() => existingChip.remove(), 300);
+            }
+            addedGuessedLetters.add(letter);
           }
-        }
-      }, totalDuration);
+
+          // Add new guessed letter chip if applicable
+          if (
+            letter &&
+            !addedGuessedLetters.has(letter) &&
+            !oldGuessedLetters.has(letter)
+          ) {
+            const guessedEntry = newGuessedLetters.find(
+              (g) => g.letter === letter
+            );
+            if (guessedEntry) {
+              addedGuessedLetters.add(letter);
+
+              // Create container if needed
+              if (!guessedRow) {
+                const submitRow =
+                  this.container.querySelector(".submit-row");
+                if (submitRow) {
+                  guessedRow = document.createElement("div");
+                  guessedRow.className = "guessed-letters";
+                  submitRow.insertBefore(guessedRow, submitRow.firstChild);
+                }
+              }
+
+              if (guessedRow) {
+                const chip = document.createElement("div");
+                chip.className = `guessed-letter status-${guessedEntry.status} guessed-letter-enter`;
+                chip.textContent = letter;
+                guessedRow.appendChild(chip);
+              }
+            }
+          }
+        }, flipMidpoint);
+      }, delay);
     });
+
+    // After all flips complete
+    const totalTime =
+      (cellsToAnimate.length - 1) * staggerDelay + flipDuration + 50;
+
+    setTimeout(() => {
+      // Clean up flip animation classes
+      this.container.querySelectorAll(".flip-reveal").forEach((el) => {
+        el.classList.remove("flip-reveal");
+      });
+
+      // Handle solved words — show relation text & border
+      if (solvedThisRound.length > 0) {
+        solvedThisRound.forEach((wi) => {
+          const rowWrapper =
+            this.container.querySelectorAll<HTMLElement>(".word-row-wrapper")[
+              wi
+            ];
+          if (rowWrapper) {
+            rowWrapper.classList.add("solved");
+            const existing = rowWrapper.querySelector(".relation-text");
+            if (!existing) {
+              const rel = document.createElement("p");
+              rel.className = "relation-text reveal-fade";
+              rel.textContent = this.level.words[wi].relation;
+              rowWrapper.appendChild(rel);
+            }
+          }
+        });
+      }
+
+      // Update attempt label
+      const attemptLabel = this.container.querySelector(".attempt-label");
+      if (attemptLabel) {
+        attemptLabel.textContent = `Attempt ${this.record.totalAttempts}`;
+      }
+
+      if (allSolved) {
+        // Delay before showing completion
+        setTimeout(() => {
+          this.animating = false;
+          this.launchConfetti();
+          setTimeout(() => {
+            this.render();
+          }, 600);
+        }, 500);
+      } else {
+        this.animating = false;
+        this.updateSubmitState();
+        this.placeCursorAtFirstEditable();
+        this.focusHiddenInput();
+      }
+    }, totalTime);
   }
 
   // -------------------------------------------------------------------------
