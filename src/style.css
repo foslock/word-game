@@ -384,7 +384,7 @@ body.modal-open { overflow: hidden; }
 }
 
 .cell.flip-reveal {
-  animation: flip-reveal 0.5s ease;
+  animation: flip-reveal 0.2s ease;
 }
 
 /* Legacy: correct word solved (kept for compatibility) */
@@ -466,6 +466,35 @@ body.modal-open { overflow: hidden; }
   opacity: 0.5;
   cursor: not-allowed;
   box-shadow: none;
+}
+
+.submit-btn-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.submit-btn-wrapper[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.82);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 10;
+}
+
+.submit-btn-wrapper[data-tooltip]:hover::after {
+  opacity: 1;
 }
 
 .attempt-label {
