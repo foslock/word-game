@@ -1,0 +1,81 @@
+import type { CellState } from "./storage.js";
+
+/**
+ * Evaluate a single row's cells against a target word.
+ *
+ * Colour rules:
+ *   Green  – correct letter in the correct position (cell is locked).
+ *   Yellow – letter appears in the target word OR in any other unsolved word,
+ *            but is not in the correct position for this word (cell stays editable).
+ *   Grey   – letter is absent from all unsolved target words (cell stays editable).
+ *
+ * Duplicate-letter handling follows the Wordle two-pass approach:
+ *   Pass 1 marks and consumes greens; Pass 2 only awards yellows up to the
+ *   remaining (unconsumed) frequency of the letter in the current target.
+ *   Letters absent from the current target but present in another unsolved
+ *   word are still marked yellow (cross-word hint).
+ *
+ * @param cells             Current cell states with letters filled in.
+ * @param targetWord        The correct answer for this row (UPPERCASE).
+ * @param otherUnsolvedWords Other target words that are not yet solved,
+ *                          used to determine cross-word yellow hints.
+ */
+export function evaluateCells(
+  cells: CellState[],
+  targetWord: string,
+  otherUnsolvedWords: string[]
+): CellState[] {
+  const result: CellState[] = cells.map((c) => ({ ...c }));
+  const targetRemaining = targetWord.split("");
+  const guessLetters = result.map((c) => c.letter);
+
+  // Pass 1: mark greens and consume those positions
+  for (let i = 0; i < guessLetters.length; i++) {
+    if (result[i].locked) {
+      // Already locked from a previous submission — keep as correct
+      result[i].status = "correct";
+      targetRemaining[i] = "";
+      continue;
+    }
+    if (guessLetters[i] === targetWord[i]) {
+      result[i].status = "correct";
+      result[i].locked = true;
+      targetRemaining[i] = "";
+    }
+  }
+
+  // Pass 2: for non-green cells, determine yellow vs grey
+  for (let i = 0; i < guessLetters.length; i++) {
+    if (result[i].status === "correct") continue;
+
+    const letter = guessLetters[i];
+    if (!letter) continue;
+
+    // Check remaining (unconsumed) letters in the current target first
+    const indexInRemaining = targetRemaining.indexOf(letter);
+    if (indexInRemaining !== -1) {
+      result[i].status = "present";
+      targetRemaining[indexInRemaining] = ""; // consume to prevent double-counting
+    } else if (otherUnsolvedWords.some((w) => w.includes(letter))) {
+      // Letter exists in another unsolved word — cross-word yellow hint
+      result[i].status = "present";
+    } else {
+      result[i].status = "absent";
+    }
+  }
+
+  return result;
+}
+
+/**
+ * Returns true when every non-locked cell across all unsolved words has a
+ * letter, which is the prerequisite for allowing a submission.
+ */
+export function allFilled(
+  words: ReadonlyArray<{ cells: ReadonlyArray<CellState>; solved: boolean }>
+): boolean {
+  return words.every((ws) => {
+    if (ws.solved) return true;
+    return ws.cells.every((c) => c.locked || c.letter !== "");
+  });
+}

@@ -1,9 +1,7 @@
 import { Level, getDayNumber } from "./levels.js";
 import {
   CellState,
-  CellStatus,
   DailyRecord,
-  WordState,
   createFreshRecord,
   getLocalDateString,
   loadDailyRecord,
@@ -12,6 +10,7 @@ import {
   saveDailyRecord,
   saveStats,
 } from "./storage.js";
+import { evaluateCells, allFilled as allFilledFn } from "./evaluate.js";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -488,10 +487,7 @@ export class Game {
   // -------------------------------------------------------------------------
 
   private allFilled(): boolean {
-    return this.record.words.every((ws) => {
-      if (ws.solved) return true;
-      return ws.cells.every((c) => c.locked || c.letter !== "");
-    });
+    return allFilledFn(this.record.words);
   }
 
   private updateSubmitState(): void {
@@ -515,7 +511,12 @@ export class Game {
       if (ws.solved) return;
       ws.attempts++;
 
-      const evaluated = this.evaluateCells(ws.cells, wi);
+      const otherUnsolvedWords = this.record.words
+        .map((ws2, wi2) => ({ ws2, wi2 }))
+        .filter(({ ws2, wi2 }) => wi2 !== wi && !ws2.solved)
+        .map(({ wi2 }) => this.level.words[wi2].word);
+
+      const evaluated = evaluateCells(ws.cells, this.level.words[wi].word, otherUnsolvedWords);
       ws.cells = evaluated;
 
       if (evaluated.every((c) => c.status === "correct")) {
@@ -552,64 +553,6 @@ export class Game {
       this.placeCursorAtFirstEditable();
       if (!allSolved) this.focusHiddenInput();
     }
-  }
-
-  /**
-   * Evaluate cells for a single word guess.
-   * Green  = correct position for THIS word.
-   * Yellow = letter appears in ANY unsolved target word but not this position.
-   *          Duplicate handling for the current word uses Wordle's two-pass
-   *          consumption approach so extra copies don't get false yellows.
-   * Grey   = letter not in any unsolved target word.
-   */
-  private evaluateCells(cells: CellState[], wordIndex: number): CellState[] {
-    const targetWord = this.level.words[wordIndex].word;
-    const result: CellState[] = cells.map((c) => ({ ...c }));
-
-    // Pass 1: mark greens, consume those positions so duplicates work correctly
-    const targetRemaining = targetWord.split("");
-    const guessLetters = result.map((c) => c.letter);
-
-    for (let i = 0; i < guessLetters.length; i++) {
-      if (result[i].locked) {
-        result[i].status = "correct";
-        targetRemaining[i] = "";
-        continue;
-      }
-      if (guessLetters[i] === targetWord[i]) {
-        result[i].status = "correct";
-        result[i].locked = true;
-        targetRemaining[i] = "";
-      }
-    }
-
-    // Collect other unsolved target words (excluding the current one)
-    const otherUnsolvedWords = this.record.words
-      .map((ws, wi) => ({ ws, wi }))
-      .filter(({ ws, wi }) => wi !== wordIndex && !ws.solved)
-      .map(({ wi }) => this.level.words[wi].word);
-
-    // Pass 2: for non-green cells, determine yellow vs grey
-    for (let i = 0; i < guessLetters.length; i++) {
-      if (result[i].status === "correct") continue;
-
-      const letter = guessLetters[i];
-      if (!letter) continue;
-
-      // First check remaining (unconsumed) letters in the current target
-      const indexInRemaining = targetRemaining.indexOf(letter);
-      if (indexInRemaining !== -1) {
-        result[i].status = "present";
-        targetRemaining[indexInRemaining] = "";
-      } else if (otherUnsolvedWords.some((w) => w.includes(letter))) {
-        // Letter exists in another unsolved word — cross-word yellow hint
-        result[i].status = "present";
-      } else {
-        result[i].status = "absent";
-      }
-    }
-
-    return result;
   }
 
   // -------------------------------------------------------------------------
