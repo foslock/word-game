@@ -729,7 +729,7 @@ export class Game {
       return;
     }
 
-    const flipDuration = 200;
+    const flipDuration = 620;
     const staggerDelay = 80;
     const flipMidpoint = flipDuration * 0.45;
 
