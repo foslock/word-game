@@ -271,15 +271,7 @@ body.modal-open { overflow: hidden; }
   line-height: 1;
 }
 
-.word-length-badge {
-  font-size: 0.6rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-text-muted);
-  align-self: flex-start;
-  font-weight: 600;
-  margin-bottom: -4px;
-}
+/* word-length-badge removed */
 
 /* ============================================================
    Cell grid
