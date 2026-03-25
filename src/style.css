@@ -259,6 +259,15 @@ body.modal-open { overflow: hidden; }
   box-shadow: 0 0 0 1px var(--color-correct), var(--shadow-sm);
 }
 
+.word-warning {
+  font-size: 0.75rem;
+  color: #e94560;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+}
+
 .word-length-badge {
   font-size: 0.6rem;
   text-transform: uppercase;
