@@ -1,4 +1,4 @@
-import { Level, getDayNumber } from "./levels.js";
+import { Level, getLevelForDate, getDayNumber } from "./levels.js";
 import {
   CellState,
   DailyRecord,
@@ -35,11 +35,21 @@ export class Game {
   private submitBtn!: HTMLButtonElement;
   private animating = false;
 
+  /** Day offset for testing — advances the simulated date. */
+  static dayOffset = 0;
+
+  /** Get the simulated "today" date (real date + dayOffset). */
+  static getSimulatedDate(): Date {
+    const d = new Date();
+    d.setDate(d.getDate() + Game.dayOffset);
+    return d;
+  }
+
   constructor(container: HTMLElement, level: Level) {
     this.container = container;
     this.level = level;
 
-    const today = getLocalDateString();
+    const today = getLocalDateString(Game.getSimulatedDate());
     const existing = loadDailyRecord();
 
     if (existing && existing.date === today && existing.levelId === level.id) {
@@ -80,7 +90,7 @@ export class Game {
     // Day label
     const dayEl = document.createElement("div");
     dayEl.className = "day-label";
-    dayEl.textContent = `Day #${getDayNumber(new Date())}`;
+    dayEl.textContent = `Day #${getDayNumber(Game.getSimulatedDate())}`;
     this.container.appendChild(dayEl);
 
     // Theme banner
@@ -185,6 +195,22 @@ export class Game {
     } else {
       this.renderCompletionBanner();
     }
+
+    // Debug: Next Day button for testing
+    const nextDayBtn = document.createElement("button");
+    nextDayBtn.className = "next-day-btn";
+    nextDayBtn.textContent = "Next Day \u27A1";
+    nextDayBtn.title = "Advance to next day (testing only)";
+    nextDayBtn.addEventListener("click", () => {
+      Game.dayOffset++;
+      const nextDate = Game.getSimulatedDate();
+      const nextLevel = getLevelForDate(nextDate);
+      // Remove old hidden input
+      this.hiddenInput.remove();
+      // Re-init with new level/date
+      new Game(this.container, nextLevel);
+    });
+    this.container.appendChild(nextDayBtn);
   }
 
   private buildCell(cell: CellState, wi: number, ci: number): HTMLElement {
@@ -514,8 +540,9 @@ export class Game {
     return letters.join("");
   }
 
-  /** Check which unsolved words have invalid (non-English) guesses. */
-  private getInvalidWordIndexes(): number[] {
+  /** Check which unsolved words have invalid (non-English) guesses.
+   *  When requireAllFilled is false, validates any fully-typed word individually. */
+  private getInvalidWordIndexes(requireAllFilled = true): number[] {
     const invalid: number[] = [];
     for (let wi = 0; wi < this.record.words.length; wi++) {
       const ws = this.record.words[wi];
@@ -531,18 +558,19 @@ export class Game {
   private updateSubmitState(): void {
     if (!this.submitBtn) return;
     const filled = this.allFilled();
-    const invalidIndexes = filled ? this.getInvalidWordIndexes() : [];
+    // Always check individually-filled words for validity, even before all are filled
+    const invalidIndexes = this.getInvalidWordIndexes(false);
     const canSubmit = filled && invalidIndexes.length === 0;
     this.submitBtn.disabled = !canSubmit;
 
-    // Update warning icons on word rows
+    // Update warning icons on word rows (show as soon as any individual word is fully typed)
     this.record.words.forEach((ws, wi) => {
       if (ws.solved) return;
       const wrapper = this.container.querySelectorAll<HTMLElement>(".word-row-wrapper")[wi];
       if (!wrapper) return;
       const existingWarning = wrapper.querySelector(".word-warning");
 
-      if (filled && invalidIndexes.includes(wi)) {
+      if (invalidIndexes.includes(wi)) {
         if (!existingWarning) {
           const warning = document.createElement("span");
           warning.className = "word-warning";

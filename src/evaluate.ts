@@ -44,6 +44,16 @@ export function evaluateCells(
     }
   }
 
+  // Build a frequency map of letters across other unsolved words for
+  // cross-word hints, so we only award as many yellows as there are
+  // unguessed occurrences.
+  const otherRemaining: Record<string, number> = {};
+  for (const w of otherUnsolvedWords) {
+    for (const ch of w) {
+      otherRemaining[ch] = (otherRemaining[ch] || 0) + 1;
+    }
+  }
+
   // Pass 2: for non-green cells, determine yellow vs grey
   for (let i = 0; i < guessLetters.length; i++) {
     if (result[i].status === "correct") continue;
@@ -56,9 +66,10 @@ export function evaluateCells(
     if (indexInRemaining !== -1) {
       result[i].status = "present";
       targetRemaining[indexInRemaining] = ""; // consume to prevent double-counting
-    } else if (otherUnsolvedWords.some((w) => w.includes(letter))) {
+    } else if ((otherRemaining[letter] || 0) > 0) {
       // Letter exists in another unsolved word — cross-word yellow hint
       result[i].status = "present";
+      otherRemaining[letter]--; // consume to prevent over-counting
     } else {
       result[i].status = "absent";
     }

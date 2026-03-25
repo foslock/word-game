@@ -109,6 +109,26 @@ describe("evaluateCells — cross-word yellow hints", () => {
     // Z appears in JAZZ and FUZZ
     expect(result[3].status).toBe("present");
   });
+
+  it("limits cross-word yellows to the total frequency of the letter in other words", () => {
+    // Other word BLAZE has one Z. Guessing ZZZZ against BEAT should give
+    // at most 1 yellow Z (the first one), not 4.
+    const result = evaluateCells(cells("ZZZZ"), "BEAT", ["BLAZE"]);
+    const yellowCount = result.filter((c) => c.status === "present").length;
+    expect(yellowCount).toBe(1);
+    expect(result[0].status).toBe("present"); // first Z gets yellow
+    expect(result[1].status).toBe("absent");  // no more Z's available
+    expect(result[2].status).toBe("absent");
+    expect(result[3].status).toBe("absent");
+  });
+
+  it("counts cross-word letter frequency across multiple other words", () => {
+    // JAZZ has 2 Z's, FUZZ has 2 Z's → 4 Z's total across other words
+    const result = evaluateCells(cells("ZZZZZ"), "BEATS", ["JAZZ", "FUZZ"]);
+    const yellowCount = result.filter((c) => c.status === "present").length;
+    expect(yellowCount).toBe(4); // 4 Z's available across the two words
+    expect(result[4].status).toBe("absent"); // 5th Z is absent
+  });
 });
 
 describe("evaluateCells — duplicate letter handling", () => {
