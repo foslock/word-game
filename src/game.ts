@@ -125,10 +125,7 @@ export class Game {
       if (ws.solved) rowWrapper.classList.add("solved");
 
       // Word length badge
-      const badge = document.createElement("span");
-      badge.className = "word-length-badge";
-      badge.textContent = `${entry.word.length}`;
-      rowWrapper.appendChild(badge);
+      // (removed — the cell count is self-evident)
 
       // Cell grid
       const grid = document.createElement("div");
@@ -955,12 +952,23 @@ export class Game {
       }
     }
 
-    // Remove letters that are now locked (correct) — they don't need hints
-    for (const ws of this.record.words) {
-      for (const cell of ws.cells) {
-        if (cell.status === "correct" && cell.letter) {
-          delete map[cell.letter];
+    // Collect letters still needed in unsolved positions
+    const remainingTargetLetters = new Set<string>();
+    for (let wi = 0; wi < this.record.words.length; wi++) {
+      const ws = this.record.words[wi];
+      if (ws.solved) continue;
+      const target = this.level.words[wi].word;
+      ws.cells.forEach((cell, ci) => {
+        if (!cell.locked) {
+          remainingTargetLetters.add(target[ci]);
         }
+      });
+    }
+
+    // Downgrade "present" → "absent" for letters no longer in any unsolved position
+    for (const letter of Object.keys(map)) {
+      if (map[letter] === "present" && !remainingTargetLetters.has(letter)) {
+        map[letter] = "absent";
       }
     }
   }
