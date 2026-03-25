@@ -832,7 +832,7 @@ export class Game {
             el.style.transform = "scale(0.5)";
             setTimeout(() => el.remove(), 300);
           } else {
-            // Update chip class if status changed (e.g. yellow → grey or grey → yellow)
+            // Update chip class if status changed (yellow → grey degradation)
             chipEl.classList.remove("status-present", "status-absent");
             chipEl.classList.add(`status-${newStatus}`);
           }
@@ -1019,9 +1019,16 @@ export class Game {
       }
     }
 
-    // Step 1: Add new letter hints — yellow always upgrades (even from grey)
+    // Step 1: Add new letter hints.
+    // Grey→yellow upgrades cannot happen: a letter is only ever grey because it
+    // is absent from every remaining target word, and the set of target words
+    // only shrinks (words get solved, never un-solved).  So if a letter is already
+    // in the map we leave its status alone here; step 2 below handles the only
+    // valid transition (yellow → grey / removal once all instances are locked).
     for (const letter of presentLetters) {
-      map[letter] = "present";
+      if (!map[letter]) {
+        map[letter] = "present";
+      }
     }
     for (const letter of absentLetters) {
       if (!map[letter]) {
