@@ -150,6 +150,20 @@ export class Game {
       const submitRow = document.createElement("div");
       submitRow.className = "submit-row";
 
+      // Guessed letters (yellows first, then greys)
+      const guessedLetters = this.getGuessedLetters();
+      if (guessedLetters.length > 0) {
+        const guessedRow = document.createElement("div");
+        guessedRow.className = "guessed-letters";
+        guessedLetters.forEach(({ letter, status }) => {
+          const chip = document.createElement("div");
+          chip.className = `guessed-letter status-${status}`;
+          chip.textContent = letter;
+          guessedRow.appendChild(chip);
+        });
+        submitRow.appendChild(guessedRow);
+      }
+
       this.submitBtn = document.createElement("button");
       this.submitBtn.id = "submit-btn";
       this.submitBtn.className = "submit-btn";
@@ -629,6 +643,34 @@ export class Game {
     const isCursor =
       this.cursor.wordIndex === wi && this.cursor.cellIndex === ci;
     if (isCursor) cellEl.classList.add("cursor");
+  }
+
+  // -------------------------------------------------------------------------
+  // Guessed letters helper
+  // -------------------------------------------------------------------------
+
+  private getGuessedLetters(): { letter: string; status: "present" | "absent" }[] {
+    const letterMap = new Map<string, "present" | "absent">();
+
+    for (const ws of this.record.words) {
+      for (const cell of ws.cells) {
+        if (cell.status === "present" || cell.status === "absent") {
+          // present (yellow) takes priority over absent (grey)
+          if (!letterMap.has(cell.letter) || letterMap.get(cell.letter) === "absent") {
+            letterMap.set(cell.letter, cell.status);
+          }
+        }
+      }
+    }
+
+    const letters = Array.from(letterMap.entries()).map(([letter, status]) => ({ letter, status }));
+    // Sort: yellows first, then greys; alphabetical within each group
+    letters.sort((a, b) => {
+      if (a.status !== b.status) return a.status === "present" ? -1 : 1;
+      return a.letter.localeCompare(b.letter);
+    });
+
+    return letters;
   }
 
   // -------------------------------------------------------------------------

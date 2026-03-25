@@ -281,19 +281,22 @@ body.modal-open { overflow: hidden; }
 }
 
 /* Evaluated statuses */
-.cell.status-correct {
+.cell.status-correct,
+.legend-cell.status-correct {
   background: var(--color-correct);
   border-color: var(--color-correct);
   color: #fff;
 }
 
-.cell.status-present {
+.cell.status-present,
+.legend-cell.status-present {
   background: var(--color-present);
   border-color: var(--color-present);
   color: #fff;
 }
 
-.cell.status-absent {
+.cell.status-absent,
+.legend-cell.status-absent {
   background: var(--color-absent);
   border-color: var(--color-absent);
   color: rgba(255,255,255,0.7);
@@ -386,6 +389,38 @@ body.modal-open { overflow: hidden; }
 .attempt-label {
   font-size: 0.75rem;
   color: var(--color-text-muted);
+}
+
+.guessed-letters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  width: 100%;
+  max-width: 280px;
+  margin-bottom: 4px;
+}
+
+.guessed-letter {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.guessed-letter.status-present {
+  background: var(--color-present);
+}
+
+.guessed-letter.status-absent {
+  background: var(--color-absent);
+  color: rgba(255,255,255,0.7);
 }
 
 /* ============================================================
@@ -592,6 +627,7 @@ body.modal-open { overflow: hidden; }
   font-weight: 700;
   font-size: 1rem;
   border-radius: var(--radius);
+  border: 2px solid transparent;
   flex-shrink: 0;
 }
 
