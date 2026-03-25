@@ -152,7 +152,7 @@ describe("evaluateCells — duplicate letter handling", () => {
 describe("evaluateCells — pre-locked cells from previous submissions", () => {
   it("preserves a locked cell as correct without re-evaluating it", () => {
     // B at index 0 was locked on a previous submission
-    const input = lockedCells("BXXT", "BEAT", [0]);
+    const input = lockedCells("BXXT", [0]);
     const result = evaluateCells(input, "BEAT", []);
     expect(result[0].status).toBe("correct");
     expect(result[0].locked).toBe(true);
@@ -161,7 +161,7 @@ describe("evaluateCells — pre-locked cells from previous submissions", () => {
   it("consumes locked positions so they don't inflate yellow counts", () => {
     // Target BEAT; B at 0 is already locked.
     // Remaining guess letters: X,X,T → X is absent, T is green.
-    const input = lockedCells("BXXT", "BEAT", [0]);
+    const input = lockedCells("BXXT", [0]);
     const result = evaluateCells(input, "BEAT", []);
     expect(result[1].status).toBe("absent");  // X not in BEAT
     expect(result[2].status).toBe("absent");  // X not in BEAT
