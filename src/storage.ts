@@ -23,6 +23,9 @@ export interface DailyRecord {
   completed: boolean;   // all three words solved
   totalAttempts: number;
   completedAt?: number; // epoch ms
+  /** Accumulated letter hints across submissions: letter → "present" | "absent".
+   *  "present" (yellow) takes priority over "absent" (grey). */
+  guessedLetterMap?: Record<string, "present" | "absent">;
 }
 
 export interface AllTimeStats {

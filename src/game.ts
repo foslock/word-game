@@ -11,6 +11,7 @@ import {
   saveStats,
 } from "./storage.js";
 import { evaluateCells, allFilled as allFilledFn } from "./evaluate.js";
+import { isValidWord } from "./dictionary.js";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -504,15 +505,67 @@ export class Game {
     return allFilledFn(this.record.words);
   }
 
+  /** Get the current guess string for a given word index (empty string if incomplete). */
+  private getWordGuess(wi: number): string {
+    const ws = this.record.words[wi];
+    if (ws.solved) return "";
+    const letters = ws.cells.map((c) => c.letter);
+    if (letters.some((l) => l === "")) return "";
+    return letters.join("");
+  }
+
+  /** Check which unsolved words have invalid (non-English) guesses. */
+  private getInvalidWordIndexes(): number[] {
+    const invalid: number[] = [];
+    for (let wi = 0; wi < this.record.words.length; wi++) {
+      const ws = this.record.words[wi];
+      if (ws.solved) continue;
+      const guess = this.getWordGuess(wi);
+      if (guess && !isValidWord(guess)) {
+        invalid.push(wi);
+      }
+    }
+    return invalid;
+  }
+
   private updateSubmitState(): void {
     if (!this.submitBtn) return;
-    this.submitBtn.disabled = !this.allFilled();
+    const filled = this.allFilled();
+    const invalidIndexes = filled ? this.getInvalidWordIndexes() : [];
+    const canSubmit = filled && invalidIndexes.length === 0;
+    this.submitBtn.disabled = !canSubmit;
+
+    // Update warning icons on word rows
+    this.record.words.forEach((ws, wi) => {
+      if (ws.solved) return;
+      const wrapper = this.container.querySelectorAll<HTMLElement>(".word-row-wrapper")[wi];
+      if (!wrapper) return;
+      const existingWarning = wrapper.querySelector(".word-warning");
+
+      if (filled && invalidIndexes.includes(wi)) {
+        if (!existingWarning) {
+          const warning = document.createElement("span");
+          warning.className = "word-warning";
+          warning.textContent = "\u26A0"; // ⚠
+          warning.title = "Not a valid English word";
+          wrapper.appendChild(warning);
+        }
+      } else {
+        existingWarning?.remove();
+      }
+    });
   }
 
   private handleSubmit(): void {
     if (this.animating) return;
     if (!this.allFilled()) {
       this.showToast("Fill in all letters first!");
+      return;
+    }
+
+    const invalidIndexes = this.getInvalidWordIndexes();
+    if (invalidIndexes.length > 0) {
+      this.showToast("All words must be valid English words!");
       return;
     }
 
@@ -539,12 +592,15 @@ export class Game {
       }
     });
 
+    // Merge new letter hints into the persistent map
+    this.updateGuessedLetterMap();
     saveDailyRecord(this.record);
 
     const allSolved = this.record.words.every((ws) => ws.solved);
     if (allSolved) {
       this.record.completed = true;
       this.record.completedAt = Date.now();
+      this.record.guessedLetterMap = {}; // Clear hints on completion
       saveDailyRecord(this.record);
 
       // Update stats
@@ -717,21 +773,37 @@ export class Game {
   // Guessed letters helper
   // -------------------------------------------------------------------------
 
-  private getGuessedLetters(): { letter: string; status: "present" | "absent" }[] {
-    const letterMap = new Map<string, "present" | "absent">();
+  /** Merge current cell statuses into the persistent guessedLetterMap. */
+  private updateGuessedLetterMap(): void {
+    if (!this.record.guessedLetterMap) {
+      this.record.guessedLetterMap = {};
+    }
+    const map = this.record.guessedLetterMap;
 
     for (const ws of this.record.words) {
       for (const cell of ws.cells) {
         if (cell.status === "present" || cell.status === "absent") {
-          // present (yellow) takes priority over absent (grey)
-          if (!letterMap.has(cell.letter) || letterMap.get(cell.letter) === "absent") {
-            letterMap.set(cell.letter, cell.status);
+          // "present" (yellow) takes priority over "absent" (grey)
+          if (!map[cell.letter] || map[cell.letter] === "absent") {
+            map[cell.letter] = cell.status;
           }
         }
       }
     }
 
-    const letters = Array.from(letterMap.entries()).map(([letter, status]) => ({ letter, status }));
+    // Remove letters that are now locked (correct) — they don't need hints
+    for (const ws of this.record.words) {
+      for (const cell of ws.cells) {
+        if (cell.status === "correct" && cell.letter) {
+          delete map[cell.letter];
+        }
+      }
+    }
+  }
+
+  private getGuessedLetters(): { letter: string; status: "present" | "absent" }[] {
+    const map = this.record.guessedLetterMap || {};
+    const letters = Object.entries(map).map(([letter, status]) => ({ letter, status }));
     // Sort: yellows first, then greys; alphabetical within each group
     letters.sort((a, b) => {
       if (a.status !== b.status) return a.status === "present" ? -1 : 1;
@@ -767,7 +839,8 @@ export function renderRulesContent(container: HTMLElement): void {
     <p>Each day, three mystery words are <strong>threaded</strong> together by a single <strong>theme word</strong>.</p>
     <p>Your job: uncover the thread. Guess all three words — a <strong>4-letter</strong>, a <strong>5-letter</strong>, and a <strong>6-letter</strong> word — that connect back to the day's theme.</p>
     <ul>
-      <li>Fill every square, then press <strong>Submit</strong> (or hit <kbd>Enter</kbd>).</li>
+      <li>Fill every square with <strong>valid English words</strong>, then press <strong>Submit</strong> (or hit <kbd>Enter</kbd>).</li>
+      <li>Each guess must be a real English word — nonsense strings won't be accepted.</li>
     </ul>
     <div class="rules-legend">
       <div class="legend-row">
