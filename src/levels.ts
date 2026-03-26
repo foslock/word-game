@@ -4426,6 +4426,366 @@ export const LEVELS: Level[] = [
       },
     ],
   },
+  {
+    id: 246,
+    themeWord: "TUNDRA",
+    words: [
+      {
+        word: "SLED",
+        relation: "A sled is the primary mode of transport across the frozen tundra.",
+      },
+      {
+        word: "POLAR",
+        relation: "Polar conditions of extreme cold define the tundra landscape.",
+      },
+      {
+        word: "PERMIT",
+        relation: "Permafrost beneath the tundra never fully thaws, even in summer.",
+      },
+    ],
+  },
+  {
+    id: 247,
+    themeWord: "VELVET",
+    words: [
+      {
+        word: "SOFT",
+        relation: "Soft to the touch, velvet is prized for its luxurious feel.",
+      },
+      {
+        word: "PLUSH",
+        relation: "A plush texture with a dense pile is what defines velvet.",
+      },
+      {
+        word: "SWATHE",
+        relation: "A swathe of velvet fabric drapes richly over any surface.",
+      },
+    ],
+  },
+  {
+    id: 248,
+    themeWord: "MITTEN",
+    words: [
+      {
+        word: "WOOL",
+        relation: "Wool is the warm, knitted material from which mittens are made.",
+      },
+      {
+        word: "THUMB",
+        relation: "A thumb compartment is the only separate finger in a mitten.",
+      },
+      {
+        word: "WARMER",
+        relation: "A hand warmer tucked inside a mitten fights the bitter cold.",
+      },
+    ],
+  },
+  {
+    id: 249,
+    themeWord: "PONCHO",
+    words: [
+      {
+        word: "CAPE",
+        relation: "A cape-like design with an open front defines the poncho.",
+      },
+      {
+        word: "DRAPE",
+        relation: "To drape loosely over the shoulders is how a poncho is worn.",
+      },
+      {
+        word: "HOODED",
+        relation: "A hooded poncho keeps both body and head dry in the rain.",
+      },
+    ],
+  },
+  {
+    id: 250,
+    themeWord: "BELFRY",
+    words: [
+      {
+        word: "BELL",
+        relation: "A bell hangs in the belfry and rings out across the town.",
+      },
+      {
+        word: "SPIRE",
+        relation: "A spire rises above the belfry at the top of the church.",
+      },
+      {
+        word: "PARISH",
+        relation: "A parish gathers when the belfry bell tolls on Sunday morning.",
+      },
+    ],
+  },
+  {
+    id: 251,
+    themeWord: "THATCH",
+    words: [
+      {
+        word: "ROOF",
+        relation: "A roof covered in thatch gives a cottage its rustic charm.",
+      },
+      {
+        word: "STRAW",
+        relation: "Straw is the dried plant material bundled to make thatch.",
+      },
+      {
+        word: "RUSTIC",
+        relation: "A rustic appearance is the hallmark of a thatched building.",
+      },
+    ],
+  },
+  {
+    id: 252,
+    themeWord: "CIDER",
+    words: [
+      {
+        word: "PULP",
+        relation: "Pulp is the crushed apple flesh from which cider is pressed.",
+      },
+      {
+        word: "APPLE",
+        relation: "An apple is the fruit that gives cider its sweet, tangy flavour.",
+      },
+      {
+        word: "DRINKS",
+        relation: "Cider is among the most popular drinks at autumn festivals.",
+      },
+    ],
+  },
+  {
+    id: 253,
+    themeWord: "AWNING",
+    words: [
+      {
+        word: "FOLD",
+        relation: "To fold the awning away protects it during strong winds.",
+      },
+      {
+        word: "SHADE",
+        relation: "Shade from the sun is the main purpose of an awning.",
+      },
+      {
+        word: "CANVAS",
+        relation: "Canvas is the durable fabric stretched over an awning frame.",
+      },
+    ],
+  },
+  {
+    id: 254,
+    themeWord: "QUARRY",
+    words: [
+      {
+        word: "PICK",
+        relation: "A pick breaks loose chunks of stone at the quarry face.",
+      },
+      {
+        word: "MINED",
+        relation: "Stone mined from a quarry is used for buildings and roads.",
+      },
+      {
+        word: "GRAVEL",
+        relation: "Gravel is a byproduct of crushing rock extracted from a quarry.",
+      },
+    ],
+  },
+  {
+    id: 255,
+    themeWord: "CLINIC",
+    words: [
+      {
+        word: "PILL",
+        relation: "A pill is the common form of medicine dispensed at a clinic.",
+      },
+      {
+        word: "NURSE",
+        relation: "A nurse greets and tends to patients arriving at the clinic.",
+      },
+      {
+        word: "DOSAGE",
+        relation: "The correct dosage is determined by a clinician at the clinic.",
+      },
+    ],
+  },
+  {
+    id: 256,
+    themeWord: "PARLOR",
+    words: [
+      {
+        word: "SOFA",
+        relation: "A sofa is the centrepiece of a comfortable parlor.",
+      },
+      {
+        word: "DRAPE",
+        relation: "Drapes frame the windows of a well-appointed parlor.",
+      },
+      {
+        word: "LOUNGE",
+        relation: "A lounge is another name for a parlor where guests relax.",
+      },
+    ],
+  },
+  {
+    id: 257,
+    themeWord: "GAZEBO",
+    words: [
+      {
+        word: "VINE",
+        relation: "A vine climbs the lattice walls of a garden gazebo.",
+      },
+      {
+        word: "SHADE",
+        relation: "Shade from the midday sun is what a gazebo provides.",
+      },
+      {
+        word: "GARDEN",
+        relation: "A garden is the typical setting for a decorative gazebo.",
+      },
+    ],
+  },
+  {
+    id: 258,
+    themeWord: "OPAL",
+    words: [
+      {
+        word: "GLOW",
+        relation: "A glow of shifting colours plays across the surface of an opal.",
+      },
+      {
+        word: "JEWEL",
+        relation: "A jewel prized for its iridescence, the opal is truly unique.",
+      },
+      {
+        word: "PRIZED",
+        relation: "Prized by collectors, a fine opal can rival a diamond in value.",
+      },
+    ],
+  },
+  {
+    id: 259,
+    themeWord: "PEARL",
+    words: [
+      {
+        word: "DIVE",
+        relation: "A dive to the ocean floor is how pearl divers harvest their treasure.",
+      },
+      {
+        word: "SHEEN",
+        relation: "A lustrous sheen gives the pearl its timeless elegance.",
+      },
+      {
+        word: "LUSTRE",
+        relation: "Lustre is the soft, glowing quality that makes a pearl beautiful.",
+      },
+    ],
+  },
+  {
+    id: 260,
+    themeWord: "RUBY",
+    words: [
+      {
+        word: "RARE",
+        relation: "A rare, flawless ruby is among the most valuable gemstones.",
+      },
+      {
+        word: "STONE",
+        relation: "A stone of deep crimson, the ruby has been coveted for centuries.",
+      },
+      {
+        word: "FACETS",
+        relation: "Facets are the precisely cut surfaces that make a ruby sparkle.",
+      },
+    ],
+  },
+  {
+    id: 261,
+    themeWord: "LYNX",
+    words: [
+      {
+        word: "HUNT",
+        relation: "To hunt silently in the snow is the lynx's speciality.",
+      },
+      {
+        word: "STALK",
+        relation: "To stalk prey with patience defines the lynx's approach.",
+      },
+      {
+        word: "FELINE",
+        relation: "The lynx is a wild feline adapted to cold northern forests.",
+      },
+    ],
+  },
+  {
+    id: 262,
+    themeWord: "BADGER",
+    words: [
+      {
+        word: "SETT",
+        relation: "A sett is the underground burrow system where badgers live.",
+      },
+      {
+        word: "CLAWS",
+        relation: "Strong claws help the badger dig through hard-packed earth.",
+      },
+      {
+        word: "STRIPE",
+        relation: "A bold black-and-white stripe runs along the badger's face.",
+      },
+    ],
+  },
+  {
+    id: 263,
+    themeWord: "ALPACA",
+    words: [
+      {
+        word: "SPIT",
+        relation: "To spit when annoyed is a well-known alpaca behaviour.",
+      },
+      {
+        word: "LLAMA",
+        relation: "A llama is the alpaca's larger and more commonly used cousin.",
+      },
+      {
+        word: "WOOLEN",
+        relation: "Woolen yarn spun from alpaca fiber is prized for its softness.",
+      },
+    ],
+  },
+  {
+    id: 264,
+    themeWord: "NUTMEG",
+    words: [
+      {
+        word: "ZEST",
+        relation: "Zest and nutmeg are both warm, aromatic additions to baking.",
+      },
+      {
+        word: "SPICE",
+        relation: "A spice grated from a dried seed, nutmeg adds warmth to dishes.",
+      },
+      {
+        word: "GRATER",
+        relation: "A grater shaves fine flakes of nutmeg over food and drinks.",
+      },
+    ],
+  },
+  {
+    id: 265,
+    themeWord: "QUILL",
+    words: [
+      {
+        word: "PENS",
+        relation: "Before modern pens, the quill was the primary writing instrument.",
+      },
+      {
+        word: "WRITE",
+        relation: "To write with a quill requires dipping the nib in ink.",
+      },
+      {
+        word: "PENNED",
+        relation: "Great works of literature were penned with a simple quill.",
+      },
+    ],
+  },
 ];
 
 /**
