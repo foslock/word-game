@@ -2266,6 +2266,366 @@ export const LEVELS: Level[] = [
       },
     ],
   },
+  {
+    id: 126,
+    themeWord: "LUMBER",
+    words: [
+      {
+        word: "LOGS",
+        relation: "Logs are the raw tree trunks processed at a lumber mill.",
+      },
+      {
+        word: "PLANK",
+        relation: "A plank is a flat, sawn board produced from lumber.",
+      },
+      {
+        word: "SAWING",
+        relation: "Sawing is the act of cutting lumber into usable boards.",
+      },
+    ],
+  },
+  {
+    id: 127,
+    themeWord: "THRONE",
+    words: [
+      {
+        word: "DUKE",
+        relation: "A duke is a nobleman who owes allegiance to the throne.",
+      },
+      {
+        word: "REIGN",
+        relation: "A reign is the period during which a monarch occupies the throne.",
+      },
+      {
+        word: "CROWNS",
+        relation: "Crowns rest upon the heads of those who claim the throne.",
+      },
+    ],
+  },
+  {
+    id: 128,
+    themeWord: "EMPIRE",
+    words: [
+      {
+        word: "ARMY",
+        relation: "An army enforces the will of the empire across its territories.",
+      },
+      {
+        word: "REALM",
+        relation: "A realm is a kingdom or domain within a vast empire.",
+      },
+      {
+        word: "COLONY",
+        relation: "A colony is a distant territory governed by the empire.",
+      },
+    ],
+  },
+  {
+    id: 129,
+    themeWord: "TREATY",
+    words: [
+      {
+        word: "PACT",
+        relation: "A pact is a binding agreement, much like a treaty between nations.",
+      },
+      {
+        word: "TRUCE",
+        relation: "A truce is the ceasefire that often precedes a formal treaty.",
+      },
+      {
+        word: "ACCORD",
+        relation: "An accord is a mutual understanding reached through treaty negotiations.",
+      },
+    ],
+  },
+  {
+    id: 130,
+    themeWord: "BATTLE",
+    words: [
+      {
+        word: "TANK",
+        relation: "A tank is the armored vehicle that dominates the modern battle field.",
+      },
+      {
+        word: "SIEGE",
+        relation: "A siege is a prolonged battle to capture a fortified position.",
+      },
+      {
+        word: "COMBAT",
+        relation: "Combat is the direct, armed clash at the heart of every battle.",
+      },
+    ],
+  },
+  {
+    id: 131,
+    themeWord: "SHIELD",
+    words: [
+      {
+        word: "DENT",
+        relation: "A dent in the metal shows where a blow struck the shield.",
+      },
+      {
+        word: "ARMOR",
+        relation: "Armor and a shield together form a warrior's full defense.",
+      },
+      {
+        word: "BUCKLE",
+        relation: "A buckle fastens the shield's strap securely to the forearm.",
+      },
+    ],
+  },
+  {
+    id: 132,
+    themeWord: "CANNON",
+    words: [
+      {
+        word: "BOOM",
+        relation: "A boom echoes across the field when a cannon fires.",
+      },
+      {
+        word: "SHELL",
+        relation: "A shell is the explosive projectile launched from a cannon.",
+      },
+      {
+        word: "VOLLEY",
+        relation: "A volley is a simultaneous firing of many cannons at once.",
+      },
+    ],
+  },
+  {
+    id: 133,
+    themeWord: "PIGEON",
+    words: [
+      {
+        word: "COOP",
+        relation: "A coop is the small shelter built to house pigeons.",
+      },
+      {
+        word: "ROOST",
+        relation: "To roost on ledges and rooftops is typical pigeon behaviour.",
+      },
+      {
+        word: "HOMING",
+        relation: "A homing instinct lets trained pigeons find their way back from afar.",
+      },
+    ],
+  },
+  {
+    id: 134,
+    themeWord: "FERRET",
+    words: [
+      {
+        word: "BURR",
+        relation: "A burr caught in the fur is a common nuisance for a ferret.",
+      },
+      {
+        word: "SCENT",
+        relation: "A strong, musky scent is a well-known trait of the ferret.",
+      },
+      {
+        word: "TUNNEL",
+        relation: "A tunnel or tube is the favourite playground of a pet ferret.",
+      },
+    ],
+  },
+  {
+    id: 135,
+    themeWord: "OYSTER",
+    words: [
+      {
+        word: "OPEN",
+        relation: "To open an oyster requires a sturdy knife and a firm grip.",
+      },
+      {
+        word: "PEARL",
+        relation: "A pearl forms inside an oyster as a response to an irritant.",
+      },
+      {
+        word: "SHUCKS",
+        relation: "To shuck oysters is to pry them open and remove the meat.",
+      },
+    ],
+  },
+  {
+    id: 136,
+    themeWord: "FOSSIL",
+    words: [
+      {
+        word: "BONE",
+        relation: "A bone preserved in rock for millions of years becomes a fossil.",
+      },
+      {
+        word: "AMBER",
+        relation: "Amber can trap insects and preserve them as perfect fossils.",
+      },
+      {
+        word: "STRATA",
+        relation: "Strata are the rock layers in which fossils are discovered.",
+      },
+    ],
+  },
+  {
+    id: 137,
+    themeWord: "ENZYME",
+    words: [
+      {
+        word: "CELL",
+        relation: "Every cell in the body relies on enzymes to carry out reactions.",
+      },
+      {
+        word: "YEAST",
+        relation: "Yeast produces enzymes that ferment sugars into alcohol.",
+      },
+      {
+        word: "LIPASE",
+        relation: "Lipase is an enzyme that breaks down fats during digestion.",
+      },
+    ],
+  },
+  {
+    id: 138,
+    themeWord: "NEURON",
+    words: [
+      {
+        word: "AXON",
+        relation: "An axon is the long fiber that carries signals away from a neuron.",
+      },
+      {
+        word: "BRAIN",
+        relation: "The brain contains billions of neurons forming vast networks.",
+      },
+      {
+        word: "CORTEX",
+        relation: "The cortex is the outer brain layer packed with neurons.",
+      },
+    ],
+  },
+  {
+    id: 139,
+    themeWord: "PHOTON",
+    words: [
+      {
+        word: "BEAM",
+        relation: "A beam of light is a stream of countless photons.",
+      },
+      {
+        word: "LIGHT",
+        relation: "Light is the visible energy carried by photons.",
+      },
+      {
+        word: "PRISMS",
+        relation: "Prisms split photons of white light into a rainbow of colours.",
+      },
+    ],
+  },
+  {
+    id: 140,
+    themeWord: "CARBON",
+    words: [
+      {
+        word: "ATOM",
+        relation: "The carbon atom is the essential building block of organic chemistry.",
+      },
+      {
+        word: "FIBER",
+        relation: "Carbon fiber is an extremely strong material used in aerospace.",
+      },
+      {
+        word: "BONDED",
+        relation: "Bonded carbon atoms form structures from diamond to graphite.",
+      },
+    ],
+  },
+  {
+    id: 141,
+    themeWord: "COPPER",
+    words: [
+      {
+        word: "WIRE",
+        relation: "Wire made of copper carries electricity through homes and devices.",
+      },
+      {
+        word: "ALLOY",
+        relation: "An alloy like bronze is created by mixing copper with tin.",
+      },
+      {
+        word: "PATINA",
+        relation: "A green patina forms on copper surfaces exposed to the elements.",
+      },
+    ],
+  },
+  {
+    id: 142,
+    themeWord: "OXYGEN",
+    words: [
+      {
+        word: "LUNG",
+        relation: "The lung is the organ that extracts oxygen from the air we breathe.",
+      },
+      {
+        word: "OZONE",
+        relation: "Ozone is a molecule made of three oxygen atoms that shields the Earth.",
+      },
+      {
+        word: "BREATH",
+        relation: "Every breath delivers a fresh supply of oxygen to the body.",
+      },
+    ],
+  },
+  {
+    id: 143,
+    themeWord: "PRISM",
+    words: [
+      {
+        word: "RAYS",
+        relation: "Rays of white light enter a prism and emerge as a spectrum.",
+      },
+      {
+        word: "COLOR",
+        relation: "Each color of the rainbow is separated by passing light through a prism.",
+      },
+      {
+        word: "OPTICS",
+        relation: "Optics is the branch of physics that explains how a prism bends light.",
+      },
+    ],
+  },
+  {
+    id: 144,
+    themeWord: "QUARTZ",
+    words: [
+      {
+        word: "GEMS",
+        relation: "Gems like amethyst and citrine are coloured varieties of quartz.",
+      },
+      {
+        word: "CLEAR",
+        relation: "Clear, transparent quartz is sometimes called rock crystal.",
+      },
+      {
+        word: "SILICA",
+        relation: "Silica is the mineral compound that makes up quartz.",
+      },
+    ],
+  },
+  {
+    id: 145,
+    themeWord: "PLASMA",
+    words: [
+      {
+        word: "IONS",
+        relation: "Ions are the charged particles that make up a plasma.",
+      },
+      {
+        word: "SOLAR",
+        relation: "Solar flares release vast plumes of superheated plasma.",
+      },
+      {
+        word: "HEATED",
+        relation: "Heated gas becomes plasma when its atoms lose electrons.",
+      },
+    ],
+  },
 ];
 
 /**
