@@ -190,6 +190,41 @@ describe("evaluateCells — pre-locked cells from previous submissions", () => {
 });
 
 // ---------------------------------------------------------------------------
+// Cross-word hints with reduced otherUnsolvedWords (locked letters removed)
+// ---------------------------------------------------------------------------
+
+describe("evaluateCells — cross-word hints with locked letters excluded", () => {
+  it("does not give yellow for a letter that only exists in a removed portion of other words", () => {
+    // Target: TROWEL. Other word: SEED with S,E,E locked → remaining "D".
+    // Guess ROVERS: S at pos 5 not in TROWEL, not in "D" → grey.
+    const result = evaluateCells(cells("ROVERS"), "TROWEL", ["D"]);
+    expect(result[5].status).toBe("absent"); // S → grey
+  });
+
+  it("still gives yellow for letters remaining (unlocked) in other words", () => {
+    // Target: TROWEL. Other word: SEED with S locked → remaining "EED".
+    // Guess XEXXXX: E at pos 1 not in TROWEL at pos 1 (R), but E is in remaining "EED" → yellow.
+    const result = evaluateCells(cells("XEXXXX"), "TROWEL", ["EED"]);
+    expect(result[1].status).toBe("present"); // E → yellow via cross-word
+  });
+
+  it("cross-word yellow count respects the reduced letter frequency", () => {
+    // Other word originally "SEES" but S at pos 0 and S at pos 3 are locked → remaining "EE".
+    // 0 S's remaining. Two S's in guess should not get yellow.
+    const result = evaluateCells(cells("SSXX"), "BOLT", ["EE"]);
+    expect(result[0].status).toBe("absent");
+    expect(result[1].status).toBe("absent");
+  });
+
+  it("handles empty remaining string (all letters locked in other word)", () => {
+    // Other word fully locked → remaining "".
+    const result = evaluateCells(cells("ABCD"), "WXYZ", [""]);
+    // No cross-word hints available; everything absent from both target and other
+    expect(result.every((c) => c.status === "absent")).toBe(true);
+  });
+});
+
+// ---------------------------------------------------------------------------
 // allFilled
 // ---------------------------------------------------------------------------
 
