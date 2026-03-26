@@ -1906,6 +1906,366 @@ export const LEVELS: Level[] = [
       },
     ],
   },
+  {
+    id: 106,
+    themeWord: "POETRY",
+    words: [
+      {
+        word: "POEM",
+        relation: "A poem is the individual work a poet creates within the art of poetry.",
+      },
+      {
+        word: "VERSE",
+        relation: "A verse is a single stanza or line that forms the body of poetry.",
+      },
+      {
+        word: "SONNET",
+        relation: "A sonnet is a fourteen-line form that is a pillar of classical poetry.",
+      },
+    ],
+  },
+  {
+    id: 107,
+    themeWord: "CINEMA",
+    words: [
+      {
+        word: "FILM",
+        relation: "A film is the motion picture shown on the big screen at the cinema.",
+      },
+      {
+        word: "SCENE",
+        relation: "A scene is a single continuous sequence within a cinema production.",
+      },
+      {
+        word: "HORROR",
+        relation: "Horror is a genre of cinema designed to frighten and thrill audiences.",
+      },
+    ],
+  },
+  {
+    id: 108,
+    themeWord: "CIRCUS",
+    words: [
+      {
+        word: "TENT",
+        relation: "A tent is the massive canvas structure that houses the circus.",
+      },
+      {
+        word: "CLOWN",
+        relation: "A clown entertains the crowd with comedy and antics at the circus.",
+      },
+      {
+        word: "JUGGLE",
+        relation: "To juggle objects in the air is a signature circus performance.",
+      },
+    ],
+  },
+  {
+    id: 109,
+    themeWord: "COMEDY",
+    words: [
+      {
+        word: "JOKE",
+        relation: "A joke is the basic unit of humour that drives a comedy.",
+      },
+      {
+        word: "LAUGH",
+        relation: "A laugh is the joyful response that every comedy aims to provoke.",
+      },
+      {
+        word: "SITCOM",
+        relation: "A sitcom is a television comedy set in recurring locations.",
+      },
+    ],
+  },
+  {
+    id: 110,
+    themeWord: "DINING",
+    words: [
+      {
+        word: "FORK",
+        relation: "A fork is the pronged utensil placed at every dining setting.",
+      },
+      {
+        word: "PLATE",
+        relation: "A plate is the dish on which food is served while dining.",
+      },
+      {
+        word: "NAPKIN",
+        relation: "A napkin is the cloth placed on the lap during fine dining.",
+      },
+    ],
+  },
+  {
+    id: 111,
+    themeWord: "PUZZLE",
+    words: [
+      {
+        word: "CLUE",
+        relation: "A clue is the hint that leads you closer to solving a puzzle.",
+      },
+      {
+        word: "SOLVE",
+        relation: "To solve is to find the answer that completes the puzzle.",
+      },
+      {
+        word: "RIDDLE",
+        relation: "A riddle is a verbal puzzle that tests wit and wordplay.",
+      },
+    ],
+  },
+  {
+    id: 112,
+    themeWord: "CANOPY",
+    words: [
+      {
+        word: "RAIN",
+        relation: "Rain is intercepted by the canopy before reaching the forest floor.",
+      },
+      {
+        word: "DENSE",
+        relation: "Dense layers of leaves form the thick canopy overhead.",
+      },
+      {
+        word: "TROPIC",
+        relation: "A tropic rainforest has the richest canopy on Earth.",
+      },
+    ],
+  },
+  {
+    id: 113,
+    themeWord: "MEADOW",
+    words: [
+      {
+        word: "DEER",
+        relation: "A deer grazes peacefully in the open meadow at dawn.",
+      },
+      {
+        word: "GRASS",
+        relation: "Grass covers every inch of a sunlit meadow.",
+      },
+      {
+        word: "FLOWER",
+        relation: "Wildflowers dot the meadow with splashes of colour.",
+      },
+    ],
+  },
+  {
+    id: 114,
+    themeWord: "CANYON",
+    words: [
+      {
+        word: "DEEP",
+        relation: "A deep drop from rim to river floor defines the canyon's scale.",
+      },
+      {
+        word: "CLIFF",
+        relation: "A cliff forms the sheer rock wall along the edge of a canyon.",
+      },
+      {
+        word: "RAVINE",
+        relation: "A ravine is a small, deep canyon cut into the landscape.",
+      },
+    ],
+  },
+  {
+    id: 115,
+    themeWord: "VALLEY",
+    words: [
+      {
+        word: "DALE",
+        relation: "A dale is a broad, open valley found in the rolling countryside.",
+      },
+      {
+        word: "BASIN",
+        relation: "A basin is the low, bowl-shaped floor of a wide valley.",
+      },
+      {
+        word: "HOLLOW",
+        relation: "A hollow is a sheltered depression nestled within a valley.",
+      },
+    ],
+  },
+  {
+    id: 116,
+    themeWord: "SUMMIT",
+    words: [
+      {
+        word: "PEAK",
+        relation: "A peak is the pointed top that defines the summit of a mountain.",
+      },
+      {
+        word: "RIDGE",
+        relation: "A ridge is the narrow crest that connects summits along a range.",
+      },
+      {
+        word: "ALPINE",
+        relation: "Alpine conditions of thin air and cold greet climbers near the summit.",
+      },
+    ],
+  },
+  {
+    id: 117,
+    themeWord: "ICECAP",
+    words: [
+      {
+        word: "MELT",
+        relation: "To melt is the fate of an icecap under rising global temperatures.",
+      },
+      {
+        word: "ICIER",
+        relation: "Icier conditions closer to the poles sustain the vast icecaps.",
+      },
+      {
+        word: "TUNDRA",
+        relation: "Tundra is the frozen landscape that borders the polar icecap.",
+      },
+    ],
+  },
+  {
+    id: 118,
+    themeWord: "CAVERN",
+    words: [
+      {
+        word: "DAMP",
+        relation: "Damp, dripping walls are a constant feature inside a cavern.",
+      },
+      {
+        word: "TORCH",
+        relation: "A torch is needed to light the pitch-black depths of a cavern.",
+      },
+      {
+        word: "GROTTO",
+        relation: "A grotto is a small, picturesque cavern often near the sea.",
+      },
+    ],
+  },
+  {
+    id: 119,
+    themeWord: "CRATER",
+    words: [
+      {
+        word: "LAVA",
+        relation: "Lava fills the crater of a volcano during an eruption.",
+      },
+      {
+        word: "ERUPT",
+        relation: "To erupt is the violent event that blasts open a volcanic crater.",
+      },
+      {
+        word: "MOLTEN",
+        relation: "Molten rock pools at the bottom of an active crater.",
+      },
+    ],
+  },
+  {
+    id: 120,
+    themeWord: "BAMBOO",
+    words: [
+      {
+        word: "REED",
+        relation: "A reed is a slender plant similar to the hollow stalks of bamboo.",
+      },
+      {
+        word: "GROVE",
+        relation: "A grove of bamboo shoots can spread across an entire hillside.",
+      },
+      {
+        word: "GROWTH",
+        relation: "Rapid growth allows bamboo to gain height faster than any other plant.",
+      },
+    ],
+  },
+  {
+    id: 121,
+    themeWord: "PILLOW",
+    words: [
+      {
+        word: "FOAM",
+        relation: "Foam is a popular filling that gives a pillow its supportive shape.",
+      },
+      {
+        word: "DOWNY",
+        relation: "Downy feathers create the softest, most luxurious type of pillow.",
+      },
+      {
+        word: "FLUFFY",
+        relation: "A fluffy pillow is freshly plumped and ready for a good night's rest.",
+      },
+    ],
+  },
+  {
+    id: 122,
+    themeWord: "CLOSET",
+    words: [
+      {
+        word: "HANG",
+        relation: "To hang clothes on a rod is the main use of a closet.",
+      },
+      {
+        word: "SHELF",
+        relation: "A shelf inside the closet holds folded items and accessories.",
+      },
+      {
+        word: "HANGER",
+        relation: "A hanger is the hook-shaped device that keeps clothes neat in a closet.",
+      },
+    ],
+  },
+  {
+    id: 123,
+    themeWord: "LAGOON",
+    words: [
+      {
+        word: "CALM",
+        relation: "Calm, sheltered water is the defining quality of a lagoon.",
+      },
+      {
+        word: "ATOLL",
+        relation: "An atoll is a ring-shaped reef that encloses a central lagoon.",
+      },
+      {
+        word: "SHOALS",
+        relation: "Shoals of fish thrive in the shallow, warm waters of a lagoon.",
+      },
+    ],
+  },
+  {
+    id: 124,
+    themeWord: "MARBLE",
+    words: [
+      {
+        word: "SLAB",
+        relation: "A slab of marble is cut and polished for countertops and floors.",
+      },
+      {
+        word: "VEINS",
+        relation: "Veins of colour streak through marble, making each piece unique.",
+      },
+      {
+        word: "QUARRY",
+        relation: "A quarry is the open pit from which blocks of marble are extracted.",
+      },
+    ],
+  },
+  {
+    id: 125,
+    themeWord: "CEMENT",
+    words: [
+      {
+        word: "POUR",
+        relation: "To pour wet cement into forms is the first step of laying a foundation.",
+      },
+      {
+        word: "MIXER",
+        relation: "A mixer is the revolving drum that keeps cement from hardening too soon.",
+      },
+      {
+        word: "GRAVEL",
+        relation: "Gravel is blended with cement to produce strong concrete.",
+      },
+    ],
+  },
 ];
 
 /**
