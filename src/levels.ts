@@ -1186,6 +1186,366 @@ export const LEVELS: Level[] = [
       },
     ],
   },
+  {
+    id: 66,
+    themeWord: "LIZARD",
+    words: [
+      {
+        word: "TAIL",
+        relation: "A tail can be shed and regrown by many species of lizard.",
+      },
+      {
+        word: "SCALE",
+        relation: "Dry, overlapping scales cover the body of every lizard.",
+      },
+      {
+        word: "IGUANA",
+        relation: "An iguana is a large, herbivorous lizard found in tropical regions.",
+      },
+    ],
+  },
+  {
+    id: 67,
+    themeWord: "BEAVER",
+    words: [
+      {
+        word: "GNAW",
+        relation: "To gnaw through tree trunks is how the beaver harvests building material.",
+      },
+      {
+        word: "LODGE",
+        relation: "A lodge is the dome-shaped home a beaver builds in the water.",
+      },
+      {
+        word: "TIMBER",
+        relation: "Timber is the wood a beaver fells to construct its dam.",
+      },
+    ],
+  },
+  {
+    id: 68,
+    themeWord: "PARROT",
+    words: [
+      {
+        word: "COPY",
+        relation: "To copy human speech is the parrot's most celebrated talent.",
+      },
+      {
+        word: "MIMIC",
+        relation: "To mimic sounds and voices is second nature to a clever parrot.",
+      },
+      {
+        word: "PLUMES",
+        relation: "Vivid plumes of colour make the parrot one of the showiest birds.",
+      },
+    ],
+  },
+  {
+    id: 69,
+    themeWord: "CANDLE",
+    words: [
+      {
+        word: "WICK",
+        relation: "The wick is the cord at the centre of a candle that carries the flame.",
+      },
+      {
+        word: "FLAME",
+        relation: "A flame dances at the tip of a lit candle.",
+      },
+      {
+        word: "MELTED",
+        relation: "Melted wax pools at the base of a burning candle.",
+      },
+    ],
+  },
+  {
+    id: 70,
+    themeWord: "FABRIC",
+    words: [
+      {
+        word: "LOOM",
+        relation: "A loom is the frame on which fabric is woven thread by thread.",
+      },
+      {
+        word: "SATIN",
+        relation: "Satin is a glossy, smooth fabric used for fine garments.",
+      },
+      {
+        word: "STITCH",
+        relation: "A stitch is a single loop of thread that joins pieces of fabric.",
+      },
+    ],
+  },
+  {
+    id: 71,
+    themeWord: "BOTTLE",
+    words: [
+      {
+        word: "CORK",
+        relation: "A cork is pressed into the neck of a bottle to seal it shut.",
+      },
+      {
+        word: "LABEL",
+        relation: "A label is the printed paper wrapped around a bottle to identify it.",
+      },
+      {
+        word: "CARTON",
+        relation: "A carton is the box used to ship and protect a case of bottles.",
+      },
+    ],
+  },
+  {
+    id: 72,
+    themeWord: "CAMERA",
+    words: [
+      {
+        word: "LENS",
+        relation: "A lens focuses light onto the sensor inside a camera.",
+      },
+      {
+        word: "FOCUS",
+        relation: "To focus is to adjust the camera so the subject appears sharp.",
+      },
+      {
+        word: "TRIPOD",
+        relation: "A tripod is the three-legged stand that holds a camera steady.",
+      },
+    ],
+  },
+  {
+    id: 73,
+    themeWord: "ANCHOR",
+    words: [
+      {
+        word: "ROPE",
+        relation: "A rope connects the anchor to the ship above.",
+      },
+      {
+        word: "CHAIN",
+        relation: "A chain links the anchor to the ship and bears the load.",
+      },
+      {
+        word: "VESSEL",
+        relation: "A vessel drops its anchor to hold position in the water.",
+      },
+    ],
+  },
+  {
+    id: 74,
+    themeWord: "AUTUMN",
+    words: [
+      {
+        word: "RAKE",
+        relation: "A rake gathers the fallen leaves that carpet lawns each autumn.",
+      },
+      {
+        word: "AMBER",
+        relation: "Amber hues colour the landscape as autumn takes hold.",
+      },
+      {
+        word: "LEAVES",
+        relation: "Leaves turn brilliant shades of red and gold throughout autumn.",
+      },
+    ],
+  },
+  {
+    id: 75,
+    themeWord: "SPRING",
+    words: [
+      {
+        word: "THAW",
+        relation: "A thaw melts the winter snow as spring arrives.",
+      },
+      {
+        word: "CREEK",
+        relation: "A creek swells with fresh meltwater each spring.",
+      },
+      {
+        word: "SPROUT",
+        relation: "A sprout pushes through the soil as new life returns in spring.",
+      },
+    ],
+  },
+  {
+    id: 76,
+    themeWord: "TROPHY",
+    words: [
+      {
+        word: "GOLD",
+        relation: "Gold is the colour that gleams from the surface of a prized trophy.",
+      },
+      {
+        word: "MEDAL",
+        relation: "A medal, like a trophy, rewards outstanding achievement.",
+      },
+      {
+        word: "PLAQUE",
+        relation: "A plaque is engraved on the base of a trophy to name the winner.",
+      },
+    ],
+  },
+  {
+    id: 77,
+    themeWord: "SOCCER",
+    words: [
+      {
+        word: "GOAL",
+        relation: "A goal is scored when the ball crosses the line in soccer.",
+      },
+      {
+        word: "FIELD",
+        relation: "The field is the grassy pitch where a soccer match takes place.",
+      },
+      {
+        word: "GOALIE",
+        relation: "The goalie is the last defender guarding the net in soccer.",
+      },
+    ],
+  },
+  {
+    id: 78,
+    themeWord: "TENNIS",
+    words: [
+      {
+        word: "LOBE",
+        relation: "A lobe shot arcs high over the net in tennis.",
+      },
+      {
+        word: "SERVE",
+        relation: "A serve begins every point in a tennis match.",
+      },
+      {
+        word: "RACKET",
+        relation: "A racket is the stringed tool used to strike the ball in tennis.",
+      },
+    ],
+  },
+  {
+    id: 79,
+    themeWord: "BOXING",
+    words: [
+      {
+        word: "JABS",
+        relation: "Quick jabs are the fundamental punches thrown in boxing.",
+      },
+      {
+        word: "PUNCH",
+        relation: "A punch is the core offensive move in boxing.",
+      },
+      {
+        word: "GLOVES",
+        relation: "Gloves are the padded hand coverings required in boxing.",
+      },
+    ],
+  },
+  {
+    id: 80,
+    themeWord: "HOCKEY",
+    words: [
+      {
+        word: "PUCK",
+        relation: "The puck is the hard rubber disc shot across the ice in hockey.",
+      },
+      {
+        word: "STICK",
+        relation: "A stick is the long-handled tool used to control the puck in hockey.",
+      },
+      {
+        word: "FROZEN",
+        relation: "A frozen sheet of ice is the surface on which hockey is played.",
+      },
+    ],
+  },
+  {
+    id: 81,
+    themeWord: "SKIING",
+    words: [
+      {
+        word: "HILL",
+        relation: "A hill is the snowy slope that every skiing run descends.",
+      },
+      {
+        word: "SLOPE",
+        relation: "A slope is the graded terrain rated by difficulty for skiing.",
+      },
+      {
+        word: "MOGULS",
+        relation: "Moguls are the bumps carved into a ski slope by repeated turns.",
+      },
+    ],
+  },
+  {
+    id: 82,
+    themeWord: "ARCHER",
+    words: [
+      {
+        word: "AIMS",
+        relation: "An archer aims carefully before releasing the bowstring.",
+      },
+      {
+        word: "ARROW",
+        relation: "An arrow is the projectile an archer sends toward the target.",
+      },
+      {
+        word: "QUIVER",
+        relation: "A quiver is the case an archer wears to carry arrows.",
+      },
+    ],
+  },
+  {
+    id: 83,
+    themeWord: "DONKEY",
+    words: [
+      {
+        word: "HOOF",
+        relation: "A hoof is the tough, horny foot that carries a donkey over rough ground.",
+      },
+      {
+        word: "NEIGH",
+        relation: "A neigh-like bray is the loud call that makes the donkey unmistakable.",
+      },
+      {
+        word: "BURDEN",
+        relation: "A burden is the heavy load a donkey is often asked to carry.",
+      },
+    ],
+  },
+  {
+    id: 84,
+    themeWord: "OSPREY",
+    words: [
+      {
+        word: "NEST",
+        relation: "A nest built atop a tall pole is a common home for the osprey.",
+      },
+      {
+        word: "TROUT",
+        relation: "A trout snatched from the water is a typical osprey meal.",
+      },
+      {
+        word: "PLUNGE",
+        relation: "A plunge feet-first into the water is how an osprey catches fish.",
+      },
+    ],
+  },
+  {
+    id: 85,
+    themeWord: "JAGUAR",
+    words: [
+      {
+        word: "SPOT",
+        relation: "A spot pattern known as a rosette marks the jaguar's coat.",
+      },
+      {
+        word: "STALK",
+        relation: "To stalk prey through dense brush is the jaguar's hunting style.",
+      },
+      {
+        word: "FELINE",
+        relation: "The jaguar is the largest feline in the Americas.",
+      },
+    ],
+  },
 ];
 
 /**
