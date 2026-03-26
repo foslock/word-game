@@ -843,6 +843,20 @@ body.modal-open { overflow: hidden; }
 }
 
 /* ============================================================
+   Footer
+   ============================================================ */
+#footer {
+  text-align: center;
+  padding: 12px 16px;
+}
+
+#footer p {
+  font-size: 0.65rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
    Hidden utility
    ============================================================ */
 .hidden { display: none !important; }
