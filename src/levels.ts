@@ -1546,6 +1546,366 @@ export const LEVELS: Level[] = [
       },
     ],
   },
+  {
+    id: 86,
+    themeWord: "POLICE",
+    words: [
+      {
+        word: "COPS",
+        relation: "Cops is an informal term for police officers on duty.",
+      },
+      {
+        word: "SIREN",
+        relation: "A siren wails from the patrol car as police race to the scene.",
+      },
+      {
+        word: "ARREST",
+        relation: "An arrest is the act of detaining a suspect by the police.",
+      },
+    ],
+  },
+  {
+    id: 87,
+    themeWord: "HAMMER",
+    words: [
+      {
+        word: "NAIL",
+        relation: "A nail is driven into wood with each swing of the hammer.",
+      },
+      {
+        word: "FORGE",
+        relation: "A forge is the fiery workshop where a hammer shapes hot metal.",
+      },
+      {
+        word: "SMITHY",
+        relation: "A smithy is the place where a hammer rings against the anvil all day.",
+      },
+    ],
+  },
+  {
+    id: 88,
+    themeWord: "SAILOR",
+    words: [
+      {
+        word: "MAST",
+        relation: "A mast holds the sails that a sailor relies on for wind power.",
+      },
+      {
+        word: "NAVAL",
+        relation: "Naval service is the military branch where many sailors serve.",
+      },
+      {
+        word: "VOYAGE",
+        relation: "A voyage is the long journey a sailor undertakes across the sea.",
+      },
+    ],
+  },
+  {
+    id: 89,
+    themeWord: "HUNTER",
+    words: [
+      {
+        word: "TRAP",
+        relation: "A trap is a device a hunter sets to capture game.",
+      },
+      {
+        word: "TRACK",
+        relation: "To track an animal through the wild is a core hunter skill.",
+      },
+      {
+        word: "QUARRY",
+        relation: "The quarry is the animal or bird a hunter is pursuing.",
+      },
+    ],
+  },
+  {
+    id: 90,
+    themeWord: "BARBER",
+    words: [
+      {
+        word: "TRIM",
+        relation: "A trim is the quick cut a barber gives to tidy up hair.",
+      },
+      {
+        word: "SHAVE",
+        relation: "A close shave with a straight razor is a barber's signature service.",
+      },
+      {
+        word: "LATHER",
+        relation: "Lather is the soapy foam a barber applies before shaving.",
+      },
+    ],
+  },
+  {
+    id: 91,
+    themeWord: "FARMER",
+    words: [
+      {
+        word: "PLOW",
+        relation: "A plow turns the soil so the farmer can plant a new crop.",
+      },
+      {
+        word: "CROPS",
+        relation: "Crops are the plants a farmer grows and harvests each season.",
+      },
+      {
+        word: "BARLEY",
+        relation: "Barley is a hardy grain commonly grown by farmers worldwide.",
+      },
+    ],
+  },
+  {
+    id: 92,
+    themeWord: "BUTLER",
+    words: [
+      {
+        word: "TRAY",
+        relation: "A tray is carried by the butler to deliver drinks and food.",
+      },
+      {
+        word: "MANOR",
+        relation: "A manor is the grand estate where a butler manages the household.",
+      },
+      {
+        word: "FORMAL",
+        relation: "Formal attire and manners define the professional butler.",
+      },
+    ],
+  },
+  {
+    id: 93,
+    themeWord: "MINER",
+    words: [
+      {
+        word: "COAL",
+        relation: "Coal is the black mineral a miner extracts deep underground.",
+      },
+      {
+        word: "SHAFT",
+        relation: "A shaft is the vertical passage a miner descends to reach ore.",
+      },
+      {
+        word: "GROTTO",
+        relation: "A grotto is a small cave a miner may discover while digging.",
+      },
+    ],
+  },
+  {
+    id: 94,
+    themeWord: "PILOT",
+    words: [
+      {
+        word: "WING",
+        relation: "A wing generates the lift that keeps the pilot's aircraft aloft.",
+      },
+      {
+        word: "RADAR",
+        relation: "Radar guides the pilot through poor visibility and crowded skies.",
+      },
+      {
+        word: "RUNWAY",
+        relation: "The runway is the strip of tarmac where a pilot lands the plane.",
+      },
+    ],
+  },
+  {
+    id: 95,
+    themeWord: "LAWYER",
+    words: [
+      {
+        word: "CASE",
+        relation: "A case is the legal matter a lawyer argues in court.",
+      },
+      {
+        word: "BRIEF",
+        relation: "A brief is the written argument a lawyer submits to the judge.",
+      },
+      {
+        word: "RULING",
+        relation: "A ruling is the decision handed down after a lawyer presents a case.",
+      },
+    ],
+  },
+  {
+    id: 96,
+    themeWord: "ARTIST",
+    words: [
+      {
+        word: "DRAW",
+        relation: "To draw is the fundamental skill every artist develops first.",
+      },
+      {
+        word: "MURAL",
+        relation: "A mural is a large painting an artist creates directly on a wall.",
+      },
+      {
+        word: "PASTEL",
+        relation: "A pastel is a soft, chalky medium favoured by many artists.",
+      },
+    ],
+  },
+  {
+    id: 97,
+    themeWord: "AUTHOR",
+    words: [
+      {
+        word: "PLOT",
+        relation: "A plot is the sequence of events an author crafts into a story.",
+      },
+      {
+        word: "NOVEL",
+        relation: "A novel is the long-form work of fiction an author writes.",
+      },
+      {
+        word: "MEMOIR",
+        relation: "A memoir is a personal account an author writes from lived experience.",
+      },
+    ],
+  },
+  {
+    id: 98,
+    themeWord: "RANGER",
+    words: [
+      {
+        word: "HIKE",
+        relation: "A hike along backcountry paths is guided by the park ranger.",
+      },
+      {
+        word: "SCOUT",
+        relation: "To scout the terrain ahead is part of a ranger's daily patrol.",
+      },
+      {
+        word: "PATROL",
+        relation: "A patrol is the regular route a ranger walks to monitor the land.",
+      },
+    ],
+  },
+  {
+    id: 99,
+    themeWord: "DOCTOR",
+    words: [
+      {
+        word: "CURE",
+        relation: "A cure is the treatment a doctor seeks for every illness.",
+      },
+      {
+        word: "NURSE",
+        relation: "A nurse assists the doctor in caring for patients.",
+      },
+      {
+        word: "REMEDY",
+        relation: "A remedy is the medicine a doctor prescribes to restore health.",
+      },
+    ],
+  },
+  {
+    id: 100,
+    themeWord: "BANKER",
+    words: [
+      {
+        word: "LOAN",
+        relation: "A loan is the credit a banker extends to a borrower.",
+      },
+      {
+        word: "VAULT",
+        relation: "A vault is the secure room where a banker stores valuables.",
+      },
+      {
+        word: "PROFIT",
+        relation: "Profit is the financial return a banker earns on investments.",
+      },
+    ],
+  },
+  {
+    id: 101,
+    themeWord: "BUDGET",
+    words: [
+      {
+        word: "DEBT",
+        relation: "Debt grows when spending exceeds the limits of the budget.",
+      },
+      {
+        word: "AUDIT",
+        relation: "An audit reviews the numbers to ensure the budget is accurate.",
+      },
+      {
+        word: "SAVING",
+        relation: "Saving is the portion of income set aside within a careful budget.",
+      },
+    ],
+  },
+  {
+    id: 102,
+    themeWord: "RECIPE",
+    words: [
+      {
+        word: "CHEF",
+        relation: "A chef follows a recipe to create a perfect dish every time.",
+      },
+      {
+        word: "BLEND",
+        relation: "To blend ingredients together is a common step in any recipe.",
+      },
+      {
+        word: "SIMMER",
+        relation: "To simmer on low heat is an instruction found in many recipes.",
+      },
+    ],
+  },
+  {
+    id: 103,
+    themeWord: "GUITAR",
+    words: [
+      {
+        word: "PICK",
+        relation: "A pick is the small, flat tool used to strum a guitar.",
+      },
+      {
+        word: "CHORD",
+        relation: "A chord is a combination of notes played together on a guitar.",
+      },
+      {
+        word: "STRUNG",
+        relation: "A freshly strung guitar produces a bright, resonant tone.",
+      },
+    ],
+  },
+  {
+    id: 104,
+    themeWord: "VIOLIN",
+    words: [
+      {
+        word: "BOWS",
+        relation: "Bows are drawn across the strings to make a violin sing.",
+      },
+      {
+        word: "CELLO",
+        relation: "A cello is the violin's larger, deeper-voiced cousin.",
+      },
+      {
+        word: "STRING",
+        relation: "A string vibrates to produce the rich sound of the violin.",
+      },
+    ],
+  },
+  {
+    id: 105,
+    themeWord: "RHYTHM",
+    words: [
+      {
+        word: "DRUM",
+        relation: "A drum is the instrument that anchors the rhythm of a band.",
+      },
+      {
+        word: "TEMPO",
+        relation: "Tempo is the speed at which a musical rhythm is performed.",
+      },
+      {
+        word: "GROOVE",
+        relation: "A groove is the infectious, repeating rhythm that makes people dance.",
+      },
+    ],
+  },
 ];
 
 /**
