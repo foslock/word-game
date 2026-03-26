@@ -151,6 +151,51 @@ describe("US-3: Yellow letters are present somewhere but misplaced", () => {
     const result = evaluateCells(cells("ZBBB"), "BEAT", []);
     expect(result[0].status).toBe("absent");
   });
+
+  it("words solved in the same round should not give false cross-word yellows", () => {
+    // Simulates the IGLOO scenario: targets are SNOW, BLOCK, FROZEN.
+    // Player guesses ICED for SNOW, BLOCK for BLOCK, FROZEN for FROZEN.
+    // BLOCK and FROZEN solve this round, so C and E in ICED should NOT
+    // be yellow from cross-word hints — they should be grey.
+
+    const targets = ["SNOW", "BLOCK", "FROZEN"];
+    const guesses = [cells("ICED"), cells("BLOCK"), cells("FROZEN")];
+    const solved = [false, false, false];
+
+    // Pass 1: evaluate all unsolved words (same order as Game.handleSubmit)
+    const results = guesses.map((guess, i) => {
+      const otherUnsolved = targets
+        .filter((_, j) => j !== i && !solved[j])
+        .map((t, _) => t);
+      return evaluateCells(guess, targets[i], otherUnsolved);
+    });
+
+    // Mark newly solved words
+    const solvedThisRound: number[] = [];
+    results.forEach((r, i) => {
+      if (r.every((c) => c.status === "correct")) {
+        solved[i] = true;
+        solvedThisRound.push(i);
+      }
+    });
+    expect(solvedThisRound).toEqual([1, 2]); // BLOCK and FROZEN solved
+
+    // Pass 2: re-evaluate still-unsolved words with updated solved state
+    const finalResults = results.map((r, i) => {
+      if (solved[i]) return r;
+      const otherUnsolved = targets
+        .filter((_, j) => j !== i && !solved[j])
+        .map((t) => t);
+      return evaluateCells(guesses[i], targets[i], otherUnsolved);
+    });
+
+    // ICED vs SNOW: I=absent, C=absent, E=absent, D=absent
+    // (C and E are NOT in SNOW, and BLOCK/FROZEN are now solved)
+    expect(finalResults[0][0].status).toBe("absent"); // I
+    expect(finalResults[0][1].status).toBe("absent"); // C
+    expect(finalResults[0][2].status).toBe("absent"); // E
+    expect(finalResults[0][3].status).toBe("absent"); // D
+  });
 });
 
 // ---------------------------------------------------------------------------

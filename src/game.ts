@@ -635,6 +635,7 @@ export class Game {
 
     const solvedThisRound: number[] = [];
 
+    // Pass 1: evaluate all unsolved words and mark newly solved ones
     this.record.words.forEach((ws, wi) => {
       if (ws.solved) return;
       ws.attempts++;
@@ -660,6 +661,28 @@ export class Game {
         solvedThisRound.push(wi);
       }
     });
+
+    // Pass 2: re-evaluate any still-unsolved words now that newly solved
+    // words are excluded, so cross-word yellows don't reference solved words.
+    if (solvedThisRound.length > 0) {
+      this.record.words.forEach((ws, wi) => {
+        if (ws.solved) return;
+
+        const otherUnsolvedWords = this.record.words
+          .map((ws2, wi2) => ({ ws2, wi2 }))
+          .filter(({ ws2, wi2 }) => wi2 !== wi && !ws2.solved)
+          .map(({ ws2, wi2 }) => {
+            const target = this.level.words[wi2].word;
+            return target
+              .split("")
+              .filter((_, ci) => !ws2.cells[ci].locked)
+              .join("");
+          });
+
+        const reEvaluated = evaluateCells(ws.cells, this.level.words[wi].word, otherUnsolvedWords);
+        ws.cells = reEvaluated;
+      });
+    }
 
     // Merge new letter hints into the persistent map
     this.updateGuessedLetterMap();
