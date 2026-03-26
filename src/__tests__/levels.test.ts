@@ -82,15 +82,27 @@ describe("getLevelForDate", () => {
     expect(LEVELS.some((l) => l.id === level.id)).toBe(true);
   });
 
-  it("cycles through all levels across 50 consecutive dates", () => {
+  it("cycles through all levels within a single year", () => {
     const seen = new Set<number>();
     const base = new Date(2026, 0, 1);
-    for (let i = 0; i < 50; i++) {
+    // Check enough days to cover all levels (at least LEVELS.length)
+    const days = Math.max(LEVELS.length, 365);
+    for (let i = 0; i < days; i++) {
       const d = new Date(base);
       d.setDate(d.getDate() + i);
       seen.add(getLevelForDate(d).id);
     }
     LEVELS.forEach((l) => expect(seen.has(l.id)).toBe(true));
+  });
+
+  it("produces a different order for a different year", () => {
+    // The first day of two different years should (very likely) differ
+    const a = getLevelForDate(new Date(2026, 0, 1));
+    const b = getLevelForDate(new Date(2027, 0, 1));
+    const c = getLevelForDate(new Date(2028, 0, 1));
+    // At least two of the three years should start with a different level
+    const ids = new Set([a.id, b.id, c.id]);
+    expect(ids.size).toBeGreaterThanOrEqual(2);
   });
 
   it("returns the same level regardless of the time within a day", () => {
