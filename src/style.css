@@ -503,26 +503,6 @@ body.modal-open { overflow: hidden; }
   font-weight: 500;
 }
 
-/* Debug: Next Day button (temporary, for testing) */
-.next-day-btn {
-  margin-top: 16px;
-  padding: 8px 18px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--color-text-secondary);
-  background: transparent;
-  border: 1px dashed var(--color-text-muted);
-  border-radius: 8px;
-  cursor: pointer;
-  opacity: 0.6;
-  transition: opacity 0.2s, border-color 0.2s;
-}
-
-.next-day-btn:hover {
-  opacity: 1;
-  border-color: var(--color-text-secondary);
-}
-
 .guessed-letters {
   display: flex;
   flex-wrap: wrap;

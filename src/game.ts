@@ -38,14 +38,9 @@ export class Game {
   private animating = false;
   private abortController = new AbortController();
 
-  /** Day offset for testing — advances the simulated date. */
-  static dayOffset = 0;
-
-  /** Get the simulated "today" date (real date + dayOffset). */
+  /** Get today's date. */
   static getSimulatedDate(): Date {
-    const d = new Date();
-    d.setDate(d.getDate() + Game.dayOffset);
-    return d;
+    return new Date();
   }
 
   constructor(container: HTMLElement, level: Level) {
@@ -216,20 +211,6 @@ export class Game {
     } else {
       this.renderCompletionBanner();
     }
-
-    // Debug: Next Day button for testing
-    const nextDayBtn = document.createElement("button");
-    nextDayBtn.className = "next-day-btn";
-    nextDayBtn.textContent = "Next Day \u27A1";
-    nextDayBtn.title = "Advance to next day (testing only)";
-    nextDayBtn.addEventListener("click", () => {
-      Game.dayOffset++;
-      const nextDate = Game.getSimulatedDate();
-      const nextLevel = getLevelForDate(nextDate);
-      this.destroy();
-      new Game(this.container, nextLevel);
-    });
-    this.container.appendChild(nextDayBtn);
   }
 
   private buildCell(cell: CellState, wi: number, ci: number): HTMLElement {
