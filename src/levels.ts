@@ -6226,6 +6226,366 @@ export const LEVELS: Level[] = [
       },
     ],
   },
+  {
+    id: 346,
+    themeWord: "SIPHON",
+    words: [
+      {
+        word: "TUBE",
+        relation: "A tube is the essential channel through which a siphon draws liquid.",
+      },
+      {
+        word: "DRAIN",
+        relation: "A siphon can drain a container without tilting it.",
+      },
+      {
+        word: "FUNNEL",
+        relation: "A funnel helps direct liquid into the siphon tube.",
+      },
+    ],
+  },
+  {
+    id: 347,
+    themeWord: "PEWTER",
+    words: [
+      {
+        word: "DULL",
+        relation: "Pewter has a characteristically dull, matte finish.",
+      },
+      {
+        word: "ALLOY",
+        relation: "Pewter is a tin-based alloy mixed with small amounts of other metals.",
+      },
+      {
+        word: "GOBLET",
+        relation: "Pewter goblets were common drinking vessels in medieval taverns.",
+      },
+    ],
+  },
+  {
+    id: 348,
+    themeWord: "HORNET",
+    words: [
+      {
+        word: "HIVE",
+        relation: "A hornet colony builds its papery hive in sheltered spots.",
+      },
+      {
+        word: "STING",
+        relation: "A hornet's sting is notoriously painful and can be repeated.",
+      },
+      {
+        word: "INSECT",
+        relation: "The hornet is one of the largest and most aggressive insect species.",
+      },
+    ],
+  },
+  {
+    id: 349,
+    themeWord: "BOBBIN",
+    words: [
+      {
+        word: "SEAM",
+        relation: "Thread from a bobbin is stitched into every seam of a garment.",
+      },
+      {
+        word: "SPOOL",
+        relation: "A bobbin is a small spool that holds thread inside a sewing machine.",
+      },
+      {
+        word: "THREAD",
+        relation: "Thread is wound tightly around a bobbin for even stitching.",
+      },
+    ],
+  },
+  {
+    id: 350,
+    themeWord: "DAMASK",
+    words: [
+      {
+        word: "LOOM",
+        relation: "Damask fabric is woven on a special loom that creates its patterns.",
+      },
+      {
+        word: "WEAVE",
+        relation: "The distinctive damask weave reverses the pattern on its back side.",
+      },
+      {
+        word: "FLORAL",
+        relation: "Classic damask designs often feature elaborate floral motifs.",
+      },
+    ],
+  },
+  {
+    id: 351,
+    themeWord: "HEIFER",
+    words: [
+      {
+        word: "CALF",
+        relation: "A heifer is a young cow that has not yet had a calf.",
+      },
+      {
+        word: "DAIRY",
+        relation: "Heifers are raised on dairy farms to become future milk producers.",
+      },
+      {
+        word: "CATTLE",
+        relation: "A heifer is a female member of the cattle herd.",
+      },
+    ],
+  },
+  {
+    id: 352,
+    themeWord: "CASKET",
+    words: [
+      {
+        word: "SILK",
+        relation: "Fine silk lines the interior of many caskets.",
+      },
+      {
+        word: "LATCH",
+        relation: "A latch secures the lid of a casket closed.",
+      },
+      {
+        word: "COFFIN",
+        relation: "A casket and a coffin both serve as burial containers.",
+      },
+    ],
+  },
+  {
+    id: 353,
+    themeWord: "GIBBON",
+    words: [
+      {
+        word: "TREE",
+        relation: "Gibbons spend almost their entire lives high in the tree canopy.",
+      },
+      {
+        word: "SWING",
+        relation: "Gibbons swing gracefully from branch to branch using their long arms.",
+      },
+      {
+        word: "CANOPY",
+        relation: "The forest canopy is the primary habitat of the gibbon.",
+      },
+    ],
+  },
+  {
+    id: 354,
+    themeWord: "MEDLEY",
+    words: [
+      {
+        word: "TRIO",
+        relation: "A trio of songs can be arranged into a musical medley.",
+      },
+      {
+        word: "BLEND",
+        relation: "A medley is a blend of different tunes performed together.",
+      },
+      {
+        word: "VARIED",
+        relation: "A medley features a varied selection of pieces in one performance.",
+      },
+    ],
+  },
+  {
+    id: 355,
+    themeWord: "LINTEL",
+    words: [
+      {
+        word: "ARCH",
+        relation: "An arch and a lintel both span an opening to support weight above.",
+      },
+      {
+        word: "FRAME",
+        relation: "The lintel forms the top of a door frame.",
+      },
+      {
+        word: "MANTEL",
+        relation: "A mantel above a fireplace serves the same role as a lintel.",
+      },
+    ],
+  },
+  {
+    id: 356,
+    themeWord: "TURBOT",
+    words: [
+      {
+        word: "FLAT",
+        relation: "Turbot is a prized flat fish found in European waters.",
+      },
+      {
+        word: "FILET",
+        relation: "Chefs filet turbot carefully to preserve its delicate flesh.",
+      },
+      {
+        word: "PLAICE",
+        relation: "Turbot and plaice are both popular flatfish in fine dining.",
+      },
+    ],
+  },
+  {
+    id: 357,
+    themeWord: "FATHOM",
+    words: [
+      {
+        word: "DEEP",
+        relation: "A fathom measures six feet of deep ocean water.",
+      },
+      {
+        word: "GAUGE",
+        relation: "Sailors gauge water depth using fathoms.",
+      },
+      {
+        word: "PLUNGE",
+        relation: "To plunge into fathomless depths is to enter the unknown sea.",
+      },
+    ],
+  },
+  {
+    id: 358,
+    themeWord: "STANZA",
+    words: [
+      {
+        word: "POEM",
+        relation: "A poem is divided into stanzas like chapters in a book.",
+      },
+      {
+        word: "VERSE",
+        relation: "Each stanza contains one or more lines of verse.",
+      },
+      {
+        word: "SONNET",
+        relation: "A sonnet is structured into specific stanzas with a strict rhyme scheme.",
+      },
+    ],
+  },
+  {
+    id: 359,
+    themeWord: "BISQUE",
+    words: [
+      {
+        word: "CRAB",
+        relation: "Crab bisque is a rich, creamy soup made from shellfish.",
+      },
+      {
+        word: "CREAM",
+        relation: "Heavy cream gives bisque its signature velvety texture.",
+      },
+      {
+        word: "SHRIMP",
+        relation: "Shrimp bisque is one of the most popular versions of this classic soup.",
+      },
+    ],
+  },
+  {
+    id: 360,
+    themeWord: "CLOCHE",
+    words: [
+      {
+        word: "FELT",
+        relation: "Traditional cloche hats are made from shaped felt.",
+      },
+      {
+        word: "BERET",
+        relation: "A beret and a cloche are both close-fitting hats popular in the 1920s.",
+      },
+      {
+        word: "BONNET",
+        relation: "The cloche evolved from earlier bonnet styles into a sleeker silhouette.",
+      },
+    ],
+  },
+  {
+    id: 361,
+    themeWord: "GOPHER",
+    words: [
+      {
+        word: "HOLE",
+        relation: "A gopher digs its hole to create an underground tunnel network.",
+      },
+      {
+        word: "MOUND",
+        relation: "Gophers push excavated soil into a mound at the tunnel entrance.",
+      },
+      {
+        word: "BURROW",
+        relation: "A gopher's burrow can stretch many meters underground.",
+      },
+    ],
+  },
+  {
+    id: 362,
+    themeWord: "PUMICE",
+    words: [
+      {
+        word: "GRIT",
+        relation: "The grit of pumice makes it an effective natural abrasive.",
+      },
+      {
+        word: "SCRUB",
+        relation: "People scrub rough skin smooth using a pumice stone.",
+      },
+      {
+        word: "POROUS",
+        relation: "Pumice is so porous from gas bubbles that it floats on water.",
+      },
+    ],
+  },
+  {
+    id: 363,
+    themeWord: "GROCER",
+    words: [
+      {
+        word: "CART",
+        relation: "Shoppers push a cart through the grocer's aisles.",
+      },
+      {
+        word: "AISLE",
+        relation: "A grocer arranges products neatly along each aisle.",
+      },
+      {
+        word: "BASKET",
+        relation: "A basket is carried by shoppers picking up a few items at the grocer.",
+      },
+    ],
+  },
+  {
+    id: 364,
+    themeWord: "ABSURD",
+    words: [
+      {
+        word: "JOKE",
+        relation: "An absurd joke defies logic and catches the listener off guard.",
+      },
+      {
+        word: "FARCE",
+        relation: "A farce is a theatrical genre built on absurd situations.",
+      },
+      {
+        word: "LUNACY",
+        relation: "Lunacy describes the kind of wild absurd behavior that defies reason.",
+      },
+    ],
+  },
+  {
+    id: 365,
+    themeWord: "DAMSON",
+    words: [
+      {
+        word: "PLUM",
+        relation: "A damson is a small, tart variety of plum.",
+      },
+      {
+        word: "JELLY",
+        relation: "Damsons are traditionally cooked into a rich, dark jelly.",
+      },
+      {
+        word: "PURPLE",
+        relation: "Damsons have a distinctive deep purple skin.",
+      },
+    ],
+  },
 ];
 
 /**
