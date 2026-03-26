@@ -5146,6 +5146,366 @@ export const LEVELS: Level[] = [
       },
     ],
   },
+  {
+    id: 286,
+    themeWord: "CURFEW",
+    words: [
+      {
+        word: "LOCK",
+        relation: "Doors lock when curfew begins and the streets must be cleared.",
+      },
+      {
+        word: "NIGHT",
+        relation: "Night is when a curfew typically takes effect.",
+      },
+      {
+        word: "BANNED",
+        relation: "Movement is banned after hours once a curfew is declared.",
+      },
+    ],
+  },
+  {
+    id: 287,
+    themeWord: "FRENZY",
+    words: [
+      {
+        word: "RUSH",
+        relation: "A rush of frantic activity defines the peak of a frenzy.",
+      },
+      {
+        word: "CRAZE",
+        relation: "A craze sweeps through a crowd and becomes a buying frenzy.",
+      },
+      {
+        word: "FERVID",
+        relation: "Fervid excitement drives the crowd into an unstoppable frenzy.",
+      },
+    ],
+  },
+  {
+    id: 288,
+    themeWord: "DAGGER",
+    words: [
+      {
+        word: "HILT",
+        relation: "The hilt is the handle gripped when wielding a dagger.",
+      },
+      {
+        word: "BLADE",
+        relation: "A short, sharp blade distinguishes the dagger from longer weapons.",
+      },
+      {
+        word: "SHEATH",
+        relation: "A sheath conceals the dagger at the wearer's belt.",
+      },
+    ],
+  },
+  {
+    id: 289,
+    themeWord: "POTION",
+    words: [
+      {
+        word: "BREW",
+        relation: "To brew a potion requires rare ingredients and arcane knowledge.",
+      },
+      {
+        word: "FLASK",
+        relation: "A flask holds the finished potion ready for use.",
+      },
+      {
+        word: "ELIXIR",
+        relation: "An elixir is a potion believed to grant healing or eternal youth.",
+      },
+    ],
+  },
+  {
+    id: 290,
+    themeWord: "PORTAL",
+    words: [
+      {
+        word: "DOOR",
+        relation: "A door is the simplest form of portal between two spaces.",
+      },
+      {
+        word: "ENTER",
+        relation: "To enter through a portal is to cross from one world to another.",
+      },
+      {
+        word: "THRESH",
+        relation: "A threshold is the boundary one crosses when passing through a portal.",
+      },
+    ],
+  },
+  {
+    id: 291,
+    themeWord: "SENTRY",
+    words: [
+      {
+        word: "POST",
+        relation: "A post is the assigned station where a sentry stands watch.",
+      },
+      {
+        word: "GUARD",
+        relation: "To guard the gate is the primary duty of a sentry.",
+      },
+      {
+        word: "PATROL",
+        relation: "A patrol is the route a sentry walks to monitor the perimeter.",
+      },
+    ],
+  },
+  {
+    id: 292,
+    themeWord: "WEASEL",
+    words: [
+      {
+        word: "SLIM",
+        relation: "A slim body lets the weasel squeeze through the tiniest gaps.",
+      },
+      {
+        word: "SLINK",
+        relation: "To slink through the underbrush is the weasel's stealthy habit.",
+      },
+      {
+        word: "SNEAKY",
+        relation: "Sneaky and quick, the weasel is a master of surprise attacks.",
+      },
+    ],
+  },
+  {
+    id: 293,
+    themeWord: "CACTUS",
+    words: [
+      {
+        word: "BARB",
+        relation: "A barb is the sharp, hooked spine on the surface of a cactus.",
+      },
+      {
+        word: "THORN",
+        relation: "A thorn protects the cactus from animals seeking its stored water.",
+      },
+      {
+        word: "DESERT",
+        relation: "The desert is the arid habitat where the cactus thrives.",
+      },
+    ],
+  },
+  {
+    id: 294,
+    themeWord: "IGUANA",
+    words: [
+      {
+        word: "BASK",
+        relation: "To bask in the sun keeps the cold-blooded iguana warm.",
+      },
+      {
+        word: "SCALY",
+        relation: "Scaly skin covers every inch of the iguana's body.",
+      },
+      {
+        word: "LIZARD",
+        relation: "A lizard of impressive size, the iguana can grow over a metre long.",
+      },
+    ],
+  },
+  {
+    id: 295,
+    themeWord: "CONDOR",
+    words: [
+      {
+        word: "WING",
+        relation: "A wing spanning three metres lets the condor soar effortlessly.",
+      },
+      {
+        word: "GLIDE",
+        relation: "To glide on thermal updrafts is how the condor covers vast distances.",
+      },
+      {
+        word: "SOARED",
+        relation: "The condor soared high above the mountain peaks.",
+      },
+    ],
+  },
+  {
+    id: 296,
+    themeWord: "LOCUST",
+    words: [
+      {
+        word: "CROP",
+        relation: "A crop can be devastated overnight by a swarm of locusts.",
+      },
+      {
+        word: "FIELD",
+        relation: "A field stripped bare is the aftermath of a locust invasion.",
+      },
+      {
+        word: "PLAGUE",
+        relation: "A plague of locusts is one of the most feared agricultural disasters.",
+      },
+    ],
+  },
+  {
+    id: 297,
+    themeWord: "MURAL",
+    words: [
+      {
+        word: "WALL",
+        relation: "A wall is the large surface on which a mural is painted.",
+      },
+      {
+        word: "PAINT",
+        relation: "Paint is applied in layers to bring a mural's design to life.",
+      },
+      {
+        word: "FRESCO",
+        relation: "A fresco is a mural painted directly onto wet plaster.",
+      },
+    ],
+  },
+  {
+    id: 298,
+    themeWord: "ZENITH",
+    words: [
+      {
+        word: "APEX",
+        relation: "The apex is the highest point, synonymous with the zenith.",
+      },
+      {
+        word: "ABOVE",
+        relation: "Directly above the observer is where the zenith lies in the sky.",
+      },
+      {
+        word: "SUMMIT",
+        relation: "A summit represents the zenith of a mountain climber's ambition.",
+      },
+    ],
+  },
+  {
+    id: 299,
+    themeWord: "VORTEX",
+    words: [
+      {
+        word: "SPIN",
+        relation: "A spin of air or water forms the swirling centre of a vortex.",
+      },
+      {
+        word: "SWIRL",
+        relation: "A swirl of debris marks the visible path of a vortex.",
+      },
+      {
+        word: "FUNNEL",
+        relation: "A funnel shape narrows downward at the core of a vortex.",
+      },
+    ],
+  },
+  {
+    id: 300,
+    themeWord: "CUPOLA",
+    words: [
+      {
+        word: "DOME",
+        relation: "A dome crowns the building, and the cupola sits atop it.",
+      },
+      {
+        word: "ROUND",
+        relation: "A round, windowed structure, the cupola lets light into the building.",
+      },
+      {
+        word: "ARCHED",
+        relation: "Arched openings ring the cupola and provide panoramic views.",
+      },
+    ],
+  },
+  {
+    id: 301,
+    themeWord: "ANVIL",
+    words: [
+      {
+        word: "IRON",
+        relation: "Iron is heated and hammered into shape on the anvil.",
+      },
+      {
+        word: "FORGE",
+        relation: "A forge is the workshop where the anvil rings with each blow.",
+      },
+      {
+        word: "HAMMER",
+        relation: "A hammer strikes the hot metal resting on the anvil.",
+      },
+    ],
+  },
+  {
+    id: 302,
+    themeWord: "BONSAI",
+    words: [
+      {
+        word: "TRIM",
+        relation: "To trim branches and roots keeps a bonsai small and sculpted.",
+      },
+      {
+        word: "DWARF",
+        relation: "A dwarf tree cultivated in a pot is the art of bonsai.",
+      },
+      {
+        word: "PRUNED",
+        relation: "Carefully pruned over years, a bonsai becomes a living sculpture.",
+      },
+    ],
+  },
+  {
+    id: 303,
+    themeWord: "DUVET",
+    words: [
+      {
+        word: "DOWN",
+        relation: "Down feathers fill a duvet to provide lightweight warmth.",
+      },
+      {
+        word: "QUILT",
+        relation: "A quilt and a duvet both serve as warm bed coverings.",
+      },
+      {
+        word: "WARMTH",
+        relation: "Warmth trapped inside the duvet keeps sleepers cosy all night.",
+      },
+    ],
+  },
+  {
+    id: 304,
+    themeWord: "KERNEL",
+    words: [
+      {
+        word: "SEED",
+        relation: "A seed at the centre of a fruit is also called a kernel.",
+      },
+      {
+        word: "INNER",
+        relation: "The inner core of a nut or grain is its kernel.",
+      },
+      {
+        word: "SHEATH",
+        relation: "A sheath of husk protects the kernel inside an ear of corn.",
+      },
+    ],
+  },
+  {
+    id: 305,
+    themeWord: "FIDGET",
+    words: [
+      {
+        word: "SPIN",
+        relation: "To spin a small toy is the most popular way to fidget.",
+      },
+      {
+        word: "TWIRL",
+        relation: "To twirl a pen between fingers is a common fidget habit.",
+      },
+      {
+        word: "ROTATE",
+        relation: "To rotate a ring on your finger is a subtle way to fidget.",
+      },
+    ],
+  },
 ];
 
 /**
