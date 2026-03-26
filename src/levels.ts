@@ -5506,6 +5506,366 @@ export const LEVELS: Level[] = [
       },
     ],
   },
+  {
+    id: 306,
+    themeWord: "RAFTER",
+    words: [
+      {
+        word: "BEAM",
+        relation: "A beam is the heavy structural member similar to a rafter.",
+      },
+      {
+        word: "TRUSS",
+        relation: "A truss is the framework of rafters that supports a roof.",
+      },
+      {
+        word: "TIMBER",
+        relation: "Timber is the wood from which rafters are traditionally cut.",
+      },
+    ],
+  },
+  {
+    id: 307,
+    themeWord: "TEAPOT",
+    words: [
+      {
+        word: "POUR",
+        relation: "To pour from the spout is how tea leaves the teapot.",
+      },
+      {
+        word: "STEEP",
+        relation: "To steep the leaves inside the teapot releases their flavour.",
+      },
+      {
+        word: "KETTLE",
+        relation: "A kettle boils the water that is then poured into the teapot.",
+      },
+    ],
+  },
+  {
+    id: 308,
+    themeWord: "BELLOW",
+    words: [
+      {
+        word: "ROAR",
+        relation: "A roar is a powerful bellow that echoes across the land.",
+      },
+      {
+        word: "LUNGS",
+        relation: "Strong lungs are needed to produce a thunderous bellow.",
+      },
+      {
+        word: "FORGED",
+        relation: "Bellows forged the hot coals into a roaring fire at the smithy.",
+      },
+    ],
+  },
+  {
+    id: 309,
+    themeWord: "MALLET",
+    words: [
+      {
+        word: "HEAD",
+        relation: "The head of a mallet is the wide, flat striking surface.",
+      },
+      {
+        word: "POUND",
+        relation: "To pound a chisel with a mallet drives it into the wood.",
+      },
+      {
+        word: "WOODEN",
+        relation: "A wooden mallet is preferred for work that must not dent the surface.",
+      },
+    ],
+  },
+  {
+    id: 310,
+    themeWord: "KIMONO",
+    words: [
+      {
+        word: "SILK",
+        relation: "Silk is the traditional fabric from which a fine kimono is sewn.",
+      },
+      {
+        word: "DRAPE",
+        relation: "The elegant drape of a kimono follows the contours of the body.",
+      },
+      {
+        word: "FLORAL",
+        relation: "Floral patterns adorn the fabric of many ceremonial kimonos.",
+      },
+    ],
+  },
+  {
+    id: 311,
+    themeWord: "TYCOON",
+    words: [
+      {
+        word: "RICH",
+        relation: "Rich beyond measure, a tycoon commands vast business empires.",
+      },
+      {
+        word: "MOGUL",
+        relation: "A mogul is another word for a powerful industry tycoon.",
+      },
+      {
+        word: "EMPIRE",
+        relation: "An empire of companies is the hallmark of a successful tycoon.",
+      },
+    ],
+  },
+  {
+    id: 312,
+    themeWord: "BRIDLE",
+    words: [
+      {
+        word: "REIN",
+        relation: "A rein attaches to the bridle and gives the rider control.",
+      },
+      {
+        word: "HORSE",
+        relation: "A horse wears a bridle so it can be guided by its rider.",
+      },
+      {
+        word: "SADDLE",
+        relation: "A saddle and bridle together make up the basic riding tack.",
+      },
+    ],
+  },
+  {
+    id: 313,
+    themeWord: "FAUCET",
+    words: [
+      {
+        word: "DRIP",
+        relation: "A drip from a leaky faucet wastes water drop by drop.",
+      },
+      {
+        word: "VALVE",
+        relation: "A valve inside the faucet controls the flow of water.",
+      },
+      {
+        word: "SPIGOT",
+        relation: "A spigot is an outdoor faucet used for garden hoses.",
+      },
+    ],
+  },
+  {
+    id: 314,
+    themeWord: "GARLIC",
+    words: [
+      {
+        word: "BULB",
+        relation: "A bulb of garlic contains many individual cloves.",
+      },
+      {
+        word: "CLOVE",
+        relation: "A clove is one small segment peeled from a garlic bulb.",
+      },
+      {
+        word: "MINCED",
+        relation: "Minced garlic releases its pungent flavour into the dish.",
+      },
+    ],
+  },
+  {
+    id: 315,
+    themeWord: "MARROW",
+    words: [
+      {
+        word: "BONE",
+        relation: "Bone marrow fills the hollow centre of large bones.",
+      },
+      {
+        word: "BROTH",
+        relation: "Broth simmered from bones extracts rich marrow flavour.",
+      },
+      {
+        word: "NARROW",
+        relation: "Narrow channels inside bones contain the vital marrow.",
+      },
+    ],
+  },
+  {
+    id: 316,
+    themeWord: "BUNKER",
+    words: [
+      {
+        word: "SAND",
+        relation: "A sand bunker is a hazard that traps golf balls on the course.",
+      },
+      {
+        word: "BELOW",
+        relation: "Below the surface, a bunker provides shelter from attack.",
+      },
+      {
+        word: "DUGOUT",
+        relation: "A dugout is a simple, earth-covered bunker for soldiers.",
+      },
+    ],
+  },
+  {
+    id: 317,
+    themeWord: "BUGLE",
+    words: [
+      {
+        word: "HORN",
+        relation: "A horn instrument with no valves, the bugle plays simple calls.",
+      },
+      {
+        word: "NOTES",
+        relation: "A few clear notes from the bugle signal reveille at dawn.",
+      },
+      {
+        word: "SIGNAL",
+        relation: "A signal sounded on the bugle tells troops when to advance.",
+      },
+    ],
+  },
+  {
+    id: 318,
+    themeWord: "DORMER",
+    words: [
+      {
+        word: "EAVE",
+        relation: "An eave is the roof edge from which a dormer projects upward.",
+      },
+      {
+        word: "ATTIC",
+        relation: "An attic gains light and headroom through a dormer window.",
+      },
+      {
+        word: "WINDOW",
+        relation: "A window set into a dormer brightens the upper floor.",
+      },
+    ],
+  },
+  {
+    id: 319,
+    themeWord: "MUSKET",
+    words: [
+      {
+        word: "BALL",
+        relation: "A ball of lead is the projectile fired from a musket.",
+      },
+      {
+        word: "STOCK",
+        relation: "The stock is the wooden part of a musket braced against the shoulder.",
+      },
+      {
+        word: "MUZZLE",
+        relation: "The muzzle is the open end of the barrel from which a musket fires.",
+      },
+    ],
+  },
+  {
+    id: 320,
+    themeWord: "PISTON",
+    words: [
+      {
+        word: "PUMP",
+        relation: "A pump uses a piston to move fluids through a system.",
+      },
+      {
+        word: "VALVE",
+        relation: "A valve opens and closes in time with the piston's stroke.",
+      },
+      {
+        word: "STROKE",
+        relation: "A stroke is the full travel of a piston inside its cylinder.",
+      },
+    ],
+  },
+  {
+    id: 321,
+    themeWord: "GUTTER",
+    words: [
+      {
+        word: "RAIN",
+        relation: "Rain flows off the roof and into the gutter below.",
+      },
+      {
+        word: "DRAIN",
+        relation: "A drain at the end of the gutter carries water away.",
+      },
+      {
+        word: "TROUGH",
+        relation: "A trough-shaped channel, the gutter catches runoff from the roof.",
+      },
+    ],
+  },
+  {
+    id: 322,
+    themeWord: "CORSET",
+    words: [
+      {
+        word: "LACE",
+        relation: "Lace ties at the back pull a corset tight around the torso.",
+      },
+      {
+        word: "WAIST",
+        relation: "The waist is cinched narrow by the boning inside a corset.",
+      },
+      {
+        word: "BODICE",
+        relation: "A bodice is the upper garment that a corset shapes and supports.",
+      },
+    ],
+  },
+  {
+    id: 323,
+    themeWord: "LARIAT",
+    words: [
+      {
+        word: "LOOP",
+        relation: "A loop at the end of a lariat is swung overhead before throwing.",
+      },
+      {
+        word: "LASSO",
+        relation: "A lasso is another name for the lariat used to rope cattle.",
+      },
+      {
+        word: "COWBOY",
+        relation: "A cowboy twirls a lariat before roping a steer at the rodeo.",
+      },
+    ],
+  },
+  {
+    id: 324,
+    themeWord: "SOCKET",
+    words: [
+      {
+        word: "PLUG",
+        relation: "A plug is inserted into a socket to draw electrical power.",
+      },
+      {
+        word: "WIRED",
+        relation: "A wired connection from the socket delivers steady power.",
+      },
+      {
+        word: "OUTLET",
+        relation: "An outlet is a wall-mounted socket that provides electricity.",
+      },
+    ],
+  },
+  {
+    id: 325,
+    themeWord: "GIBBET",
+    words: [
+      {
+        word: "HANG",
+        relation: "To hang a criminal's body on display was the purpose of a gibbet.",
+      },
+      {
+        word: "NOOSE",
+        relation: "A noose dangles from the gibbet as a grim warning to all.",
+      },
+      {
+        word: "HANGED",
+        relation: "The condemned were hanged and displayed upon the gibbet.",
+      },
+    ],
+  },
 ];
 
 /**
