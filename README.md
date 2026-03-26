@@ -17,7 +17,15 @@ A daily browser word game where three mystery words are hidden — each one conn
     ├── levels.ts         # Level definitions and date-to-level selection logic
     ├── storage.ts        # LocalStorage helpers for daily state and all-time stats
     ├── game.ts           # Core game class: rendering, input handling, evaluation, animations
-    └── style.css         # Full UI stylesheet (dark theme, mobile-first, responsive)
+    ├── evaluate.ts       # Cell evaluation logic (green/yellow/grey with cross-word hints)
+    ├── dictionary.ts     # Word validation against a built-in word list
+    ├── style.css         # Full UI stylesheet (dark theme, mobile-first, responsive)
+    │
+    └── __tests__/        # Vitest test suite
+        ├── evaluate.test.ts
+        ├── levels.test.ts
+        ├── storage.test.ts
+        └── userStories.test.ts
 ```
 
 ---

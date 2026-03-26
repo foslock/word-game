@@ -36,6 +36,7 @@ export class Game {
   private submitWrapper!: HTMLDivElement;
   private submittedGuesses = new Set<string>();
   private animating = false;
+  private abortController = new AbortController();
 
   /** Day offset for testing — advances the simulated date. */
   static dayOffset = 0;
@@ -80,6 +81,23 @@ export class Game {
     this.render();
     this.attachListeners();
     this.placeCursorAtFirstEditable();
+
+    // Detect new day when tab regains focus (no page refresh needed)
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "visible") {
+        const now = getLocalDateString(Game.getSimulatedDate());
+        if (this.record.date !== now) {
+          this.destroy();
+          const newLevel = getLevelForDate(Game.getSimulatedDate());
+          new Game(this.container, newLevel);
+        }
+      }
+    }, { signal: this.abortController.signal });
+  }
+
+  private destroy(): void {
+    this.abortController.abort();
+    this.hiddenInput.remove();
   }
 
   // -------------------------------------------------------------------------
@@ -208,9 +226,7 @@ export class Game {
       Game.dayOffset++;
       const nextDate = Game.getSimulatedDate();
       const nextLevel = getLevelForDate(nextDate);
-      // Remove old hidden input
-      this.hiddenInput.remove();
-      // Re-init with new level/date
+      this.destroy();
       new Game(this.container, nextLevel);
     });
     this.container.appendChild(nextDayBtn);
@@ -408,7 +424,7 @@ export class Game {
       if (this.record.completed) return;
       if ((e.target as HTMLElement).closest(".modal")) return;
       this.handleKey(e);
-    });
+    }, { signal: this.abortController.signal });
 
     // Prevent the hidden input from showing composing text
     this.hiddenInput.addEventListener("input", () => {
@@ -630,9 +646,7 @@ export class Game {
     });
 
     // Snapshot current guessed letters before evaluation
-    const oldGuessedLetterMap = new Map(
-      this.getGuessedLetters().map((g) => [g.letter, g.status] as [string, "present" | "absent"])
-    );
+    const oldGuessedLetters = this.getGuessedLetters();
 
     // Evaluate each unsolved word
     this.record.totalAttempts++;
@@ -704,7 +718,7 @@ export class Game {
     // Animate the letter reveal
     this.animateLetterReveal(
       cellsToAnimate,
-      oldGuessedLetterMap,
+      oldGuessedLetters,
       newGuessedLetters,
       solvedThisRound,
       allSolved
@@ -717,7 +731,7 @@ export class Game {
 
   private animateLetterReveal(
     cellsToAnimate: { wi: number; ci: number }[],
-    oldGuessedLetterMap: Map<string, "present" | "absent">,
+    oldGuessedLetters: { letter: string; status: "present" | "absent" }[],
     newGuessedLetters: { letter: string; status: "present" | "absent" }[],
     solvedThisRound: number[],
     allSolved: boolean
@@ -732,12 +746,6 @@ export class Game {
     const flipDuration = 620;
     const staggerDelay = 80;
     const flipMidpoint = flipDuration * 0.45;
-
-    // Track which guessed letters have already been added during animation
-    const addedGuessedLetters = new Set<string>();
-
-    // Get or prepare guessed letters container
-    let guessedRow = this.container.querySelector<HTMLElement>(".guessed-letters");
 
     cellsToAnimate.forEach(({ wi, ci }, index) => {
       const delay = index * staggerDelay;
@@ -762,41 +770,6 @@ export class Game {
           );
           cellEl.classList.add(`status-${cell.status}`);
           if (cell.locked) cellEl.classList.add("locked");
-
-          const letter = cell.letter;
-
-          // Add new guessed letter chip for newly-revealed yellow/grey letters
-          if (
-            letter &&
-            !addedGuessedLetters.has(letter) &&
-            !oldGuessedLetterMap.has(letter) &&
-            (cell.status === "present" || cell.status === "absent")
-          ) {
-            const guessedEntry = newGuessedLetters.find(
-              (g) => g.letter === letter
-            );
-            if (guessedEntry) {
-              addedGuessedLetters.add(letter);
-
-              // Create container if needed
-              if (!guessedRow) {
-                const submitRow =
-                  this.container.querySelector(".submit-row");
-                if (submitRow) {
-                  guessedRow = document.createElement("div");
-                  guessedRow.className = "guessed-letters";
-                  submitRow.insertBefore(guessedRow, submitRow.firstChild);
-                }
-              }
-
-              if (guessedRow) {
-                const chip = document.createElement("div");
-                chip.className = `guessed-letter status-${guessedEntry.status} guessed-letter-enter`;
-                chip.textContent = letter;
-                guessedRow.appendChild(chip);
-              }
-            }
-          }
         }, flipMidpoint);
       }, delay);
     });
@@ -811,54 +784,33 @@ export class Game {
         el.classList.remove("flip-reveal");
       });
 
-      // Reconcile guessed letters display with final state
-      const finalGuessedLetterMap = new Map(
-        newGuessedLetters.map((g) => [g.letter, g.status] as [string, "present" | "absent"])
-      );
-      const currentGuessedRow =
-        this.container.querySelector<HTMLElement>(".guessed-letters");
+      // Rebuild guessed letters section in correct sorted order
+      const oldRow = this.container.querySelector<HTMLElement>(".guessed-letters");
+      if (oldRow) oldRow.remove();
 
-      if (currentGuessedRow) {
-        // Update or remove existing chips
-        Array.from(currentGuessedRow.children).forEach((chipEl) => {
-          const chipLetter = chipEl.textContent!;
-          const newStatus = finalGuessedLetterMap.get(chipLetter);
-
-          if (newStatus === undefined) {
-            // Letter no longer in guessed section — animate removal
-            const el = chipEl as HTMLElement;
-            el.style.transition = "opacity 0.3s, transform 0.3s";
-            el.style.opacity = "0";
-            el.style.transform = "scale(0.5)";
-            setTimeout(() => el.remove(), 300);
-          } else {
-            // Update chip class if status changed (yellow → grey degradation)
-            chipEl.classList.remove("status-present", "status-absent");
-            chipEl.classList.add(`status-${newStatus}`);
-          }
-        });
-
-        // Add any chips not yet in the row (e.g. letter only appeared in correct cells)
-        const existingLetters = new Set(
-          Array.from(currentGuessedRow.children).map((el) => el.textContent!)
-        );
-        for (const { letter, status } of newGuessedLetters) {
-          if (!existingLetters.has(letter)) {
-            const chip = document.createElement("div");
-            chip.className = `guessed-letter status-${status}`;
-            chip.textContent = letter;
-            currentGuessedRow.appendChild(chip);
-          }
-        }
-      } else if (newGuessedLetters.length > 0) {
-        // Create container with all chips if it doesn't exist yet
+      if (newGuessedLetters.length > 0) {
         const submitRow = this.container.querySelector(".submit-row");
         if (submitRow) {
+          // Determine which chips are new (for entrance animation)
+          const oldCounts = new Map<string, number>();
+          for (const { letter, status } of oldGuessedLetters) {
+            const key = `${letter}-${status}`;
+            oldCounts.set(key, (oldCounts.get(key) || 0) + 1);
+          }
+          const usedOld = new Map<string, number>();
+
           const newRow = document.createElement("div");
           newRow.className = "guessed-letters";
           for (const { letter, status } of newGuessedLetters) {
+            const key = `${letter}-${status}`;
+            const used = usedOld.get(key) || 0;
+            const available = oldCounts.get(key) || 0;
+            const isNew = used >= available;
+            usedOld.set(key, used + 1);
+
             const chip = document.createElement("div");
             chip.className = `guessed-letter status-${status}`;
+            if (isNew) chip.classList.add("guessed-letter-enter");
             chip.textContent = letter;
             newRow.appendChild(chip);
           }
@@ -1067,7 +1019,32 @@ export class Game {
 
   private getGuessedLetters(): { letter: string; status: "present" | "absent" }[] {
     const map = this.record.guessedLetterMap || {};
-    const letters = Object.entries(map).map(([letter, status]) => ({ letter, status }));
+    const letters: { letter: string; status: "present" | "absent" }[] = [];
+
+    for (const [letter, status] of Object.entries(map)) {
+      if (status === "present") {
+        // Show one chip per unlocked target instance so duplicates are visible
+        let totalInTargets = 0;
+        let lockedCount = 0;
+        for (let wi = 0; wi < this.level.words.length; wi++) {
+          const target = this.level.words[wi].word;
+          const ws = this.record.words[wi];
+          for (let ci = 0; ci < target.length; ci++) {
+            if (target[ci] === letter) {
+              totalInTargets++;
+              if (ws.cells[ci].locked) lockedCount++;
+            }
+          }
+        }
+        const count = Math.max(1, totalInTargets - lockedCount);
+        for (let i = 0; i < count; i++) {
+          letters.push({ letter, status });
+        }
+      } else {
+        letters.push({ letter, status });
+      }
+    }
+
     // Sort: yellows first, then greys; alphabetical within each group
     letters.sort((a, b) => {
       if (a.status !== b.status) return a.status === "present" ? -1 : 1;
