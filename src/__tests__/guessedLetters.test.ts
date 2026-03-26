@@ -2,7 +2,8 @@
  * Tests for guessed-letter display logic.
  *
  * Validates sorting (yellows before greys, alphabetical within groups),
- * duplicate chip counts, and letter retention after all instances are locked.
+ * duplicate chip counts, cross-word hint accuracy with locked letters,
+ * and map maintenance across submissions.
  */
 import { describe, it, expect } from "vitest";
 import { evaluateCells } from "../evaluate.js";
@@ -21,16 +22,28 @@ function cells(word: string): CellState[] {
   }));
 }
 
-/** Simulate a full submission: evaluate all unsolved words and update the map. */
+/**
+ * Simulate a full submission: evaluate all unsolved words and update the map.
+ * Mirrors game.ts behaviour — locked letters in other words are excluded from
+ * cross-word hints so already-found letters don't produce false yellows.
+ */
 function submitGuess(
-  guesses: string[],
+  _guesses: string[],
   targets: string[],
   words: WordState[],
   map: Record<string, "present" | "absent">
 ): void {
   for (let wi = 0; wi < words.length; wi++) {
     if (words[wi].solved) continue;
-    const otherUnsolved = targets.filter((_, i) => i !== wi && !words[i].solved);
+    const otherUnsolved = targets
+      .map((t, i) => ({ target: t, ws: words[i], idx: i }))
+      .filter(({ ws, idx }) => idx !== wi && !ws.solved)
+      .map(({ target, ws }) =>
+        target
+          .split("")
+          .filter((_, ci) => !ws.cells[ci].locked)
+          .join("")
+      );
     words[wi].cells = evaluateCells(words[wi].cells, targets[wi], otherUnsolved);
     if (words[wi].cells.every((c) => c.status === "correct")) {
       words[wi].solved = true;
@@ -84,29 +97,24 @@ describe("GARDEN scenario: SEER / TOWEL / ROVERS", () => {
     return { words, map };
   }
 
-  it("S remains in guessed section even though it is fully locked green", () => {
+  it("S is grey because all target instances are already locked green", () => {
     const { words, map } = setup();
-    const result = getGuessedLetters(map, words, targets);
-    const letters = result.map((r) => r.letter);
-    expect(letters).toContain("S");
-  });
-
-  it("S shows as yellow (present), not grey", () => {
-    const { words, map } = setup();
+    // S in SEED is locked green; ROVERS S should evaluate as absent
+    expect(map["S"]).toBe("absent");
     const result = getGuessedLetters(map, words, targets);
     const sEntry = result.find((r) => r.letter === "S");
     expect(sEntry).toBeDefined();
-    expect(sEntry!.status).toBe("present");
+    expect(sEntry!.status).toBe("absent");
   });
 
-  it("L appears only once (player saw 1 yellow L, not 2)", () => {
+  it("L appears only once (player saw 1 yellow L)", () => {
     const { words, map } = setup();
     const result = getGuessedLetters(map, words, targets);
     const lCount = result.filter((r) => r.letter === "L").length;
     expect(lCount).toBe(1);
   });
 
-  it("O appears twice (player saw 2 yellow Os), not 3", () => {
+  it("O appears twice (player saw 2 yellow Os, capped at 2)", () => {
     const { words, map } = setup();
     const result = getGuessedLetters(map, words, targets);
     const oCount = result.filter((r) => r.letter === "O").length;
@@ -132,7 +140,6 @@ describe("GARDEN scenario: SEER / TOWEL / ROVERS", () => {
     const { words, map } = setup();
     const result = getGuessedLetters(map, words, targets);
     const statuses = statusString(result);
-    // All Y's should come before any G
     const firstGrey = statuses.indexOf("G");
     const lastYellow = statuses.lastIndexOf("Y");
     if (firstGrey !== -1 && lastYellow !== -1) {
@@ -152,9 +159,110 @@ describe("GARDEN scenario: SEER / TOWEL / ROVERS", () => {
   it("produces the correct full chip sequence", () => {
     const { words, map } = setup();
     const result = getGuessedLetters(map, words, targets);
-    // Yellows: E, L, O, O, R, S, T, W — then grey: V
-    expect(letterString(result)).toBe("ELOORSTWV");
-    expect(statusString(result)).toBe("YYYYYYYYG");
+    // Yellows: E, L, O, O, R, T, W — then greys: S, V
+    expect(letterString(result)).toBe("ELOORTWSV");
+    expect(statusString(result)).toBe("YYYYYYYGG");
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Cross-word hints: locked letters must not produce false yellows
+// ---------------------------------------------------------------------------
+
+describe("Cross-word hints exclude locked (green) letters", () => {
+  it("a letter locked green in word A does not give a yellow hint in word B", () => {
+    // Target: SEED, SALT. Guess: SXXX, SXXX.
+    // S in SEED pos 0 = green (locked). When evaluating word 2 (SXXX vs SALT),
+    // the cross-word hint for SEED should NOT include S (it's locked).
+    // S at pos 0 of word 2 matches SALT pos 0 → green. No false yellow.
+    // But let's test a more revealing case:
+    // Target: SEED, BOOM. Guess: SEER, SAND.
+    // S in SEED pos 0 = green. S in SAND pos 0 vs BOOM: S is not in BOOM,
+    // and cross-word SEED-minus-locked = "D" (S,E,E locked). S not in "D" → grey.
+    const targets = ["SEED", "BOOM"];
+    const words = makeWords(["SEER", "SAND"]);
+    const map: Record<string, "present" | "absent"> = {};
+    submitGuess(["SEER", "SAND"], targets, words, map);
+
+    // S in word 2 (SAND) should be absent, not yellow
+    const sCell = words[1].cells[0]; // S at pos 0 of SAND
+    expect(sCell.status).toBe("absent");
+  });
+
+  it("unlocked letters in other words still provide cross-word hints", () => {
+    // Target: SEED, STAR. Guess: SXXX, EXXX.
+    // E in SEED: pos 1,2 not locked (guess is SXXX, S=green, X≠E).
+    // So cross-word for word 2 includes E from SEED.
+    // E at pos 0 of word 2 vs STAR: E not in STAR, but E is in SEED (unlocked) → yellow.
+    const targets = ["SEED", "STAR"];
+    const words = makeWords(["SXXX", "EXXX"]);
+    const map: Record<string, "present" | "absent"> = {};
+    submitGuess(["SXXX", "EXXX"], targets, words, map);
+
+    // E in word 2 should be yellow (cross-word from SEED's unlocked E's)
+    const eCell = words[1].cells[0]; // E at pos 0 of EXXX
+    expect(eCell.status).toBe("present");
+  });
+
+  it("a letter with some instances locked and some unlocked gives correct yellow count", () => {
+    // Target: SEED, ELSE. Guess SEXX, EXXX.
+    // SEED: S=green, E=green (pos 1), X≠E, X≠D. Locked: S(0), E(1).
+    // Cross-word for word 2: SEED minus locked = "ED" (pos 2 E, pos 3 D).
+    // E at pos 0 of EXXX vs ELSE: E=green (pos 0 matches). Not a cross-word case.
+    // Let's use: Target: SEES, ELSE. Guess: SEXX, EXXX.
+    // SEES: S=green(0), E=green(1), X≠E(2), X≠S(3). Locked: S(0), E(1).
+    // Remaining SEES letters = "ES" (pos 2 E, pos 3 S).
+    // Word 2 EXXX vs ELSE: E(0)=E green.
+    // Let's try: Target: SEES, AXLE. Guess: SEXX, ESXX.
+    // SEES: S=green(0), E=green(1). Remaining = "ES" (pos 2,3).
+    // Word 2: ESXX vs AXLE. E(0)≠A, S(1)≠X, X(2)≠L, X(3)≠E.
+    // Cross-word from SEES remaining "ES": E=1, S=1.
+    // E(0) not in AXLE remaining... actually E IS in AXLE (pos 3). Let me pick better targets.
+    // Target: SEES, BOLT. Guess: SEXX, ESXX.
+    // SEES: S=green(0), E=green(1). Remaining = "ES".
+    // Word 2: ESXX vs BOLT. E(0)≠B, S(1)≠O, X(2)≠L, X(3)≠T.
+    // Cross-word remaining "ES": E=1, S=1.
+    // E(0): not in BOLT. otherRemaining[E]=1 → yellow.
+    // S(1): not in BOLT. otherRemaining[S]=1 → yellow.
+    const targets = ["SEES", "BOLT"];
+    const words = makeWords(["SEXX", "ESXX"]);
+    const map: Record<string, "present" | "absent"> = {};
+    submitGuess(["SEXX", "ESXX"], targets, words, map);
+
+    // E at pos 0 of word 2 should be yellow (one E still unlocked in SEES)
+    expect(words[1].cells[0].status).toBe("present");
+    // S at pos 1 of word 2 should be yellow (one S still unlocked in SEES)
+    expect(words[1].cells[1].status).toBe("present");
+
+    // Guessed letters should show E and S as present
+    expect(map["E"]).toBe("present");
+    expect(map["S"]).toBe("present");
+  });
+
+  it("no false yellows when ALL instances of a letter are locked across words", () => {
+    // Target: SEAT, BEST. First guess locks some letters.
+    // Then second guess: letter appears but all target instances are locked → grey.
+    const targets = ["SEAT", "BEST"];
+    // Submission 1: lock S and E in both words
+    const words = makeWords(["SEXX", "BESX"]);
+    const map: Record<string, "present" | "absent"> = {};
+    submitGuess(["SEXX", "BESX"], targets, words, map);
+
+    // S locked in SEAT(0), and B=green,E=green,S=green in BEST(0,1,2)
+    // Now set up a second guess where S appears in the remaining cells
+    setGuess(words, ["SESX", "BESS"]);
+    submitGuess(["SESX", "BESS"], targets, words, map);
+
+    // After both submissions, S should not be yellow anywhere it's not correct
+    // (all S positions in targets should be locked)
+    for (let wi = 0; wi < words.length; wi++) {
+      for (const cell of words[wi].cells) {
+        if (cell.letter === "S" && !cell.locked) {
+          // Any unlocked S cell should NOT be yellow
+          expect(cell.status).not.toBe("present");
+        }
+      }
+    }
   });
 });
 
@@ -165,7 +273,6 @@ describe("GARDEN scenario: SEER / TOWEL / ROVERS", () => {
 describe("Guessed letters sorting", () => {
   it("yellows sort before greys", () => {
     const map: Record<string, "present" | "absent"> = { Z: "present", A: "absent" };
-    // Need cells with status to match
     const words: WordState[] = [{
       cells: [
         { letter: "Z", status: "present", locked: false },
@@ -201,8 +308,6 @@ describe("Guessed letters sorting", () => {
 
 describe("Duplicate yellow chips", () => {
   it("shows 2 chips when player sees 2 yellow cells and target has ≥2 unguessed", () => {
-    // Target BLOOM has O at positions 2,3. Guess YAHOO: O at 3,4 → both yellow.
-    // We'll manually set up the state.
     const targets = ["BLOOM"];
     const words: WordState[] = [{
       cells: [
@@ -222,8 +327,6 @@ describe("Duplicate yellow chips", () => {
   });
 
   it("caps duplicates at unguessed target count even if more yellow cells exist", () => {
-    // Target has 1 R (TROWEL pos 1). Player guesses 2 R's, both yellow.
-    // Should show only 1 R chip.
     const targets = ["TROWEL"];
     const words: WordState[] = [{
       cells: [
@@ -244,7 +347,6 @@ describe("Duplicate yellow chips", () => {
   });
 
   it("shows 1 chip when player sees 1 yellow even if target has more", () => {
-    // Target BLOOM has 2 O's but player only has 1 yellow O cell.
     const targets = ["BLOOM"];
     const words: WordState[] = [{
       cells: [
@@ -283,23 +385,11 @@ describe("Duplicate yellow chips", () => {
 });
 
 // ---------------------------------------------------------------------------
-// Letter retention: yellow letter stays after all target instances are locked
+// Map maintenance: yellow → grey degradation
 // ---------------------------------------------------------------------------
 
-describe("Yellow letter retention when fully locked", () => {
-  it("keeps a yellow letter in the map when all target instances are locked green", () => {
-    // S is in SEED at pos 0 (locked green), and player also saw S as yellow elsewhere
-    const targets = ["SEED", "BLOOM", "TROWEL"];
-    const words = makeWords(["SEER", "TOWEL", "ROVERS"]);
-    const map: Record<string, "present" | "absent"> = {};
-    submitGuess(["SEER", "TOWEL", "ROVERS"], targets, words, map);
-
-    expect(map["S"]).toBe("present");
-  });
-
-  it("degrades to grey when the letter is also guessed wrong (absent) this round", () => {
-    // If a letter is fully locked AND also appears grey in another cell this round,
-    // it degrades to "absent".
+describe("Guessed letter map maintenance", () => {
+  it("degrades yellow to grey when letter is fully locked AND also absent this round", () => {
     const targets = ["SEED", "BLOOM"];
     const words: WordState[] = [
       {
@@ -328,6 +418,37 @@ describe("Yellow letter retention when fully locked", () => {
     updateGuessedLetterMap(map, words, targets);
     expect(map["S"]).toBe("absent");
   });
+
+  it("removes yellow letter when fully locked and not absent this round", () => {
+    const targets = ["SEED", "BLOOM"];
+    const words: WordState[] = [
+      {
+        cells: [
+          { letter: "S", status: "correct", locked: true },
+          { letter: "E", status: "correct", locked: true },
+          { letter: "E", status: "correct", locked: true },
+          { letter: "D", status: "correct", locked: true },
+        ],
+        solved: true,
+        attempts: 1,
+      },
+      {
+        // S not guessed this round at all
+        cells: [
+          { letter: "B", status: "correct", locked: true },
+          { letter: "X", status: "absent", locked: false },
+          { letter: "X", status: "absent", locked: false },
+          { letter: "X", status: "absent", locked: false },
+          { letter: "X", status: "absent", locked: false },
+        ],
+        solved: false,
+        attempts: 1,
+      },
+    ];
+    const map: Record<string, "present" | "absent"> = { S: "present" };
+    updateGuessedLetterMap(map, words, targets);
+    expect(map["S"]).toBeUndefined();
+  });
 });
 
 // ---------------------------------------------------------------------------
@@ -344,10 +465,11 @@ describe("Guessed letters across multiple submissions", () => {
     submitGuess(["SEER", "TOWEL", "ROVERS"], targets, words, map);
 
     const result1 = getGuessedLetters(map, words, targets);
-    const letters1 = letterString(result1);
-    expect(letters1).toBe("ELOORSTWV");
+    // Yellows: E,L,O,O,R,T,W — Greys: S,V
+    expect(letterString(result1)).toBe("ELOORTWSV");
+    expect(statusString(result1)).toBe("YYYYYYYGG");
 
-    // Submission 2: change unsolved cells, resubmit with more O's discovered
+    // Submission 2: change unsolved cells, resubmit
     setGuess(words, ["SEER", "PROOF", "TROWEL"]);
     submitGuess(["SEER", "PROOF", "TROWEL"], targets, words, map);
 
@@ -355,7 +477,6 @@ describe("Guessed letters across multiple submissions", () => {
     expect(words[2].solved).toBe(true);
 
     const result2 = getGuessedLetters(map, words, targets);
-    // Only unsolved word is BLOOM now; guessed letters should reflect that
     const yellows2 = result2.filter((r) => r.status === "present");
     const greys2 = result2.filter((r) => r.status === "absent");
 

@@ -657,10 +657,18 @@ export class Game {
       if (ws.solved) return;
       ws.attempts++;
 
+      // Build cross-word hint strings with locked (green) letters removed so
+      // already-found letters don't produce false yellow hints.
       const otherUnsolvedWords = this.record.words
         .map((ws2, wi2) => ({ ws2, wi2 }))
         .filter(({ ws2, wi2 }) => wi2 !== wi && !ws2.solved)
-        .map(({ wi2 }) => this.level.words[wi2].word);
+        .map(({ ws2, wi2 }) => {
+          const target = this.level.words[wi2].word;
+          return target
+            .split("")
+            .filter((_, ci) => !ws2.cells[ci].locked)
+            .join("");
+        });
 
       const evaluated = evaluateCells(ws.cells, this.level.words[wi].word, otherUnsolvedWords);
       ws.cells = evaluated;
@@ -1039,8 +1047,10 @@ export function updateGuessedLetterMap(
       if (absentLetters.has(letter)) {
         // Letter also guessed wrong this round — degrade to grey
         map[letter] = "absent";
+      } else {
+        // All instances correctly placed, no wrong guesses — remove
+        delete map[letter];
       }
-      // Otherwise keep as "present" — the player learned this letter exists
     }
   }
 }
