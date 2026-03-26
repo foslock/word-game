@@ -2986,6 +2986,366 @@ export const LEVELS: Level[] = [
       },
     ],
   },
+  {
+    id: 166,
+    themeWord: "WOOL",
+    words: [
+      {
+        word: "LAMB",
+        relation: "A lamb provides the soft fleece that is shorn for wool.",
+      },
+      {
+        word: "SHEAR",
+        relation: "To shear a sheep is to clip its coat and collect the wool.",
+      },
+      {
+        word: "FLEECE",
+        relation: "A fleece is the entire coat of wool removed in one piece.",
+      },
+    ],
+  },
+  {
+    id: 167,
+    themeWord: "DENIM",
+    words: [
+      {
+        word: "JEAN",
+        relation: "A jean is the classic garment tailored from durable denim.",
+      },
+      {
+        word: "RIVET",
+        relation: "A rivet reinforces stress points on denim clothing.",
+      },
+      {
+        word: "FADING",
+        relation: "Fading gives worn denim its prized, lived-in character.",
+      },
+    ],
+  },
+  {
+    id: 168,
+    themeWord: "SILK",
+    words: [
+      {
+        word: "WORM",
+        relation: "A worm spins the fine filament that becomes silk thread.",
+      },
+      {
+        word: "SHEEN",
+        relation: "A lustrous sheen is the hallmark of genuine silk fabric.",
+      },
+      {
+        word: "SMOOTH",
+        relation: "Smooth to the touch, silk glides effortlessly against the skin.",
+      },
+    ],
+  },
+  {
+    id: 169,
+    themeWord: "NYLON",
+    words: [
+      {
+        word: "KNIT",
+        relation: "Knit stockings were among the first consumer products made of nylon.",
+      },
+      {
+        word: "FIBER",
+        relation: "A nylon fiber is strong, elastic, and resistant to abrasion.",
+      },
+      {
+        word: "WEAVER",
+        relation: "A weaver can produce lightweight, durable cloth from nylon thread.",
+      },
+    ],
+  },
+  {
+    id: 170,
+    themeWord: "SUEDE",
+    words: [
+      {
+        word: "SOFT",
+        relation: "Soft, velvety texture is the defining quality of suede.",
+      },
+      {
+        word: "BRUSH",
+        relation: "A brush restores the nap and removes dirt from suede.",
+      },
+      {
+        word: "SUPPLE",
+        relation: "Supple and flexible, suede drapes beautifully in garments.",
+      },
+    ],
+  },
+  {
+    id: 171,
+    themeWord: "ZIPPER",
+    words: [
+      {
+        word: "PULL",
+        relation: "A pull tab is the small handle you grip to open a zipper.",
+      },
+      {
+        word: "CLASP",
+        relation: "A clasp at the base locks the two halves of a zipper together.",
+      },
+      {
+        word: "FASTEN",
+        relation: "To fasten a garment quickly is the main purpose of a zipper.",
+      },
+    ],
+  },
+  {
+    id: 172,
+    themeWord: "BONNET",
+    words: [
+      {
+        word: "LACE",
+        relation: "Lace trim decorates the edges of a traditional bonnet.",
+      },
+      {
+        word: "VISOR",
+        relation: "A visor-like brim shades the face from the sun on a wide bonnet.",
+      },
+      {
+        word: "RIBBON",
+        relation: "A ribbon ties beneath the chin to hold a bonnet in place.",
+      },
+    ],
+  },
+  {
+    id: 173,
+    themeWord: "JACKET",
+    words: [
+      {
+        word: "COAT",
+        relation: "A coat and a jacket both serve to keep the body warm.",
+      },
+      {
+        word: "LAPEL",
+        relation: "A lapel is the folded flap on the front of a jacket.",
+      },
+      {
+        word: "BUTTON",
+        relation: "A button fastens the front of a jacket closed against the cold.",
+      },
+    ],
+  },
+  {
+    id: 174,
+    themeWord: "BLOUSE",
+    words: [
+      {
+        word: "CUFF",
+        relation: "A cuff is the folded band at the end of a blouse sleeve.",
+      },
+      {
+        word: "SKIRT",
+        relation: "A skirt is often paired with a blouse for a polished look.",
+      },
+      {
+        word: "COLLAR",
+        relation: "A collar frames the neckline of a well-tailored blouse.",
+      },
+    ],
+  },
+  {
+    id: 175,
+    themeWord: "VANITY",
+    words: [
+      {
+        word: "VAIN",
+        relation: "A vain person is driven by vanity and self-admiration.",
+      },
+      {
+        word: "PRIDE",
+        relation: "Excessive pride in one's appearance is a sign of vanity.",
+      },
+      {
+        word: "ADMIRE",
+        relation: "To admire one's own reflection is an act of pure vanity.",
+      },
+    ],
+  },
+  {
+    id: 176,
+    themeWord: "ANGER",
+    words: [
+      {
+        word: "FURY",
+        relation: "Fury is anger taken to its most intense extreme.",
+      },
+      {
+        word: "STORM",
+        relation: "To storm out of a room is a dramatic display of anger.",
+      },
+      {
+        word: "TEMPER",
+        relation: "A temper is the tendency to erupt in sudden anger.",
+      },
+    ],
+  },
+  {
+    id: 177,
+    themeWord: "GRIEF",
+    words: [
+      {
+        word: "WEEP",
+        relation: "To weep is the natural release of tears brought on by grief.",
+      },
+      {
+        word: "MOURN",
+        relation: "To mourn is to express grief over the loss of someone dear.",
+      },
+      {
+        word: "SORROW",
+        relation: "Sorrow is the deep sadness that accompanies prolonged grief.",
+      },
+    ],
+  },
+  {
+    id: 178,
+    themeWord: "TRUST",
+    words: [
+      {
+        word: "BOND",
+        relation: "A bond between people is built on mutual trust.",
+      },
+      {
+        word: "FAITH",
+        relation: "Faith is the confident belief that underpins trust.",
+      },
+      {
+        word: "HONEST",
+        relation: "Honest behaviour is the foundation on which trust is built.",
+      },
+    ],
+  },
+  {
+    id: 179,
+    themeWord: "HONOR",
+    words: [
+      {
+        word: "DUTY",
+        relation: "Duty is the obligation one fulfils to uphold personal honor.",
+      },
+      {
+        word: "VALOR",
+        relation: "Valor is the courage shown in battle that earns lasting honor.",
+      },
+      {
+        word: "SALUTE",
+        relation: "A salute is a gesture of respect that honors a fellow soldier.",
+      },
+    ],
+  },
+  {
+    id: 180,
+    themeWord: "WISDOM",
+    words: [
+      {
+        word: "SAGE",
+        relation: "A sage is a person revered for deep wisdom and insight.",
+      },
+      {
+        word: "LEARN",
+        relation: "To learn from experience is the surest path to wisdom.",
+      },
+      {
+        word: "SHREWD",
+        relation: "A shrewd judgement reflects practical wisdom in action.",
+      },
+    ],
+  },
+  {
+    id: 181,
+    themeWord: "BEAUTY",
+    words: [
+      {
+        word: "FAIR",
+        relation: "Fair features have long been celebrated as a mark of beauty.",
+      },
+      {
+        word: "GRACE",
+        relation: "Grace in movement is an effortless expression of beauty.",
+      },
+      {
+        word: "ALLURE",
+        relation: "Allure is the magnetic quality that draws others toward beauty.",
+      },
+    ],
+  },
+  {
+    id: 182,
+    themeWord: "DESIRE",
+    words: [
+      {
+        word: "WANT",
+        relation: "To want something deeply is the simplest form of desire.",
+      },
+      {
+        word: "YEARN",
+        relation: "To yearn is to feel a powerful, aching desire for something.",
+      },
+      {
+        word: "FERVOR",
+        relation: "Fervor is the intense passion that fuels an overwhelming desire.",
+      },
+    ],
+  },
+  {
+    id: 183,
+    themeWord: "MEMORY",
+    words: [
+      {
+        word: "PAST",
+        relation: "The past is the storehouse from which every memory is drawn.",
+      },
+      {
+        word: "VIVID",
+        relation: "A vivid memory replays in the mind with striking clarity.",
+      },
+      {
+        word: "RECALL",
+        relation: "To recall is to retrieve a memory from the depths of the mind.",
+      },
+    ],
+  },
+  {
+    id: 184,
+    themeWord: "WONDER",
+    words: [
+      {
+        word: "GAPE",
+        relation: "To gape open-mouthed is a natural reaction to wonder.",
+      },
+      {
+        word: "AMAZE",
+        relation: "To amaze is to fill someone with a sudden sense of wonder.",
+      },
+      {
+        word: "MARVEL",
+        relation: "A marvel is something so extraordinary it inspires wonder.",
+      },
+    ],
+  },
+  {
+    id: 185,
+    themeWord: "SORROW",
+    words: [
+      {
+        word: "WAIL",
+        relation: "A wail is the mournful cry that gives voice to deep sorrow.",
+      },
+      {
+        word: "TEARS",
+        relation: "Tears fall freely when sorrow overwhelms the heart.",
+      },
+      {
+        word: "LAMENT",
+        relation: "A lament is a song or poem expressing profound sorrow.",
+      },
+    ],
+  },
 ];
 
 /**
