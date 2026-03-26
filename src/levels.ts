@@ -4066,6 +4066,366 @@ export const LEVELS: Level[] = [
       },
     ],
   },
+  {
+    id: 226,
+    themeWord: "DONUTS",
+    words: [
+      {
+        word: "RING",
+        relation: "A ring shape with a hole in the centre is the classic form of a donut.",
+      },
+      {
+        word: "GLAZE",
+        relation: "A sweet glaze coats the surface of a freshly fried donut.",
+      },
+      {
+        word: "BATTER",
+        relation: "Batter is the wet dough mixture from which donuts are formed.",
+      },
+    ],
+  },
+  {
+    id: 227,
+    themeWord: "IGLOO",
+    words: [
+      {
+        word: "SNOW",
+        relation: "Snow is the building material carved into blocks for an igloo.",
+      },
+      {
+        word: "BLOCK",
+        relation: "A block of packed snow is stacked to form the walls of an igloo.",
+      },
+      {
+        word: "FROZEN",
+        relation: "Frozen conditions keep the igloo solid and structurally sound.",
+      },
+    ],
+  },
+  {
+    id: 228,
+    themeWord: "SALUTE",
+    words: [
+      {
+        word: "FLAG",
+        relation: "A flag is raised while troops stand at attention and salute.",
+      },
+      {
+        word: "TROOP",
+        relation: "A troop snaps to attention and delivers a crisp salute.",
+      },
+      {
+        word: "MARINE",
+        relation: "A marine renders a sharp salute to a superior officer.",
+      },
+    ],
+  },
+  {
+    id: 229,
+    themeWord: "TURRET",
+    words: [
+      {
+        word: "WALL",
+        relation: "A wall supports the turret that rises above the fortress.",
+      },
+      {
+        word: "TOWER",
+        relation: "A tower capped with a turret gives defenders an elevated position.",
+      },
+      {
+        word: "GUNNER",
+        relation: "A gunner mans the turret to defend the stronghold.",
+      },
+    ],
+  },
+  {
+    id: 230,
+    themeWord: "SONATA",
+    words: [
+      {
+        word: "KEYS",
+        relation: "Keys of a piano bring a sonata to life under skilled fingers.",
+      },
+      {
+        word: "PIANO",
+        relation: "A piano is the instrument most associated with the classical sonata.",
+      },
+      {
+        word: "MELODY",
+        relation: "A melody weaves through the movements of a well-crafted sonata.",
+      },
+    ],
+  },
+  {
+    id: 231,
+    themeWord: "OPERA",
+    words: [
+      {
+        word: "ARIA",
+        relation: "An aria is the solo vocal piece that is the highlight of an opera.",
+      },
+      {
+        word: "TENOR",
+        relation: "A tenor sings the heroic lead in many a grand opera.",
+      },
+      {
+        word: "SINGER",
+        relation: "A singer trained in opera commands both stage and audience.",
+      },
+    ],
+  },
+  {
+    id: 232,
+    themeWord: "FLUTE",
+    words: [
+      {
+        word: "REED",
+        relation: "A reed instrument sits beside the flute in the woodwind family.",
+      },
+      {
+        word: "NOTES",
+        relation: "Clear, bright notes pour from a well-played flute.",
+      },
+      {
+        word: "WOODEN",
+        relation: "Wooden flutes were the original form before metal became standard.",
+      },
+    ],
+  },
+  {
+    id: 233,
+    themeWord: "CHORUS",
+    words: [
+      {
+        word: "LINE",
+        relation: "A line of singers stands shoulder to shoulder in the chorus.",
+      },
+      {
+        word: "VOCAL",
+        relation: "Vocal harmony is the essence of a well-blended chorus.",
+      },
+      {
+        word: "UNISON",
+        relation: "Singing in unison is the simplest and most powerful choral technique.",
+      },
+    ],
+  },
+  {
+    id: 234,
+    themeWord: "BREEZE",
+    words: [
+      {
+        word: "GUST",
+        relation: "A gust is a sudden, stronger burst within a gentle breeze.",
+      },
+      {
+        word: "DRIFT",
+        relation: "Leaves drift lazily through the air on a light breeze.",
+      },
+      {
+        word: "GENTLE",
+        relation: "A gentle breeze cools the skin without disturbing anything.",
+      },
+    ],
+  },
+  {
+    id: 235,
+    themeWord: "BAZAAR",
+    words: [
+      {
+        word: "RUGS",
+        relation: "Rugs of every pattern hang on display throughout the bazaar.",
+      },
+      {
+        word: "SPICE",
+        relation: "Spice stalls fill the bazaar with rich, exotic aromas.",
+      },
+      {
+        word: "EXOTIC",
+        relation: "Exotic goods from distant lands are traded at the bazaar.",
+      },
+    ],
+  },
+  {
+    id: 236,
+    themeWord: "COBALT",
+    words: [
+      {
+        word: "BLUE",
+        relation: "Blue is the vivid colour most associated with cobalt pigment.",
+      },
+      {
+        word: "METAL",
+        relation: "A metal used in alloys and batteries, cobalt is industrially vital.",
+      },
+      {
+        word: "INDIGO",
+        relation: "Indigo and cobalt are both deep blue hues prized by artists.",
+      },
+    ],
+  },
+  {
+    id: 237,
+    themeWord: "FUNGUS",
+    words: [
+      {
+        word: "MOLD",
+        relation: "Mold is a common type of fungus that grows on damp surfaces.",
+      },
+      {
+        word: "SPORE",
+        relation: "A spore is the tiny reproductive cell by which a fungus spreads.",
+      },
+      {
+        word: "LICHEN",
+        relation: "Lichen is a partnership between a fungus and an alga.",
+      },
+    ],
+  },
+  {
+    id: 238,
+    themeWord: "HERMIT",
+    words: [
+      {
+        word: "LONE",
+        relation: "A lone figure living apart from society is the image of a hermit.",
+      },
+      {
+        word: "DWELL",
+        relation: "To dwell in solitude is the chosen life of a hermit.",
+      },
+      {
+        word: "CABINS",
+        relation: "Remote cabins in the wilderness are the typical homes of hermits.",
+      },
+    ],
+  },
+  {
+    id: 239,
+    themeWord: "MINNOW",
+    words: [
+      {
+        word: "FISH",
+        relation: "A fish of tiny size, the minnow darts through shallow water.",
+      },
+      {
+        word: "CREEK",
+        relation: "A creek is the clear, shallow stream where minnows thrive.",
+      },
+      {
+        word: "DARTED",
+        relation: "Minnows darted in silver flashes beneath the surface.",
+      },
+    ],
+  },
+  {
+    id: 240,
+    themeWord: "PICKLE",
+    words: [
+      {
+        word: "DILL",
+        relation: "Dill is the herb that gives the classic pickle its signature flavour.",
+      },
+      {
+        word: "CURED",
+        relation: "Cured in brine, a cucumber transforms into a crunchy pickle.",
+      },
+      {
+        word: "RELISH",
+        relation: "Relish is a chopped pickle condiment served on hot dogs.",
+      },
+    ],
+  },
+  {
+    id: 241,
+    themeWord: "SANDAL",
+    words: [
+      {
+        word: "SOLE",
+        relation: "A sole is the flat bottom of a sandal that touches the ground.",
+      },
+      {
+        word: "THONG",
+        relation: "A thong is the strap that passes between the toes on a sandal.",
+      },
+      {
+        word: "BUCKLE",
+        relation: "A buckle secures the ankle strap on a sturdy sandal.",
+      },
+    ],
+  },
+  {
+    id: 242,
+    themeWord: "CLARET",
+    words: [
+      {
+        word: "WINE",
+        relation: "Wine from Bordeaux is traditionally known as claret.",
+      },
+      {
+        word: "GRAPE",
+        relation: "A grape variety grown in Bordeaux produces fine claret.",
+      },
+      {
+        word: "MAROON",
+        relation: "Maroon is the deep, reddish hue that describes a rich claret.",
+      },
+    ],
+  },
+  {
+    id: 243,
+    themeWord: "LOCKER",
+    words: [
+      {
+        word: "BOLT",
+        relation: "A bolt secures the door of a locker against intruders.",
+      },
+      {
+        word: "COMBO",
+        relation: "A combo is the numbered sequence that opens a locker's padlock.",
+      },
+      {
+        word: "STORED",
+        relation: "Personal belongings are stored safely inside a locker.",
+      },
+    ],
+  },
+  {
+    id: 244,
+    themeWord: "QUIVER",
+    words: [
+      {
+        word: "DART",
+        relation: "A dart, like an arrow, can be carried in a quiver.",
+      },
+      {
+        word: "ARROW",
+        relation: "An arrow is drawn from the quiver and fitted to the bowstring.",
+      },
+      {
+        word: "SHAKER",
+        relation: "To quiver is to shake, and a shaker trembles in the same way.",
+      },
+    ],
+  },
+  {
+    id: 245,
+    themeWord: "RAPTOR",
+    words: [
+      {
+        word: "HAWK",
+        relation: "A hawk is a swift and agile raptor that hunts small prey.",
+      },
+      {
+        word: "TALON",
+        relation: "A talon is the curved claw that gives a raptor its lethal grip.",
+      },
+      {
+        word: "HUNTER",
+        relation: "Every raptor is a born hunter with keen eyesight and speed.",
+      },
+    ],
+  },
 ];
 
 /**
