@@ -3349,17 +3349,49 @@ export const LEVELS: Level[] = [
 ];
 
 /**
+ * Deterministic hash helper. Returns a 32-bit integer for any string key.
+ */
+function hashStr(s: string): number {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) {
+    h = (Math.imul(31, h) + s.charCodeAt(i)) | 0;
+  }
+  return h;
+}
+
+/**
+ * Build a deterministic permutation of indices [0..n) seeded by `year`.
+ * Uses a Fisher-Yates shuffle driven by a simple seeded PRNG.
+ */
+function shuffledIndices(n: number, year: number): number[] {
+  const indices = Array.from({ length: n }, (_, i) => i);
+  // Seed from year so the same year always gives the same order
+  let seed = Math.abs(hashStr(`year-${year}`));
+  for (let i = n - 1; i > 0; i--) {
+    // Simple LCG step
+    seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+    const j = seed % (i + 1);
+    [indices[i], indices[j]] = [indices[j], indices[i]];
+  }
+  return indices;
+}
+
+/**
  * Pick the level for a given local date.
- * Uses a simple deterministic hash of the date string so the same
- * date always produces the same level, cycling through all levels.
+ *
+ * Computes the day-of-year (0-indexed) and uses a yearly shuffle so the
+ * same 365 levels appear each year in a different, deterministic order.
+ * The same date always returns the same level.
  */
 export function getLevelForDate(date: Date): Level {
-  const key = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
-  let hash = 0;
-  for (let i = 0; i < key.length; i++) {
-    hash = (Math.imul(31, hash) + key.charCodeAt(i)) | 0;
-  }
-  const index = Math.abs(hash) % LEVELS.length;
+  const year = date.getFullYear();
+  const startOfYear = new Date(year, 0, 1);
+  const dayOfYear =
+    Math.floor(
+      (date.getTime() - startOfYear.getTime()) / 86400000
+    );
+  const perm = shuffledIndices(LEVELS.length, year);
+  const index = perm[dayOfYear % LEVELS.length];
   return LEVELS[index];
 }
 
