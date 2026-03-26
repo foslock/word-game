@@ -3706,6 +3706,366 @@ export const LEVELS: Level[] = [
       },
     ],
   },
+  {
+    id: 206,
+    themeWord: "PENCIL",
+    words: [
+      {
+        word: "LEAD",
+        relation: "Lead is the graphite core that leaves a mark inside a pencil.",
+      },
+      {
+        word: "ERASE",
+        relation: "To erase is to remove the marks a pencil leaves behind.",
+      },
+      {
+        word: "SKETCH",
+        relation: "A sketch is a quick drawing made with a pencil.",
+      },
+    ],
+  },
+  {
+    id: 207,
+    themeWord: "CRAYON",
+    words: [
+      {
+        word: "DRAW",
+        relation: "To draw bold, colourful pictures is what a crayon is made for.",
+      },
+      {
+        word: "COLOR",
+        relation: "A crayon brings colour to the pages of a colouring book.",
+      },
+      {
+        word: "PASTEL",
+        relation: "A pastel shade is a soft, muted colour found in many crayon sets.",
+      },
+    ],
+  },
+  {
+    id: 208,
+    themeWord: "ERASER",
+    words: [
+      {
+        word: "MARK",
+        relation: "A mark left by pencil is easily removed with an eraser.",
+      },
+      {
+        word: "CHALK",
+        relation: "Chalk dust is wiped from a blackboard with a felt eraser.",
+      },
+      {
+        word: "RUBBED",
+        relation: "Rubbed across the page, an eraser lifts graphite cleanly away.",
+      },
+    ],
+  },
+  {
+    id: 209,
+    themeWord: "MAGPIE",
+    words: [
+      {
+        word: "NEST",
+        relation: "A nest of sticks and mud is where the magpie raises its young.",
+      },
+      {
+        word: "SHINY",
+        relation: "Shiny objects are said to catch the curious eye of a magpie.",
+      },
+      {
+        word: "HOARDS",
+        relation: "A magpie hoards trinkets and treasures in its hidden stash.",
+      },
+    ],
+  },
+  {
+    id: 210,
+    themeWord: "COYOTE",
+    words: [
+      {
+        word: "HOWL",
+        relation: "A howl pierces the night as the coyote calls to its pack.",
+      },
+      {
+        word: "PROWL",
+        relation: "To prowl through the scrubland is how a coyote hunts for prey.",
+      },
+      {
+        word: "CRAFTY",
+        relation: "Crafty and resourceful, the coyote thrives in many habitats.",
+      },
+    ],
+  },
+  {
+    id: 211,
+    themeWord: "GOBLET",
+    words: [
+      {
+        word: "STEM",
+        relation: "A stem is the slender column that supports a goblet's bowl.",
+      },
+      {
+        word: "TOAST",
+        relation: "A toast is raised with goblets held high in celebration.",
+      },
+      {
+        word: "FLAGON",
+        relation: "A flagon is a large vessel from which a goblet is filled.",
+      },
+    ],
+  },
+  {
+    id: 212,
+    themeWord: "CLOVER",
+    words: [
+      {
+        word: "LEAF",
+        relation: "A leaf with three lobes is the recognisable shape of clover.",
+      },
+      {
+        word: "LUCKY",
+        relation: "A lucky four-leaf clover is a rare and treasured find.",
+      },
+      {
+        word: "TRIPLE",
+        relation: "A triple set of leaflets is the standard form of a clover.",
+      },
+    ],
+  },
+  {
+    id: 213,
+    themeWord: "PEBBLE",
+    words: [
+      {
+        word: "SKIP",
+        relation: "To skip a pebble across water is a timeless pastime.",
+      },
+      {
+        word: "ROUND",
+        relation: "Round and polished by the current, a river pebble feels smooth.",
+      },
+      {
+        word: "SMOOTH",
+        relation: "Smooth surfaces result from centuries of water tumbling a pebble.",
+      },
+    ],
+  },
+  {
+    id: 214,
+    themeWord: "ICICLE",
+    words: [
+      {
+        word: "DRIP",
+        relation: "A drip of meltwater runs down the length of a warming icicle.",
+      },
+      {
+        word: "THAWS",
+        relation: "An icicle thaws as temperatures rise above freezing.",
+      },
+      {
+        word: "FROZEN",
+        relation: "Frozen water takes the tapered shape of a hanging icicle.",
+      },
+    ],
+  },
+  {
+    id: 215,
+    themeWord: "BLAZE",
+    words: [
+      {
+        word: "HEAT",
+        relation: "Intense heat radiates outward from a roaring blaze.",
+      },
+      {
+        word: "EMBER",
+        relation: "An ember glows among the ashes after the blaze dies down.",
+      },
+      {
+        word: "SCORCH",
+        relation: "To scorch the earth is the destructive power of an unchecked blaze.",
+      },
+    ],
+  },
+  {
+    id: 216,
+    themeWord: "COMET",
+    words: [
+      {
+        word: "TAIL",
+        relation: "A tail of gas and dust streams behind a comet as it nears the sun.",
+      },
+      {
+        word: "ORBIT",
+        relation: "An elliptical orbit brings a comet close to the sun and then far away.",
+      },
+      {
+        word: "SHOWER",
+        relation: "A meteor shower occurs when Earth passes through a comet's debris trail.",
+      },
+    ],
+  },
+  {
+    id: 217,
+    themeWord: "LOCKET",
+    words: [
+      {
+        word: "GOLD",
+        relation: "Gold is the precious metal from which many lockets are crafted.",
+      },
+      {
+        word: "CHAIN",
+        relation: "A chain hangs around the neck to keep a locket close to the heart.",
+      },
+      {
+        word: "HINGED",
+        relation: "A hinged cover opens to reveal the tiny photo inside a locket.",
+      },
+    ],
+  },
+  {
+    id: 218,
+    themeWord: "KITTEN",
+    words: [
+      {
+        word: "PURR",
+        relation: "A purr is the contented vibration a happy kitten makes.",
+      },
+      {
+        word: "FURRY",
+        relation: "Furry and soft, a kitten is irresistible to pet.",
+      },
+      {
+        word: "FELINE",
+        relation: "A kitten is a young feline still discovering the world.",
+      },
+    ],
+  },
+  {
+    id: 219,
+    themeWord: "RIBBON",
+    words: [
+      {
+        word: "TIED",
+        relation: "Tied in a bow, a ribbon adds elegance to any gift.",
+      },
+      {
+        word: "SATIN",
+        relation: "Satin ribbon has a glossy sheen that catches the light.",
+      },
+      {
+        word: "CURLED",
+        relation: "Curled with scissors, a ribbon spirals into a festive decoration.",
+      },
+    ],
+  },
+  {
+    id: 220,
+    themeWord: "METEOR",
+    words: [
+      {
+        word: "FALL",
+        relation: "A fiery fall through the atmosphere marks the arrival of a meteor.",
+      },
+      {
+        word: "BLAZE",
+        relation: "A blaze of light streaks across the sky when a meteor burns up.",
+      },
+      {
+        word: "STREAK",
+        relation: "A bright streak is the visible trail left behind by a meteor.",
+      },
+    ],
+  },
+  {
+    id: 221,
+    themeWord: "PADDLE",
+    words: [
+      {
+        word: "OARS",
+        relation: "Oars and paddles both propel a boat through the water.",
+      },
+      {
+        word: "CANOE",
+        relation: "A canoe is the lightweight craft driven forward by a paddle.",
+      },
+      {
+        word: "KAYAKS",
+        relation: "Kayaks are navigated with a double-bladed paddle.",
+      },
+    ],
+  },
+  {
+    id: 222,
+    themeWord: "WALRUS",
+    words: [
+      {
+        word: "TUSK",
+        relation: "A tusk is the long, curved tooth that identifies the walrus.",
+      },
+      {
+        word: "IVORY",
+        relation: "Ivory from walrus tusks was once highly prized by traders.",
+      },
+      {
+        word: "ARCTIC",
+        relation: "Arctic seas and ice floes are the natural home of the walrus.",
+      },
+    ],
+  },
+  {
+    id: 223,
+    themeWord: "SPHINX",
+    words: [
+      {
+        word: "MYTH",
+        relation: "Myth surrounds the sphinx as a creature of ancient legend.",
+      },
+      {
+        word: "SANDY",
+        relation: "Sandy dunes surround the Great Sphinx on the Giza plateau.",
+      },
+      {
+        word: "RIDDLE",
+        relation: "A riddle posed to travellers is the sphinx's famous challenge.",
+      },
+    ],
+  },
+  {
+    id: 224,
+    themeWord: "PICNIC",
+    words: [
+      {
+        word: "ANTS",
+        relation: "Ants are the uninvited guests that always find the picnic.",
+      },
+      {
+        word: "GRASS",
+        relation: "A blanket spread on the grass is where a picnic begins.",
+      },
+      {
+        word: "BASKET",
+        relation: "A basket packed with food is carried to the perfect picnic spot.",
+      },
+    ],
+  },
+  {
+    id: 225,
+    themeWord: "QUICHE",
+    words: [
+      {
+        word: "EGGS",
+        relation: "Eggs form the rich, custard filling at the heart of a quiche.",
+      },
+      {
+        word: "CREAM",
+        relation: "Cream is blended with eggs to give quiche its silky texture.",
+      },
+      {
+        word: "PASTRY",
+        relation: "Pastry forms the crisp, buttery shell that holds a quiche together.",
+      },
+    ],
+  },
 ];
 
 /**
