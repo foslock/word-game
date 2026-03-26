@@ -5866,6 +5866,366 @@ export const LEVELS: Level[] = [
       },
     ],
   },
+  {
+    id: 326,
+    themeWord: "RAGOUT",
+    words: [
+      {
+        word: "STEW",
+        relation: "A stew of slow-cooked meat and vegetables is the basis of a ragout.",
+      },
+      {
+        word: "SAUCE",
+        relation: "A thick sauce binds the ingredients of a well-made ragout.",
+      },
+      {
+        word: "STEWED",
+        relation: "Stewed until tender, the meat in a ragout falls apart on the fork.",
+      },
+    ],
+  },
+  {
+    id: 327,
+    themeWord: "MANGO",
+    words: [
+      {
+        word: "RIPE",
+        relation: "A ripe mango yields to gentle pressure and smells sweetly fragrant.",
+      },
+      {
+        word: "JUICY",
+        relation: "Juicy flesh bursts with flavour when a ripe mango is sliced open.",
+      },
+      {
+        word: "TROPIC",
+        relation: "Tropic climates provide the warmth a mango tree needs to fruit.",
+      },
+    ],
+  },
+  {
+    id: 328,
+    themeWord: "VESSEL",
+    words: [
+      {
+        word: "HULL",
+        relation: "A hull is the watertight body that keeps a vessel afloat.",
+      },
+      {
+        word: "CARGO",
+        relation: "Cargo fills the holds of a merchant vessel bound for port.",
+      },
+      {
+        word: "SAILED",
+        relation: "The vessel sailed across the ocean under full canvas.",
+      },
+    ],
+  },
+  {
+    id: 329,
+    themeWord: "MIRAGE",
+    words: [
+      {
+        word: "HAZE",
+        relation: "A haze of shimmering heat gives rise to a mirage on the road.",
+      },
+      {
+        word: "OASIS",
+        relation: "An oasis seen in the distance may be nothing more than a mirage.",
+      },
+      {
+        word: "DESERT",
+        relation: "A desert is where mirages most commonly trick weary travellers.",
+      },
+    ],
+  },
+  {
+    id: 330,
+    themeWord: "FENNEL",
+    words: [
+      {
+        word: "HERB",
+        relation: "An herb with feathery fronds, fennel adds a fresh note to dishes.",
+      },
+      {
+        word: "ANISE",
+        relation: "Anise flavour is the distinctive taste that fennel provides.",
+      },
+      {
+        word: "BULBED",
+        relation: "A bulbed base is the crisp, edible part of the fennel plant.",
+      },
+    ],
+  },
+  {
+    id: 331,
+    themeWord: "POMADE",
+    words: [
+      {
+        word: "COMB",
+        relation: "A comb glides through hair smoothed with pomade.",
+      },
+      {
+        word: "SLICK",
+        relation: "A slick, glossy finish is the hallmark of well-applied pomade.",
+      },
+      {
+        word: "STYLED",
+        relation: "Hair styled with pomade holds its shape throughout the day.",
+      },
+    ],
+  },
+  {
+    id: 332,
+    themeWord: "CRAVAT",
+    words: [
+      {
+        word: "KNOT",
+        relation: "A knot tied at the throat secures a cravat in place.",
+      },
+      {
+        word: "SCARF",
+        relation: "A scarf worn around the neck in formal style is called a cravat.",
+      },
+      {
+        word: "SILKEN",
+        relation: "Silken fabric gives a cravat its smooth, elegant drape.",
+      },
+    ],
+  },
+  {
+    id: 333,
+    themeWord: "WOMBAT",
+    words: [
+      {
+        word: "BURR",
+        relation: "A burr caught in its thick fur is a common sight on a wombat.",
+      },
+      {
+        word: "POUCH",
+        relation: "A pouch that opens rearward protects the wombat's young from dirt.",
+      },
+      {
+        word: "MARSHY",
+        relation: "Marshy grasslands provide the wombat with food and soft digging ground.",
+      },
+    ],
+  },
+  {
+    id: 334,
+    themeWord: "TORQUE",
+    words: [
+      {
+        word: "TURN",
+        relation: "To turn a bolt with force is to apply torque.",
+      },
+      {
+        word: "FORCE",
+        relation: "Force applied at a distance from a pivot creates torque.",
+      },
+      {
+        word: "ROTATE",
+        relation: "To rotate an object around an axis requires torque.",
+      },
+    ],
+  },
+  {
+    id: 335,
+    themeWord: "LOOFAH",
+    words: [
+      {
+        word: "BATH",
+        relation: "A bath is where a loofah is most commonly used for scrubbing.",
+      },
+      {
+        word: "SCRUB",
+        relation: "To scrub dead skin away is the main purpose of a loofah.",
+      },
+      {
+        word: "SPONGE",
+        relation: "A sponge-like texture makes the loofah ideal for exfoliating.",
+      },
+    ],
+  },
+  {
+    id: 336,
+    themeWord: "GALOSH",
+    words: [
+      {
+        word: "BOOT",
+        relation: "A boot worn over shoes, the galosh keeps feet dry in the rain.",
+      },
+      {
+        word: "MUDDY",
+        relation: "Muddy paths are no problem when wearing a pair of galoshes.",
+      },
+      {
+        word: "RUBBED",
+        relation: "Rubbed clean after a walk, galoshes are ready for the next outing.",
+      },
+    ],
+  },
+  {
+    id: 337,
+    themeWord: "PAPAYA",
+    words: [
+      {
+        word: "PULP",
+        relation: "Soft, orange pulp fills the centre of a ripe papaya.",
+      },
+      {
+        word: "FRUIT",
+        relation: "A fruit of tropical origin, the papaya is rich in vitamins.",
+      },
+      {
+        word: "SEEDED",
+        relation: "Seeded with small black pearls, the papaya is scooped and eaten fresh.",
+      },
+    ],
+  },
+  {
+    id: 338,
+    themeWord: "TROWEL",
+    words: [
+      {
+        word: "FLAT",
+        relation: "A flat blade spreads mortar evenly when using a trowel.",
+      },
+      {
+        word: "LAYER",
+        relation: "A layer of cement is applied to brick with each pass of the trowel.",
+      },
+      {
+        word: "MORTAR",
+        relation: "Mortar is scooped and spread between bricks with a trowel.",
+      },
+    ],
+  },
+  {
+    id: 339,
+    themeWord: "SLEDGE",
+    words: [
+      {
+        word: "SNOW",
+        relation: "Snow provides the slippery surface a sledge glides across.",
+      },
+      {
+        word: "PULLS",
+        relation: "A team of dogs pulls the sledge across the frozen landscape.",
+      },
+      {
+        word: "DRIVEN",
+        relation: "Driven by huskies, the sledge races through the arctic wilderness.",
+      },
+    ],
+  },
+  {
+    id: 340,
+    themeWord: "RADISH",
+    words: [
+      {
+        word: "BULB",
+        relation: "A bulb of bright red, the radish adds crunch to any salad.",
+      },
+      {
+        word: "SHARP",
+        relation: "A sharp, peppery bite is the signature flavour of a radish.",
+      },
+      {
+        word: "SALADS",
+        relation: "Salads gain colour and crunch from thinly sliced radishes.",
+      },
+    ],
+  },
+  {
+    id: 341,
+    themeWord: "SHOVEL",
+    words: [
+      {
+        word: "DIRT",
+        relation: "Dirt is lifted and moved with every scoop of the shovel.",
+      },
+      {
+        word: "SPADE",
+        relation: "A spade is a flat-bladed shovel used for cutting into soil.",
+      },
+      {
+        word: "TRENCH",
+        relation: "A trench is dug with a shovel one load of earth at a time.",
+      },
+    ],
+  },
+  {
+    id: 342,
+    themeWord: "MUFFIN",
+    words: [
+      {
+        word: "BAKE",
+        relation: "To bake a batch of muffins fills the kitchen with warm aromas.",
+      },
+      {
+        word: "DOUGH",
+        relation: "Dough is spooned into tins to form individual muffins.",
+      },
+      {
+        word: "RAISIN",
+        relation: "A raisin studded throughout adds sweetness to a bran muffin.",
+      },
+    ],
+  },
+  {
+    id: 343,
+    themeWord: "PLIERS",
+    words: [
+      {
+        word: "GRIP",
+        relation: "A firm grip on wire or metal is what pliers provide.",
+      },
+      {
+        word: "CLAMP",
+        relation: "To clamp down on a small object is the basic action of pliers.",
+      },
+      {
+        word: "PRYING",
+        relation: "Prying staples from wood is a common use for a pair of pliers.",
+      },
+    ],
+  },
+  {
+    id: 344,
+    themeWord: "CUCKOO",
+    words: [
+      {
+        word: "CALL",
+        relation: "A call of two notes gives the cuckoo its onomatopoeic name.",
+      },
+      {
+        word: "CLOCK",
+        relation: "A clock featuring a mechanical bird is named after the cuckoo.",
+      },
+      {
+        word: "NESTED",
+        relation: "The cuckoo nested in another bird's home, leaving its egg behind.",
+      },
+    ],
+  },
+  {
+    id: 345,
+    themeWord: "CAVIAR",
+    words: [
+      {
+        word: "SALT",
+        relation: "Salt is used to cure and preserve the delicate eggs in caviar.",
+      },
+      {
+        word: "OUNCE",
+        relation: "An ounce of fine caviar can command a very high price.",
+      },
+      {
+        word: "LUXURY",
+        relation: "Luxury dining often features caviar as its most prized delicacy.",
+      },
+    ],
+  },
 ];
 
 /**
