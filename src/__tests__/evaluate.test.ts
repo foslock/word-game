@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { evaluateCells, allFilled } from "../evaluate.js";
+import { evaluateCells, getCrossWordHintPool, allFilled } from "../evaluate.js";
 import type { CellState } from "../storage.js";
 
 // ---------------------------------------------------------------------------
@@ -221,6 +221,52 @@ describe("evaluateCells — cross-word hints with locked letters excluded", () =
     const result = evaluateCells(cells("ABCD"), "WXYZ", [""]);
     // No cross-word hints available; everything absent from both target and other
     expect(result.every((c) => c.status === "absent")).toBe(true);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// getCrossWordHintPool
+// ---------------------------------------------------------------------------
+
+describe("getCrossWordHintPool", () => {
+  it("returns letters in the target not covered by any green or yellow in the guess", () => {
+    // Target BEAT; guess TEBA → T=yellow(B), E=yellow(E), B=yellow(A), A=yellow(T)
+    // All 4 letters are matched → pool is empty
+    const pool = getCrossWordHintPool("BEAT", cells("TEBA"));
+    expect(pool).toBe("");
+  });
+
+  it("returns unmatched target letters when the guess only covers some", () => {
+    // Target BEAT; guess ZZZZ → nothing matches, pool = BEAT
+    const pool = getCrossWordHintPool("BEAT", cells("ZZZZ"));
+    expect([...pool].sort().join("")).toBe("ABET");
+  });
+
+  it("returns unmatched letters after green is consumed", () => {
+    // Target BEAT; guess BZZZ → B is green, pool = EAT
+    const pool = getCrossWordHintPool("BEAT", cells("BZZZ"));
+    expect([...pool].sort().join("")).toBe("AET");
+  });
+
+  it("does not double-count a letter that is both guessed and in the target", () => {
+    // Target BEATS (one E); guess EEZXX → first E green at pos 1, second E yellow
+    // Both E occurrences consumed → pool = ATS (minus the green B and E)
+    const pool = getCrossWordHintPool("BEATS", cells("EEZXX"));
+    // BEATS: B=0,E=1,A=2,T=3,S=4
+    // Guess EEZXX: pos1 E=E(target[1]) → green; pos0 E → yellow (consumes the E); pool = BATS
+    expect([...pool].sort().join("")).toBe("ABST");
+  });
+
+  it("prevents double-yellow: E shown yellow in word Y should not also give cross-word yellow in word X", () => {
+    // Simulates the screenshot bug:
+    // Word Y target = "STRIPE_TARGET" contains one E.
+    // Word Y guess = "SIDE" → E at pos 3 is yellow (E is in Y's target, wrong pos).
+    // getCrossWordHintPool should NOT include that E in the pool for word X.
+    //
+    // Concrete: target "SEAT", guess "SIDE" → S=green, I=absent, D=absent, E=yellow.
+    // Pool should exclude the E (already used as yellow) and the S (green). Remaining = AT.
+    const pool = getCrossWordHintPool("SEAT", cells("SIDE"));
+    expect([...pool].sort().join("")).toBe("AT");
   });
 });
 

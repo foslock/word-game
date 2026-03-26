@@ -11,7 +11,7 @@ import {
   saveDailyRecord,
   saveStats,
 } from "./storage.js";
-import { evaluateCells, allFilled as allFilledFn } from "./evaluate.js";
+import { evaluateCells, getCrossWordHintPool, allFilled as allFilledFn } from "./evaluate.js";
 import { isValidWord } from "./dictionary.js";
 
 // ---------------------------------------------------------------------------
@@ -640,18 +640,16 @@ export class Game {
       if (ws.solved) return;
       ws.attempts++;
 
-      // Build cross-word hint strings with locked (green) letters removed so
-      // already-found letters don't produce false yellow hints.
+      // Build cross-word hint strings using only letters from other words'
+      // targets that are not already revealed by those words' own evaluations.
+      // This prevents a letter that shows yellow in word Y from also being
+      // counted as a cross-word yellow hint in word X (double yellow bug).
       const otherUnsolvedWords = this.record.words
         .map((ws2, wi2) => ({ ws2, wi2 }))
         .filter(({ ws2, wi2 }) => wi2 !== wi && !ws2.solved)
-        .map(({ ws2, wi2 }) => {
-          const target = this.level.words[wi2].word;
-          return target
-            .split("")
-            .filter((_, ci) => !ws2.cells[ci].locked)
-            .join("");
-        });
+        .map(({ ws2, wi2 }) =>
+          getCrossWordHintPool(this.level.words[wi2].word, ws2.cells)
+        );
 
       const evaluated = evaluateCells(ws.cells, this.level.words[wi].word, otherUnsolvedWords);
       ws.cells = evaluated;
@@ -671,13 +669,9 @@ export class Game {
         const otherUnsolvedWords = this.record.words
           .map((ws2, wi2) => ({ ws2, wi2 }))
           .filter(({ ws2, wi2 }) => wi2 !== wi && !ws2.solved)
-          .map(({ ws2, wi2 }) => {
-            const target = this.level.words[wi2].word;
-            return target
-              .split("")
-              .filter((_, ci) => !ws2.cells[ci].locked)
-              .join("");
-          });
+          .map(({ ws2, wi2 }) =>
+            getCrossWordHintPool(this.level.words[wi2].word, ws2.cells)
+          );
 
         const reEvaluated = evaluateCells(ws.cells, this.level.words[wi].word, otherUnsolvedWords);
         ws.cells = reEvaluated;
