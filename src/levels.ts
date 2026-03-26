@@ -826,6 +826,366 @@ export const LEVELS: Level[] = [
       },
     ],
   },
+  {
+    id: 46,
+    themeWord: "ROCKET",
+    words: [
+      {
+        word: "FUEL",
+        relation: "Fuel is the propellant that powers a rocket into orbit.",
+      },
+      {
+        word: "BOOST",
+        relation: "A boost from the engines lifts the rocket off the launch pad.",
+      },
+      {
+        word: "LAUNCH",
+        relation: "A launch is the dramatic moment a rocket leaves the ground.",
+      },
+    ],
+  },
+  {
+    id: 47,
+    themeWord: "TUNNEL",
+    words: [
+      {
+        word: "BORE",
+        relation: "To bore is to drill through rock to carve out a tunnel.",
+      },
+      {
+        word: "SHAFT",
+        relation: "A shaft is a vertical passage connected to a tunnel underground.",
+      },
+      {
+        word: "BURROW",
+        relation: "A burrow is a small, natural tunnel dug by an animal.",
+      },
+    ],
+  },
+  {
+    id: 48,
+    themeWord: "MAGNET",
+    words: [
+      {
+        word: "PULL",
+        relation: "A pull toward metal objects is the invisible force of a magnet.",
+      },
+      {
+        word: "POLAR",
+        relation: "Polar refers to the north and south ends of a magnet.",
+      },
+      {
+        word: "CHARGE",
+        relation: "Electric charge and magnetism are deeply linked physical forces.",
+      },
+    ],
+  },
+  {
+    id: 49,
+    themeWord: "BASKET",
+    words: [
+      {
+        word: "HOOP",
+        relation: "A hoop is the rim through which a basketball drops into the basket.",
+      },
+      {
+        word: "WEAVE",
+        relation: "To weave strips of material together is how a basket is made.",
+      },
+      {
+        word: "WICKER",
+        relation: "Wicker is the woven material traditionally used to craft a basket.",
+      },
+    ],
+  },
+  {
+    id: 50,
+    themeWord: "COTTON",
+    words: [
+      {
+        word: "BALE",
+        relation: "A bale is a large, compressed bundle of harvested cotton.",
+      },
+      {
+        word: "CLOTH",
+        relation: "Cloth is the fabric woven from spun cotton fibers.",
+      },
+      {
+        word: "THREAD",
+        relation: "Thread is the thin strand of twisted cotton used for sewing.",
+      },
+    ],
+  },
+  {
+    id: 51,
+    themeWord: "LEMON",
+    words: [
+      {
+        word: "PEEL",
+        relation: "The peel is the bright yellow outer skin of a lemon.",
+      },
+      {
+        word: "JUICE",
+        relation: "Juice is the tart liquid squeezed from inside a lemon.",
+      },
+      {
+        word: "CITRUS",
+        relation: "Citrus is the family of fruits to which the lemon belongs.",
+      },
+    ],
+  },
+  {
+    id: 52,
+    themeWord: "WALNUT",
+    words: [
+      {
+        word: "HULL",
+        relation: "The hull is the tough green casing surrounding a walnut.",
+      },
+      {
+        word: "SHELL",
+        relation: "The shell is the hard, ridged coat you crack to reach a walnut.",
+      },
+      {
+        word: "KERNEL",
+        relation: "The kernel is the edible meat found inside the walnut shell.",
+      },
+    ],
+  },
+  {
+    id: 53,
+    themeWord: "PEPPER",
+    words: [
+      {
+        word: "MILD",
+        relation: "Mild describes a pepper with gentle heat and no sharp bite.",
+      },
+      {
+        word: "SPICY",
+        relation: "Spicy is the fiery sensation a hot pepper delivers to the palate.",
+      },
+      {
+        word: "GROUND",
+        relation: "Ground pepper is the powdered form used to season dishes.",
+      },
+    ],
+  },
+  {
+    id: 54,
+    themeWord: "FALCON",
+    words: [
+      {
+        word: "BEAK",
+        relation: "A sharp, hooked beak helps the falcon tear into its prey.",
+      },
+      {
+        word: "SWOOP",
+        relation: "A falcon will swoop at tremendous speed to catch its target.",
+      },
+      {
+        word: "TALONS",
+        relation: "Talons are the powerful, curved claws a falcon uses to grip prey.",
+      },
+    ],
+  },
+  {
+    id: 55,
+    themeWord: "RABBIT",
+    words: [
+      {
+        word: "EARS",
+        relation: "Long ears help a rabbit detect predators from a great distance.",
+      },
+      {
+        word: "HUTCH",
+        relation: "A hutch is the wooden enclosure used to house a pet rabbit.",
+      },
+      {
+        word: "WARREN",
+        relation: "A warren is a network of underground tunnels where rabbits live.",
+      },
+    ],
+  },
+  {
+    id: 56,
+    themeWord: "SPIDER",
+    words: [
+      {
+        word: "SILK",
+        relation: "Silk is the strong, fine material a spider spins into webs.",
+      },
+      {
+        word: "CRAWL",
+        relation: "To crawl across surfaces is how a spider moves on its eight legs.",
+      },
+      {
+        word: "COBWEB",
+        relation: "A cobweb is the dusty, abandoned web of a spider.",
+      },
+    ],
+  },
+  {
+    id: 57,
+    themeWord: "WHALE",
+    words: [
+      {
+        word: "DIVE",
+        relation: "A deep dive takes the whale far beneath the ocean surface.",
+      },
+      {
+        word: "SPOUT",
+        relation: "A spout of mist erupts when a whale exhales at the surface.",
+      },
+      {
+        word: "BALEEN",
+        relation: "Baleen plates filter tiny prey from seawater inside the whale's mouth.",
+      },
+    ],
+  },
+  {
+    id: 58,
+    themeWord: "TURTLE",
+    words: [
+      {
+        word: "SLOW",
+        relation: "A slow, steady pace is the trademark of the turtle on land.",
+      },
+      {
+        word: "MARSH",
+        relation: "A marsh is a wetland habitat favored by many freshwater turtles.",
+      },
+      {
+        word: "MARINE",
+        relation: "Marine turtles travel vast distances across the open ocean.",
+      },
+    ],
+  },
+  {
+    id: 59,
+    themeWord: "MONKEY",
+    words: [
+      {
+        word: "HANG",
+        relation: "To hang from branches by their tails is a skill many monkeys share.",
+      },
+      {
+        word: "CLIMB",
+        relation: "To climb nimbly through the treetops is second nature to a monkey.",
+      },
+      {
+        word: "BANANA",
+        relation: "A banana is the fruit most famously associated with monkeys.",
+      },
+    ],
+  },
+  {
+    id: 60,
+    themeWord: "SALMON",
+    words: [
+      {
+        word: "SWIM",
+        relation: "To swim upstream against the current is the salmon's epic journey.",
+      },
+      {
+        word: "SPAWN",
+        relation: "To spawn is the act of laying eggs that drives the salmon home.",
+      },
+      {
+        word: "FILLET",
+        relation: "A fillet is a boneless cut of salmon prepared for cooking.",
+      },
+    ],
+  },
+  {
+    id: 61,
+    themeWord: "INSECT",
+    words: [
+      {
+        word: "BUZZ",
+        relation: "A buzz is the vibrating sound many flying insects produce.",
+      },
+      {
+        word: "LARVA",
+        relation: "A larva is the early life stage of an insect before it transforms.",
+      },
+      {
+        word: "BEETLE",
+        relation: "A beetle is the most species-rich order of insect on Earth.",
+      },
+    ],
+  },
+  {
+    id: 62,
+    themeWord: "EAGLE",
+    words: [
+      {
+        word: "SOAR",
+        relation: "To soar on rising thermals is how an eagle covers great distances.",
+      },
+      {
+        word: "TALON",
+        relation: "A talon is the razor-sharp claw an eagle uses to seize prey.",
+      },
+      {
+        word: "RAPTOR",
+        relation: "A raptor is a bird of prey, and the eagle is among the largest.",
+      },
+    ],
+  },
+  {
+    id: 63,
+    themeWord: "SNAKE",
+    words: [
+      {
+        word: "FANG",
+        relation: "A fang is the hollow tooth through which a snake delivers venom.",
+      },
+      {
+        word: "VENOM",
+        relation: "Venom is the toxic substance a snake injects with its bite.",
+      },
+      {
+        word: "SCALES",
+        relation: "Scales are the overlapping plates that cover a snake's body.",
+      },
+    ],
+  },
+  {
+    id: 64,
+    themeWord: "TIGER",
+    words: [
+      {
+        word: "CLAW",
+        relation: "A claw is the retractable weapon on each of the tiger's paws.",
+      },
+      {
+        word: "PROWL",
+        relation: "To prowl silently through the grass is how a tiger stalks prey.",
+      },
+      {
+        word: "STRIPE",
+        relation: "A stripe pattern camouflages the tiger among tall grasses.",
+      },
+    ],
+  },
+  {
+    id: 65,
+    themeWord: "SHARK",
+    words: [
+      {
+        word: "BITE",
+        relation: "A bite from rows of razor teeth makes the shark a feared predator.",
+      },
+      {
+        word: "TEETH",
+        relation: "Teeth are constantly replaced throughout a shark's lifetime.",
+      },
+      {
+        word: "DORSAL",
+        relation: "The dorsal fin cutting through the water is the shark's iconic silhouette.",
+      },
+    ],
+  },
 ];
 
 /**
