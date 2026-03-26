@@ -2626,6 +2626,366 @@ export const LEVELS: Level[] = [
       },
     ],
   },
+  {
+    id: 146,
+    themeWord: "HEALTH",
+    words: [
+      {
+        word: "ACHE",
+        relation: "An ache is a persistent pain that signals declining health.",
+      },
+      {
+        word: "TONIC",
+        relation: "A tonic is a restorative drink believed to boost health.",
+      },
+      {
+        word: "CLINIC",
+        relation: "A clinic is a facility where people go to maintain their health.",
+      },
+    ],
+  },
+  {
+    id: 147,
+    themeWord: "MUSCLE",
+    words: [
+      {
+        word: "FLEX",
+        relation: "To flex is to contract and tighten a muscle.",
+      },
+      {
+        word: "BICEP",
+        relation: "The bicep is the prominent muscle on the front of the upper arm.",
+      },
+      {
+        word: "STRAIN",
+        relation: "A strain is an injury caused by overstretching a muscle.",
+      },
+    ],
+  },
+  {
+    id: 148,
+    themeWord: "VISION",
+    words: [
+      {
+        word: "BLUR",
+        relation: "A blur is the loss of sharpness that impairs vision.",
+      },
+      {
+        word: "SIGHT",
+        relation: "Sight is the sense most closely associated with vision.",
+      },
+      {
+        word: "RETINA",
+        relation: "The retina is the layer at the back of the eye that enables vision.",
+      },
+    ],
+  },
+  {
+    id: 149,
+    themeWord: "TONGUE",
+    words: [
+      {
+        word: "TANG",
+        relation: "A tang is a sharp, biting flavour detected by the tongue.",
+      },
+      {
+        word: "TASTE",
+        relation: "Taste is the sense carried by receptors on the tongue.",
+      },
+      {
+        word: "PALATE",
+        relation: "The palate works with the tongue to perceive complex flavours.",
+      },
+    ],
+  },
+  {
+    id: 150,
+    themeWord: "SPIRIT",
+    words: [
+      {
+        word: "AURA",
+        relation: "An aura is the subtle energy field said to surround a spirit.",
+      },
+      {
+        word: "GHOST",
+        relation: "A ghost is a spirit that lingers in the world of the living.",
+      },
+      {
+        word: "SEANCE",
+        relation: "A seance is a gathering held to contact spirits of the departed.",
+      },
+    ],
+  },
+  {
+    id: 151,
+    themeWord: "WEALTH",
+    words: [
+      {
+        word: "CASH",
+        relation: "Cash is the most liquid form of personal wealth.",
+      },
+      {
+        word: "PURSE",
+        relation: "A purse holds the coins and notes that represent everyday wealth.",
+      },
+      {
+        word: "RICHES",
+        relation: "Riches describe an abundance of wealth and valuable possessions.",
+      },
+    ],
+  },
+  {
+    id: 152,
+    themeWord: "BARTER",
+    words: [
+      {
+        word: "SWAP",
+        relation: "A swap is a direct exchange of goods at the heart of barter.",
+      },
+      {
+        word: "TRADE",
+        relation: "Trade without money is the essence of a barter system.",
+      },
+      {
+        word: "HAGGLE",
+        relation: "To haggle over fair value is a key part of bartering.",
+      },
+    ],
+  },
+  {
+    id: 153,
+    themeWord: "LEDGER",
+    words: [
+      {
+        word: "BOOK",
+        relation: "A book of accounts is the traditional form of a ledger.",
+      },
+      {
+        word: "DEBIT",
+        relation: "A debit is an entry on one side of a ledger recording money owed.",
+      },
+      {
+        word: "RECORD",
+        relation: "A record of every transaction is kept inside the ledger.",
+      },
+    ],
+  },
+  {
+    id: 154,
+    themeWord: "INVEST",
+    words: [
+      {
+        word: "BOND",
+        relation: "A bond is a fixed-income instrument people invest in for steady returns.",
+      },
+      {
+        word: "YIELD",
+        relation: "Yield is the income earned on money you invest.",
+      },
+      {
+        word: "RETURN",
+        relation: "A return is the profit or loss realized on an investment.",
+      },
+    ],
+  },
+  {
+    id: 155,
+    themeWord: "PALACE",
+    words: [
+      {
+        word: "HALL",
+        relation: "A hall is the grand, echoing room at the heart of a palace.",
+      },
+      {
+        word: "GRAND",
+        relation: "Grand architecture and lavish decor define every palace.",
+      },
+      {
+        word: "LAVISH",
+        relation: "Lavish furnishings fill the rooms of a royal palace.",
+      },
+    ],
+  },
+  {
+    id: 156,
+    themeWord: "TEMPLE",
+    words: [
+      {
+        word: "PRAY",
+        relation: "To pray is the central act of devotion performed at a temple.",
+      },
+      {
+        word: "ALTAR",
+        relation: "An altar is the sacred platform at the centre of a temple.",
+      },
+      {
+        word: "SACRED",
+        relation: "Sacred rituals and rites take place within the temple walls.",
+      },
+    ],
+  },
+  {
+    id: 157,
+    themeWord: "STATUE",
+    words: [
+      {
+        word: "POSE",
+        relation: "A pose is the fixed position captured forever in a statue.",
+      },
+      {
+        word: "STONE",
+        relation: "Stone is the enduring material from which many statues are carved.",
+      },
+      {
+        word: "BRONZE",
+        relation: "Bronze is a metal alloy commonly cast into public statues.",
+      },
+    ],
+  },
+  {
+    id: 158,
+    themeWord: "BEACON",
+    words: [
+      {
+        word: "GLOW",
+        relation: "A glow from the beacon guides travellers through the darkness.",
+      },
+      {
+        word: "GUIDE",
+        relation: "To guide ships safely is the primary purpose of a beacon.",
+      },
+      {
+        word: "SIGNAL",
+        relation: "A signal from a beacon warns of danger or marks a safe route.",
+      },
+    ],
+  },
+  {
+    id: 159,
+    themeWord: "BORDER",
+    words: [
+      {
+        word: "GATE",
+        relation: "A gate controls who passes through the border crossing.",
+      },
+      {
+        word: "FENCE",
+        relation: "A fence marks the physical line along a border.",
+      },
+      {
+        word: "PICKET",
+        relation: "A picket fence is a classic border between neighbouring properties.",
+      },
+    ],
+  },
+  {
+    id: 160,
+    themeWord: "STABLE",
+    words: [
+      {
+        word: "BARN",
+        relation: "A barn often adjoins the stable where horses are kept.",
+      },
+      {
+        word: "HORSE",
+        relation: "A horse is fed, groomed, and sheltered inside a stable.",
+      },
+      {
+        word: "CORRAL",
+        relation: "A corral is the fenced enclosure next to a stable for exercise.",
+      },
+    ],
+  },
+  {
+    id: 161,
+    themeWord: "KENNEL",
+    words: [
+      {
+        word: "BARK",
+        relation: "A bark echoes from the kennel whenever a stranger approaches.",
+      },
+      {
+        word: "LEASH",
+        relation: "A leash hangs by the kennel door, ready for the daily walk.",
+      },
+      {
+        word: "CANINE",
+        relation: "A canine is the four-legged resident of every kennel.",
+      },
+    ],
+  },
+  {
+    id: 162,
+    themeWord: "BAKERY",
+    words: [
+      {
+        word: "LOAF",
+        relation: "A loaf of bread is the staple product of any bakery.",
+      },
+      {
+        word: "DOUGH",
+        relation: "Dough is mixed and kneaded fresh each morning at the bakery.",
+      },
+      {
+        word: "PASTRY",
+        relation: "Pastry is the flaky, buttery creation showcased in the bakery window.",
+      },
+    ],
+  },
+  {
+    id: 163,
+    themeWord: "CELLAR",
+    words: [
+      {
+        word: "WINE",
+        relation: "Wine is stored in cool racks that line the cellar walls.",
+      },
+      {
+        word: "AGING",
+        relation: "Aging in a dark cellar allows wine to develop complex flavours.",
+      },
+      {
+        word: "STORED",
+        relation: "Stored provisions fill the shelves of a well-stocked cellar.",
+      },
+    ],
+  },
+  {
+    id: 164,
+    themeWord: "PANTRY",
+    words: [
+      {
+        word: "CANS",
+        relation: "Cans of food line the shelves of a well-organized pantry.",
+      },
+      {
+        word: "SHELF",
+        relation: "A shelf in the pantry holds dry goods and staple ingredients.",
+      },
+      {
+        word: "LARDER",
+        relation: "A larder is an old-fashioned word for a cool pantry for perishables.",
+      },
+    ],
+  },
+  {
+    id: 165,
+    themeWord: "GALLEY",
+    words: [
+      {
+        word: "COOK",
+        relation: "A cook prepares meals for the crew in the ship's galley.",
+      },
+      {
+        word: "STOVE",
+        relation: "A stove is bolted to the floor of the galley to stay put at sea.",
+      },
+      {
+        word: "RATION",
+        relation: "A ration is the measured portion of food served from the galley.",
+      },
+    ],
+  },
 ];
 
 /**
