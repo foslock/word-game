@@ -466,6 +466,366 @@ export const LEVELS: Level[] = [
       },
     ],
   },
+  {
+    id: 26,
+    themeWord: "EARTH",
+    words: [
+      {
+        word: "SOIL",
+        relation: "Soil is the fertile layer of earth where plants take root.",
+      },
+      {
+        word: "CRUST",
+        relation: "The crust is the thin, rocky outer shell of the earth.",
+      },
+      {
+        word: "GROUND",
+        relation: "The ground is the solid surface of the earth beneath our feet.",
+      },
+    ],
+  },
+  {
+    id: 27,
+    themeWord: "SMOKE",
+    words: [
+      {
+        word: "SOOT",
+        relation: "Soot is the black residue left behind by rising smoke.",
+      },
+      {
+        word: "FUMES",
+        relation: "Fumes are the noxious gases carried upward with smoke.",
+      },
+      {
+        word: "EXHALE",
+        relation: "To exhale a puff of smoke is to release it from the lungs.",
+      },
+    ],
+  },
+  {
+    id: 28,
+    themeWord: "CLOCK",
+    words: [
+      {
+        word: "TICK",
+        relation: "A tick is the small, steady sound a clock makes each second.",
+      },
+      {
+        word: "ALARM",
+        relation: "An alarm is the sound a clock makes to wake you at a set time.",
+      },
+      {
+        word: "MINUTE",
+        relation: "A minute is one of the sixty divisions marked on a clock face.",
+      },
+    ],
+  },
+  {
+    id: 29,
+    themeWord: "GHOST",
+    words: [
+      {
+        word: "PALE",
+        relation: "A pale figure appearing from thin air is a classic sign of a ghost.",
+      },
+      {
+        word: "HAUNT",
+        relation: "To haunt is what a ghost does when it lingers in a place.",
+      },
+      {
+        word: "WRAITH",
+        relation: "A wraith is a ghostly apparition of someone no longer living.",
+      },
+    ],
+  },
+  {
+    id: 30,
+    themeWord: "PIRATE",
+    words: [
+      {
+        word: "FLAG",
+        relation: "A pirate flies the skull-and-crossbones flag to strike fear at sea.",
+      },
+      {
+        word: "SKULL",
+        relation: "The skull is the iconic symbol adorning every pirate's Jolly Roger.",
+      },
+      {
+        word: "BOUNTY",
+        relation: "A bounty is the reward posted for the capture of a pirate.",
+      },
+    ],
+  },
+  {
+    id: 31,
+    themeWord: "JUNGLE",
+    words: [
+      {
+        word: "VINE",
+        relation: "A vine hangs from the trees and tangles the paths of the jungle.",
+      },
+      {
+        word: "TIGER",
+        relation: "A tiger prowls silently through the dense jungle undergrowth.",
+      },
+      {
+        word: "PYTHON",
+        relation: "A python coils around branches in the warm, humid jungle.",
+      },
+    ],
+  },
+  {
+    id: 32,
+    themeWord: "SILVER",
+    words: [
+      {
+        word: "COIN",
+        relation: "A coin was historically stamped from silver as common currency.",
+      },
+      {
+        word: "SHINY",
+        relation: "Polished silver has a shiny, mirror-like surface.",
+      },
+      {
+        word: "PLATED",
+        relation: "A plated object has a thin coating of silver over a base metal.",
+      },
+    ],
+  },
+  {
+    id: 33,
+    themeWord: "DRAGON",
+    words: [
+      {
+        word: "WING",
+        relation: "A wing carries the dragon through the skies above the kingdom.",
+      },
+      {
+        word: "FLAME",
+        relation: "A dragon breathes flame to scorch anything in its path.",
+      },
+      {
+        word: "SCORCH",
+        relation: "To scorch the land is a dragon's most fearsome display of power.",
+      },
+    ],
+  },
+  {
+    id: 34,
+    themeWord: "KNIGHT",
+    words: [
+      {
+        word: "HELM",
+        relation: "A helm is the heavy metal helmet worn by a knight in battle.",
+      },
+      {
+        word: "LANCE",
+        relation: "A lance is the long weapon a knight wields during a jousting charge.",
+      },
+      {
+        word: "SHIELD",
+        relation: "A shield protects a knight from blows in the heat of combat.",
+      },
+    ],
+  },
+  {
+    id: 35,
+    themeWord: "BRIDGE",
+    words: [
+      {
+        word: "ARCH",
+        relation: "An arch is the curved structural form that supports a bridge.",
+      },
+      {
+        word: "STEEL",
+        relation: "Steel is the strong metal used to build modern bridges.",
+      },
+      {
+        word: "GIRDER",
+        relation: "A girder is a heavy beam forming the skeleton of a bridge.",
+      },
+    ],
+  },
+  {
+    id: 36,
+    themeWord: "CHURCH",
+    words: [
+      {
+        word: "BELL",
+        relation: "A bell rings from the steeple to call people to church.",
+      },
+      {
+        word: "CHOIR",
+        relation: "A choir sings hymns during the church service.",
+      },
+      {
+        word: "CHAPEL",
+        relation: "A chapel is a small church or a private place of worship.",
+      },
+    ],
+  },
+  {
+    id: 37,
+    themeWord: "PRISON",
+    words: [
+      {
+        word: "CELL",
+        relation: "A cell is the small, confined room where a prison holds its inmates.",
+      },
+      {
+        word: "GUARD",
+        relation: "A guard patrols the corridors to maintain order in a prison.",
+      },
+      {
+        word: "INMATE",
+        relation: "An inmate is a person serving their sentence inside a prison.",
+      },
+    ],
+  },
+  {
+    id: 38,
+    themeWord: "ISLAND",
+    words: [
+      {
+        word: "PALM",
+        relation: "A palm tree sways in the tropical wind of a remote island.",
+      },
+      {
+        word: "SHORE",
+        relation: "The shore is the sandy edge where waves meet the island.",
+      },
+      {
+        word: "LAGOON",
+        relation: "A lagoon is a shallow pool of water sheltered within an island reef.",
+      },
+    ],
+  },
+  {
+    id: 39,
+    themeWord: "MARKET",
+    words: [
+      {
+        word: "SELL",
+        relation: "To sell goods is the primary purpose of any market.",
+      },
+      {
+        word: "PRICE",
+        relation: "A price tag on every item guides buyers at the market.",
+      },
+      {
+        word: "VENDOR",
+        relation: "A vendor is a person who operates a stall at the market.",
+      },
+    ],
+  },
+  {
+    id: 40,
+    themeWord: "HARBOR",
+    words: [
+      {
+        word: "DOCK",
+        relation: "A dock is the platform where ships tie up inside the harbor.",
+      },
+      {
+        word: "BERTH",
+        relation: "A berth is the designated spot where a vessel rests in the harbor.",
+      },
+      {
+        word: "MARINA",
+        relation: "A marina is a harbor designed for mooring pleasure boats.",
+      },
+    ],
+  },
+  {
+    id: 41,
+    themeWord: "WINDOW",
+    words: [
+      {
+        word: "PANE",
+        relation: "A pane is the sheet of glass set inside a window frame.",
+      },
+      {
+        word: "GLASS",
+        relation: "Glass is the transparent material that fills a window opening.",
+      },
+      {
+        word: "SCREEN",
+        relation: "A screen fits over a window to let air in while keeping insects out.",
+      },
+    ],
+  },
+  {
+    id: 42,
+    themeWord: "MIRROR",
+    words: [
+      {
+        word: "GAZE",
+        relation: "To gaze into a mirror is to study your own reflection.",
+      },
+      {
+        word: "IMAGE",
+        relation: "An image of yourself is reflected back when you face a mirror.",
+      },
+      {
+        word: "VANITY",
+        relation: "A vanity is a dressing table fitted with a large mirror.",
+      },
+    ],
+  },
+  {
+    id: 43,
+    themeWord: "BANNER",
+    words: [
+      {
+        word: "FLAG",
+        relation: "A flag is a banner flown to represent a nation or cause.",
+      },
+      {
+        word: "CREST",
+        relation: "A crest is the heraldic emblem displayed on a banner.",
+      },
+      {
+        word: "EMBLEM",
+        relation: "An emblem is the symbolic design that adorns a banner.",
+      },
+    ],
+  },
+  {
+    id: 44,
+    themeWord: "PUPPET",
+    words: [
+      {
+        word: "DOLL",
+        relation: "A doll is a figure much like a puppet, crafted to resemble a person.",
+      },
+      {
+        word: "STAGE",
+        relation: "A stage is where a puppet comes to life in front of an audience.",
+      },
+      {
+        word: "STRING",
+        relation: "A string connects the puppet to the hands of its operator above.",
+      },
+    ],
+  },
+  {
+    id: 45,
+    themeWord: "WIZARD",
+    words: [
+      {
+        word: "WAND",
+        relation: "A wand is the slender tool a wizard uses to channel magic.",
+      },
+      {
+        word: "SPELL",
+        relation: "A spell is an incantation a wizard recites to work magic.",
+      },
+      {
+        word: "POTION",
+        relation: "A potion is a magical liquid brewed by a wizard.",
+      },
+    ],
+  },
 ];
 
 /**
