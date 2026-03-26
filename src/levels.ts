@@ -4786,6 +4786,366 @@ export const LEVELS: Level[] = [
       },
     ],
   },
+  {
+    id: 266,
+    themeWord: "MANTLE",
+    words: [
+      {
+        word: "ROBE",
+        relation: "A robe drapes over the shoulders much like a mantle.",
+      },
+      {
+        word: "CLOAK",
+        relation: "A cloak is a mantle-like garment worn for warmth and concealment.",
+      },
+      {
+        word: "DRAPED",
+        relation: "Draped over the body, a mantle conveys authority and rank.",
+      },
+    ],
+  },
+  {
+    id: 267,
+    themeWord: "ARMADA",
+    words: [
+      {
+        word: "SHIP",
+        relation: "A ship is one vessel among the many that comprise an armada.",
+      },
+      {
+        word: "FLEET",
+        relation: "A fleet of warships assembled for battle forms a mighty armada.",
+      },
+      {
+        word: "SAILED",
+        relation: "The great armada sailed across the sea to meet the enemy.",
+      },
+    ],
+  },
+  {
+    id: 268,
+    themeWord: "GOBLIN",
+    words: [
+      {
+        word: "CAVE",
+        relation: "A cave is the dark, underground lair favoured by goblins.",
+      },
+      {
+        word: "TRICK",
+        relation: "A trick is the mischief a goblin plays on unsuspecting travellers.",
+      },
+      {
+        word: "WICKED",
+        relation: "Wicked behaviour and cunning schemes are the goblin's trademark.",
+      },
+    ],
+  },
+  {
+    id: 269,
+    themeWord: "TATTOO",
+    words: [
+      {
+        word: "SKIN",
+        relation: "Skin is the living canvas on which a tattoo is permanently drawn.",
+      },
+      {
+        word: "INKED",
+        relation: "An inked design marks the skin after a tattoo session.",
+      },
+      {
+        word: "NEEDLE",
+        relation: "A needle punctures the skin to deposit pigment during a tattoo.",
+      },
+    ],
+  },
+  {
+    id: 270,
+    themeWord: "FIDDLE",
+    words: [
+      {
+        word: "TUNE",
+        relation: "A lively tune pours from the strings of a well-played fiddle.",
+      },
+      {
+        word: "BOWED",
+        relation: "Bowed strings produce the warm, singing tone of a fiddle.",
+      },
+      {
+        word: "STRING",
+        relation: "A string stretched across the bridge gives the fiddle its voice.",
+      },
+    ],
+  },
+  {
+    id: 271,
+    themeWord: "STUCCO",
+    words: [
+      {
+        word: "WALL",
+        relation: "A wall coated in stucco has a smooth, finished appearance.",
+      },
+      {
+        word: "CREAM",
+        relation: "Cream-coloured stucco is a classic exterior finish in warm climates.",
+      },
+      {
+        word: "RENDER",
+        relation: "To render a wall is to apply a coat of stucco over masonry.",
+      },
+    ],
+  },
+  {
+    id: 272,
+    themeWord: "WRENCH",
+    words: [
+      {
+        word: "BOLT",
+        relation: "A bolt is the fastener a wrench grips and turns.",
+      },
+      {
+        word: "TWIST",
+        relation: "A twist of the wrench tightens or loosens a stubborn nut.",
+      },
+      {
+        word: "SOCKET",
+        relation: "A socket fits over a bolt head and attaches to a wrench.",
+      },
+    ],
+  },
+  {
+    id: 273,
+    themeWord: "DAMSEL",
+    words: [
+      {
+        word: "GOWN",
+        relation: "A gown of flowing fabric is the classic attire of a damsel.",
+      },
+      {
+        word: "TOWER",
+        relation: "A tower is where a damsel in distress awaits rescue in fairy tales.",
+      },
+      {
+        word: "MAIDEN",
+        relation: "A maiden is another word for the young damsel of legend.",
+      },
+    ],
+  },
+  {
+    id: 274,
+    themeWord: "GROUSE",
+    words: [
+      {
+        word: "MOOR",
+        relation: "A moor is the windswept highland habitat of the red grouse.",
+      },
+      {
+        word: "COVEY",
+        relation: "A covey is a small flock of grouse flushed from the heather.",
+      },
+      {
+        word: "FLOCKS",
+        relation: "Flocks of grouse gather on the moors during the autumn season.",
+      },
+    ],
+  },
+  {
+    id: 275,
+    themeWord: "MASCOT",
+    words: [
+      {
+        word: "BEAR",
+        relation: "A bear is a popular mascot for sports teams and schools.",
+      },
+      {
+        word: "BADGE",
+        relation: "A badge bearing the mascot's image is worn by loyal fans.",
+      },
+      {
+        word: "SUITED",
+        relation: "A suited performer brings the team mascot to life on game day.",
+      },
+    ],
+  },
+  {
+    id: 276,
+    themeWord: "KIOSK",
+    words: [
+      {
+        word: "SELL",
+        relation: "To sell quick snacks and goods is the purpose of a kiosk.",
+      },
+      {
+        word: "BOOTH",
+        relation: "A booth is a small, enclosed structure similar to a kiosk.",
+      },
+      {
+        word: "VENDOR",
+        relation: "A vendor operates the kiosk and serves customers all day.",
+      },
+    ],
+  },
+  {
+    id: 277,
+    themeWord: "NECTAR",
+    words: [
+      {
+        word: "HIVE",
+        relation: "A hive is where bees store the nectar they collect from flowers.",
+      },
+      {
+        word: "SWEET",
+        relation: "Sweet and fragrant, nectar is the sugary reward flowers offer.",
+      },
+      {
+        word: "POLLEN",
+        relation: "Pollen clings to bees as they sip nectar from each blossom.",
+      },
+    ],
+  },
+  {
+    id: 278,
+    themeWord: "PARCEL",
+    words: [
+      {
+        word: "TAPE",
+        relation: "Tape seals the flaps of a parcel before it is shipped.",
+      },
+      {
+        word: "STAMP",
+        relation: "A stamp is affixed to a parcel to pay for its postage.",
+      },
+      {
+        word: "POSTED",
+        relation: "A posted parcel travels through the mail to its destination.",
+      },
+    ],
+  },
+  {
+    id: 279,
+    themeWord: "GADGET",
+    words: [
+      {
+        word: "CHIP",
+        relation: "A chip is the tiny circuit at the heart of every electronic gadget.",
+      },
+      {
+        word: "GIZMO",
+        relation: "A gizmo is an informal word for a clever little gadget.",
+      },
+      {
+        word: "DEVICE",
+        relation: "A device is the generic term for any useful gadget.",
+      },
+    ],
+  },
+  {
+    id: 280,
+    themeWord: "FIESTA",
+    words: [
+      {
+        word: "BAND",
+        relation: "A band plays lively music to keep the fiesta going all night.",
+      },
+      {
+        word: "SALSA",
+        relation: "Salsa dancing fills the streets during a spirited fiesta.",
+      },
+      {
+        word: "DANCED",
+        relation: "Everyone danced until dawn at the village fiesta.",
+      },
+    ],
+  },
+  {
+    id: 281,
+    themeWord: "COBWEB",
+    words: [
+      {
+        word: "WISP",
+        relation: "A wisp of cobweb drifts in the still air of an old attic.",
+      },
+      {
+        word: "DUSTY",
+        relation: "Dusty cobwebs drape the corners of abandoned rooms.",
+      },
+      {
+        word: "SILKEN",
+        relation: "Silken threads form the delicate structure of a cobweb.",
+      },
+    ],
+  },
+  {
+    id: 282,
+    themeWord: "TURBAN",
+    words: [
+      {
+        word: "WRAP",
+        relation: "To wrap cloth around the head is how a turban is formed.",
+      },
+      {
+        word: "CLOTH",
+        relation: "A long cloth is wound in layers to create a turban.",
+      },
+      {
+        word: "FOLDED",
+        relation: "Folded fabric is arranged with care to shape a proper turban.",
+      },
+    ],
+  },
+  {
+    id: 283,
+    themeWord: "TRIPOD",
+    words: [
+      {
+        word: "LEGS",
+        relation: "Three legs give the tripod its name and its stability.",
+      },
+      {
+        word: "STAND",
+        relation: "A stand for cameras and telescopes, the tripod holds them steady.",
+      },
+      {
+        word: "CAMERA",
+        relation: "A camera mounted on a tripod captures sharp, blur-free photos.",
+      },
+    ],
+  },
+  {
+    id: 284,
+    themeWord: "PELLET",
+    words: [
+      {
+        word: "SHOT",
+        relation: "A shot from an air rifle launches a small pellet at the target.",
+      },
+      {
+        word: "ROUND",
+        relation: "A round, compact pellet is loaded into the chamber.",
+      },
+      {
+        word: "PISTOL",
+        relation: "A pistol designed for target practice fires lightweight pellets.",
+      },
+    ],
+  },
+  {
+    id: 285,
+    themeWord: "RANSOM",
+    words: [
+      {
+        word: "NOTE",
+        relation: "A note demanding payment is the first sign of a ransom plot.",
+      },
+      {
+        word: "SEIZE",
+        relation: "To seize a hostage is the criminal act behind a ransom demand.",
+      },
+      {
+        word: "KIDNAP",
+        relation: "To kidnap someone and demand ransom is a serious crime.",
+      },
+    ],
+  },
 ];
 
 /**
