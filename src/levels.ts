@@ -3346,6 +3346,366 @@ export const LEVELS: Level[] = [
       },
     ],
   },
+  {
+    id: 186,
+    themeWord: "PEACE",
+    words: [
+      {
+        word: "CALM",
+        relation: "Calm is the quiet stillness that prevails during times of peace.",
+      },
+      {
+        word: "QUIET",
+        relation: "Quiet settles over the land when peace replaces conflict.",
+      },
+      {
+        word: "SERENE",
+        relation: "A serene atmosphere is the hallmark of lasting peace.",
+      },
+    ],
+  },
+  {
+    id: 187,
+    themeWord: "CHAOS",
+    words: [
+      {
+        word: "RIOT",
+        relation: "A riot is an eruption of chaos in the streets.",
+      },
+      {
+        word: "HAVOC",
+        relation: "Havoc is the widespread destruction that chaos leaves behind.",
+      },
+      {
+        word: "TUMULT",
+        relation: "Tumult is the loud confusion and disorder born of chaos.",
+      },
+    ],
+  },
+  {
+    id: 188,
+    themeWord: "DANGER",
+    words: [
+      {
+        word: "RISK",
+        relation: "Risk is the chance of harm that comes with any danger.",
+      },
+      {
+        word: "PERIL",
+        relation: "Peril is a state of serious and immediate danger.",
+      },
+      {
+        word: "THREAT",
+        relation: "A threat is a warning that danger may be near.",
+      },
+    ],
+  },
+  {
+    id: 189,
+    themeWord: "REFUGE",
+    words: [
+      {
+        word: "SAFE",
+        relation: "A safe place is exactly what a refuge provides.",
+      },
+      {
+        word: "HAVEN",
+        relation: "A haven is a secure refuge from the storm outside.",
+      },
+      {
+        word: "ASYLUM",
+        relation: "Asylum is the formal protection offered as refuge from persecution.",
+      },
+    ],
+  },
+  {
+    id: 190,
+    themeWord: "VOYAGE",
+    words: [
+      {
+        word: "SAIL",
+        relation: "To sail across the ocean is to embark on a grand voyage.",
+      },
+      {
+        word: "ROUTE",
+        relation: "A route is the planned course charted for a voyage.",
+      },
+      {
+        word: "CRUISE",
+        relation: "A cruise is a leisure voyage taken aboard a passenger ship.",
+      },
+    ],
+  },
+  {
+    id: 191,
+    themeWord: "SAFARI",
+    words: [
+      {
+        word: "JEEP",
+        relation: "A jeep carries tourists across rough terrain on a safari.",
+      },
+      {
+        word: "LIONS",
+        relation: "Lions are among the most sought-after sightings on a safari.",
+      },
+      {
+        word: "GUIDED",
+        relation: "A guided safari ensures visitors see the best wildlife safely.",
+      },
+    ],
+  },
+  {
+    id: 192,
+    themeWord: "TRAVEL",
+    words: [
+      {
+        word: "PACK",
+        relation: "To pack a bag is the first step before any travel begins.",
+      },
+      {
+        word: "HOTEL",
+        relation: "A hotel provides lodging for people who travel far from home.",
+      },
+      {
+        word: "ABROAD",
+        relation: "Abroad describes travel to a foreign country.",
+      },
+    ],
+  },
+  {
+    id: 193,
+    themeWord: "MUSEUM",
+    words: [
+      {
+        word: "ARTS",
+        relation: "Arts and artefacts fill the galleries of a great museum.",
+      },
+      {
+        word: "RELIC",
+        relation: "A relic is an ancient object preserved and displayed in a museum.",
+      },
+      {
+        word: "CURATE",
+        relation: "To curate is to select and organize the works shown in a museum.",
+      },
+    ],
+  },
+  {
+    id: 194,
+    themeWord: "PARADE",
+    words: [
+      {
+        word: "DRUM",
+        relation: "A drum sets the marching beat at the head of a parade.",
+      },
+      {
+        word: "MARCH",
+        relation: "To march in formation is the backbone of a parade.",
+      },
+      {
+        word: "FLOATS",
+        relation: "Floats are the decorated platforms that roll through a parade.",
+      },
+    ],
+  },
+  {
+    id: 195,
+    themeWord: "TAVERN",
+    words: [
+      {
+        word: "ALES",
+        relation: "Ales are the traditional brews served on tap at a tavern.",
+      },
+      {
+        word: "DRINK",
+        relation: "To drink with friends is the main reason people visit a tavern.",
+      },
+      {
+        word: "SALOON",
+        relation: "A saloon is a rustic tavern found in frontier towns.",
+      },
+    ],
+  },
+  {
+    id: 196,
+    themeWord: "TURNIP",
+    words: [
+      {
+        word: "ROOT",
+        relation: "The root is the edible, bulbous part of the turnip plant.",
+      },
+      {
+        word: "PATCH",
+        relation: "A patch of turnips grows in neat rows in the garden.",
+      },
+      {
+        word: "PURPLE",
+        relation: "Purple skin fading to white is the classic colour of a turnip.",
+      },
+    ],
+  },
+  {
+    id: 197,
+    themeWord: "GEYSER",
+    words: [
+      {
+        word: "VENT",
+        relation: "A vent in the earth releases the pressure that feeds a geyser.",
+      },
+      {
+        word: "STEAM",
+        relation: "Steam rises in a column when a geyser erupts.",
+      },
+      {
+        word: "EJECTS",
+        relation: "A geyser ejects boiling water high into the air.",
+      },
+    ],
+  },
+  {
+    id: 198,
+    themeWord: "MORTAR",
+    words: [
+      {
+        word: "CLAY",
+        relation: "Clay is a base ingredient mixed into mortar for binding bricks.",
+      },
+      {
+        word: "BRICK",
+        relation: "A brick is held in place by a layer of mortar between courses.",
+      },
+      {
+        word: "PESTLE",
+        relation: "A pestle grinds ingredients inside a mortar bowl.",
+      },
+    ],
+  },
+  {
+    id: 199,
+    themeWord: "CRADLE",
+    words: [
+      {
+        word: "BABY",
+        relation: "A baby sleeps soundly while rocked in a cradle.",
+      },
+      {
+        word: "SWING",
+        relation: "A gentle swing back and forth soothes the child in the cradle.",
+      },
+      {
+        word: "INFANT",
+        relation: "An infant is the tiny occupant nestled inside a cradle.",
+      },
+    ],
+  },
+  {
+    id: 200,
+    themeWord: "GALAXY",
+    words: [
+      {
+        word: "STAR",
+        relation: "A star is one of billions of luminous bodies within a galaxy.",
+      },
+      {
+        word: "ORBIT",
+        relation: "Stars orbit the dense centre of their galaxy.",
+      },
+      {
+        word: "NEBULA",
+        relation: "A nebula is a cloud of gas and dust found within a galaxy.",
+      },
+    ],
+  },
+  {
+    id: 201,
+    themeWord: "PLAQUE",
+    words: [
+      {
+        word: "ETCH",
+        relation: "To etch words into metal is how a commemorative plaque is made.",
+      },
+      {
+        word: "AWARD",
+        relation: "An award is often presented in the form of an engraved plaque.",
+      },
+      {
+        word: "DENTAL",
+        relation: "Dental plaque is the sticky film that builds up on teeth.",
+      },
+    ],
+  },
+  {
+    id: 202,
+    themeWord: "WREATH",
+    words: [
+      {
+        word: "PINE",
+        relation: "Pine boughs are woven into a traditional holiday wreath.",
+      },
+      {
+        word: "HOLLY",
+        relation: "Holly with its red berries is a classic wreath decoration.",
+      },
+      {
+        word: "CIRCLE",
+        relation: "A circle of evergreen branches forms the shape of a wreath.",
+      },
+    ],
+  },
+  {
+    id: 203,
+    themeWord: "MOSAIC",
+    words: [
+      {
+        word: "TILE",
+        relation: "A tile is the small, coloured piece that makes up a mosaic.",
+      },
+      {
+        word: "GROUT",
+        relation: "Grout fills the gaps between tiles in a mosaic.",
+      },
+      {
+        word: "DESIGN",
+        relation: "A design emerges as thousands of tiles are placed in a mosaic.",
+      },
+    ],
+  },
+  {
+    id: 204,
+    themeWord: "BRUNCH",
+    words: [
+      {
+        word: "EGGS",
+        relation: "Eggs in every style are the centrepiece of a good brunch.",
+      },
+      {
+        word: "TOAST",
+        relation: "Toast is served alongside nearly every brunch dish.",
+      },
+      {
+        word: "WAFFLE",
+        relation: "A waffle topped with fruit is a beloved brunch favourite.",
+      },
+    ],
+  },
+  {
+    id: 205,
+    themeWord: "SUNDAE",
+    words: [
+      {
+        word: "CONE",
+        relation: "A cone is an alternative to a bowl for serving a sundae.",
+      },
+      {
+        word: "SCOOP",
+        relation: "A scoop of ice cream is the foundation of every sundae.",
+      },
+      {
+        word: "CHERRY",
+        relation: "A cherry on top is the classic finishing touch on a sundae.",
+      },
+    ],
+  },
 ];
 
 /**
