@@ -82,11 +82,11 @@ describe("getLevelForDate", () => {
     expect(LEVELS.some((l) => l.id === level.id)).toBe(true);
   });
 
-  it("cycles through all levels within a single year", () => {
+  it("cycles through all levels within a leap year", () => {
     const seen = new Set<number>();
-    const base = new Date(2026, 0, 1);
-    // Check enough days to cover all levels (at least LEVELS.length)
-    const days = Math.max(LEVELS.length, 365);
+    // Use a leap year (366 days) so every level index is reached
+    const base = new Date(2028, 0, 1);
+    const days = 366;
     for (let i = 0; i < days; i++) {
       const d = new Date(base);
       d.setDate(d.getDate() + i);

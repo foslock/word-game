@@ -6586,6 +6586,24 @@ export const LEVELS: Level[] = [
       },
     ],
   },
+  {
+    id: 366,
+    themeWord: "FOSTER",
+    words: [
+      {
+        word: "CARE",
+        relation: "To foster is to provide care and support for someone's growth.",
+      },
+      {
+        word: "ADOPT",
+        relation: "Fostering a child can sometimes lead to a decision to adopt.",
+      },
+      {
+        word: "PARENT",
+        relation: "A foster parent opens their home to children in need.",
+      },
+    ],
+  },
 ];
 
 /**
