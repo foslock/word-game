@@ -1116,8 +1116,8 @@ export function renderRulesContent(container: HTMLElement): void {
     <p>Each day, three mystery words are <strong>threaded</strong> together by a single <strong>theme word</strong>.</p>
     <p>Your job: uncover the thread. Guess all three words — a <strong>4-letter</strong>, a <strong>5-letter</strong>, and a <strong>6-letter</strong> word — that connect back to the day's theme.</p>
     <ul>
-      <li>Fill every square with <strong>valid English words</strong>, then press <strong>Submit</strong> (or hit <kbd>Enter</kbd>).</li>
-      <li>Each guess must be a real English word — nonsense strings won't be accepted.</li>
+      <li>Fill every row with <strong>valid English words</strong>, then press <strong>Submit</strong> (or hit <kbd>Enter</kbd>).</li>
+      <li>If any of the words are incomplete or invalid, you won't be able to submit.</li>
     </ul>
     <div class="rules-legend">
       <div class="legend-row">
@@ -1134,8 +1134,9 @@ export function renderRulesContent(container: HTMLElement): void {
       </div>
     </div>
     <p>Correct letters <strong>lock in</strong> (green). Adjust the remaining letters and keep submitting until all three words are solved.</p>
-    <p>When a word is fully solved, the sentence explaining how it's threaded to the theme is revealed.</p>
-    <p>A new puzzle drops every midnight (local time). Come back daily to keep your streak!</p>
+    <p>Note that a revealed yellow letter may be part of a different word than guessed.</p>
+    <p>When a word is fully solved, it's relation to the theme is revealed.</p>
+    <p>A new puzzle drops at midnight. Come back daily to keep your streak!</p>
   `;
 }
 
