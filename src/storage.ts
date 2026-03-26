@@ -128,6 +128,12 @@ export function saveStats(stats: AllTimeStats): void {
   localStorage.setItem(STATS_KEY, JSON.stringify(stats));
 }
 
+/** Clear all saved progress (daily state and stats). */
+export function resetAllProgress(): void {
+  localStorage.removeItem(DAILY_KEY);
+  localStorage.removeItem(STATS_KEY);
+}
+
 /** Update stats when a game is completed. */
 export function recordCompletion(
   stats: AllTimeStats,

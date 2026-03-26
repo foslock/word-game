@@ -7,6 +7,7 @@ import {
   loadDailyRecord,
   loadStats,
   recordCompletion,
+  resetAllProgress,
   saveDailyRecord,
   saveStats,
 } from "./storage.js";
@@ -1169,5 +1170,16 @@ export function renderStatsContent(container: HTMLElement): void {
         ? `<p class="stats-note">Today's puzzle is in progress.</p>`
         : `<p class="stats-note">You haven't played today yet.</p>`
     }
+    <button id="reset-progress-btn" class="reset-btn">Reset Progress</button>
   `;
+
+  const resetBtn = container.querySelector<HTMLButtonElement>("#reset-progress-btn");
+  if (resetBtn) {
+    resetBtn.addEventListener("click", () => {
+      if (confirm("Are you sure? This will erase all stats and today's progress.")) {
+        resetAllProgress();
+        window.location.reload();
+      }
+    });
+  }
 }

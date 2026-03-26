@@ -814,6 +814,24 @@ body.modal-open { overflow: hidden; }
 }
 .stats-note strong { color: var(--color-text); }
 
+.reset-btn {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+  padding: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+  background: #c0392b;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.reset-btn:hover {
+  background: #a93226;
+}
+
 /* ============================================================
    Confetti canvas
    ============================================================ */
