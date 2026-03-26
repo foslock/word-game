@@ -959,99 +959,19 @@ export class Game {
     if (!this.record.guessedLetterMap) {
       this.record.guessedLetterMap = {};
     }
-    const map = this.record.guessedLetterMap;
-
-    // Collect present and absent letters from all cells this round
-    const presentLetters = new Set<string>();
-    const absentLetters = new Set<string>();
-    for (const ws of this.record.words) {
-      for (const cell of ws.cells) {
-        if (cell.status === "present") presentLetters.add(cell.letter);
-        else if (cell.status === "absent") absentLetters.add(cell.letter);
-      }
-    }
-
-    // Step 1: Add new letter hints.
-    // Grey→yellow upgrades cannot happen: a letter is only ever grey because it
-    // is absent from every remaining target word, and the set of target words
-    // only shrinks (words get solved, never un-solved).  So if a letter is already
-    // in the map we leave its status alone here; step 2 below handles the only
-    // valid transition (yellow → grey / removal once all instances are locked).
-    for (const letter of presentLetters) {
-      if (!map[letter]) {
-        map[letter] = "present";
-      }
-    }
-    for (const letter of absentLetters) {
-      if (!map[letter]) {
-        map[letter] = "absent";
-      }
-    }
-
-    // Step 2: For each yellow letter, check if all target instances are now locked
-    for (const letter of Object.keys(map)) {
-      if (map[letter] !== "present") continue;
-
-      let totalInTargets = 0;
-      let lockedCount = 0;
-      for (let wi = 0; wi < this.record.words.length; wi++) {
-        const target = this.level.words[wi].word;
-        const ws = this.record.words[wi];
-        for (let ci = 0; ci < target.length; ci++) {
-          if (target[ci] === letter) {
-            totalInTargets++;
-            if (ws.cells[ci].locked) lockedCount++;
-          }
-        }
-      }
-
-      if (totalInTargets > 0 && lockedCount >= totalInTargets) {
-        if (absentLetters.has(letter)) {
-          // User also guessed this letter out of place this round — degrade to grey
-          map[letter] = "absent";
-        } else {
-          // All instances correctly placed, no wrong guesses — remove from section
-          delete map[letter];
-        }
-      }
-    }
+    updateGuessedLetterMap(
+      this.record.guessedLetterMap,
+      this.record.words,
+      this.level.words.map((w) => w.word)
+    );
   }
 
   private getGuessedLetters(): { letter: string; status: "present" | "absent" }[] {
-    const map = this.record.guessedLetterMap || {};
-    const letters: { letter: string; status: "present" | "absent" }[] = [];
-
-    for (const [letter, status] of Object.entries(map)) {
-      if (status === "present") {
-        // Show one chip per unlocked target instance so duplicates are visible
-        let totalInTargets = 0;
-        let lockedCount = 0;
-        for (let wi = 0; wi < this.level.words.length; wi++) {
-          const target = this.level.words[wi].word;
-          const ws = this.record.words[wi];
-          for (let ci = 0; ci < target.length; ci++) {
-            if (target[ci] === letter) {
-              totalInTargets++;
-              if (ws.cells[ci].locked) lockedCount++;
-            }
-          }
-        }
-        const count = Math.max(1, totalInTargets - lockedCount);
-        for (let i = 0; i < count; i++) {
-          letters.push({ letter, status });
-        }
-      } else {
-        letters.push({ letter, status });
-      }
-    }
-
-    // Sort: yellows first, then greys; alphabetical within each group
-    letters.sort((a, b) => {
-      if (a.status !== b.status) return a.status === "present" ? -1 : 1;
-      return a.letter.localeCompare(b.letter);
-    });
-
-    return letters;
+    return getGuessedLetters(
+      this.record.guessedLetterMap || {},
+      this.record.words,
+      this.level.words.map((w) => w.word)
+    );
   }
 
   // -------------------------------------------------------------------------
@@ -1069,6 +989,113 @@ export class Game {
       setTimeout(() => toast.classList.add("hidden"), 300);
     }, 2000);
   }
+}
+
+// ---------------------------------------------------------------------------
+// Guessed-letter logic (exported for testing)
+// ---------------------------------------------------------------------------
+
+/** Merge cell statuses into the persistent guessedLetterMap (mutates `map`). */
+export function updateGuessedLetterMap(
+  map: Record<string, "present" | "absent">,
+  words: ReadonlyArray<{ cells: ReadonlyArray<CellState>; solved: boolean }>,
+  targetWords: string[]
+): void {
+  const presentLetters = new Set<string>();
+  const absentLetters = new Set<string>();
+  for (const ws of words) {
+    for (const cell of ws.cells) {
+      if (cell.status === "present") presentLetters.add(cell.letter);
+      else if (cell.status === "absent") absentLetters.add(cell.letter);
+    }
+  }
+
+  // Step 1: Add new hints. Yellow takes priority — never downgrade to grey.
+  for (const letter of presentLetters) {
+    if (!map[letter]) map[letter] = "present";
+  }
+  for (const letter of absentLetters) {
+    if (!map[letter]) map[letter] = "absent";
+  }
+
+  // Step 2: For each yellow letter, check if all target instances are now locked
+  for (const letter of Object.keys(map)) {
+    if (map[letter] !== "present") continue;
+
+    let totalInTargets = 0;
+    let lockedCount = 0;
+    for (let wi = 0; wi < words.length; wi++) {
+      const target = targetWords[wi];
+      const ws = words[wi];
+      for (let ci = 0; ci < target.length; ci++) {
+        if (target[ci] === letter) {
+          totalInTargets++;
+          if (ws.cells[ci].locked) lockedCount++;
+        }
+      }
+    }
+
+    if (totalInTargets > 0 && lockedCount >= totalInTargets) {
+      if (absentLetters.has(letter)) {
+        // Letter also guessed wrong this round — degrade to grey
+        map[letter] = "absent";
+      }
+      // Otherwise keep as "present" — the player learned this letter exists
+    }
+  }
+}
+
+/** Build the sorted guessed-letters array for display. */
+export function getGuessedLetters(
+  map: Record<string, "present" | "absent">,
+  words: ReadonlyArray<{ cells: ReadonlyArray<CellState>; solved: boolean }>,
+  targetWords: string[]
+): { letter: string; status: "present" | "absent" }[] {
+  const letters: { letter: string; status: "present" | "absent" }[] = [];
+
+  // Count how many times each letter currently appears as yellow on the board
+  const yellowCellCounts = new Map<string, number>();
+  for (const ws of words) {
+    for (const cell of ws.cells) {
+      if (cell.status === "present") {
+        yellowCellCounts.set(cell.letter, (yellowCellCounts.get(cell.letter) || 0) + 1);
+      }
+    }
+  }
+
+  for (const [letter, status] of Object.entries(map)) {
+    if (status === "present") {
+      // Count unguessed target instances to cap duplicates
+      let unguessedInTargets = 0;
+      for (let wi = 0; wi < words.length; wi++) {
+        const target = targetWords[wi];
+        const ws = words[wi];
+        for (let ci = 0; ci < target.length; ci++) {
+          if (target[ci] === letter && !ws.cells[ci].locked) {
+            unguessedInTargets++;
+          }
+        }
+      }
+      // Show as many chips as the player has seen (yellow cells), but no more
+      // than the actual unguessed count. Always at least 1 so the player
+      // remembers this letter is in the puzzle.
+      const seen = yellowCellCounts.get(letter) || 1;
+      const count = Math.max(1, Math.min(seen, unguessedInTargets || 1));
+      for (let i = 0; i < count; i++) {
+        letters.push({ letter, status });
+      }
+    } else {
+      letters.push({ letter, status });
+    }
+  }
+
+  // Sort: yellows first, then greys; alphabetical within each group
+  letters.sort((a, b) => {
+    if (a.status !== b.status) return a.status === "present" ? -1 : 1;
+    return a.letter.localeCompare(b.letter);
+  });
+
+  return letters;
 }
 
 // ---------------------------------------------------------------------------
