@@ -169,6 +169,58 @@ describe("evaluateCells — duplicate letter handling", () => {
   });
 });
 
+describe("evaluateCells — duplicate letters with cross-word interaction", () => {
+  it("only awards 1 yellow when guess has 2 of a letter and target has exactly 1 with no cross-word source", () => {
+    // Target BEATS has 1 S (pos 4); no other unsolved words have S.
+    // Guess SSZZZ: first S → yellow (consumes BEATS' only S), second S → absent.
+    const result = evaluateCells(cells("SSZZZ"), "BEATS", []);
+    expect(result[0].status).toBe("present"); // first S: yellow
+    expect(result[1].status).toBe("absent");  // second S: grey (target S already consumed)
+  });
+
+  it("awards a second yellow when a cross-word provides one additional instance of the letter", () => {
+    // Target BEATS has 1 S; cross-word GHOST also has 1 S.
+    // Guess SSZZZ: first S yellow from BEATS, second S yellow from cross-word GHOST.
+    const result = evaluateCells(cells("SSZZZ"), "BEATS", ["GHOST"]);
+    expect(result[0].status).toBe("present"); // first S: yellow (from BEATS)
+    expect(result[1].status).toBe("present"); // second S: yellow (cross-word GHOST)
+  });
+
+  it("caps yellows at the total count of the letter across target and cross-words", () => {
+    // Target BEATS has 1 S; cross-word GHOST has 1 S → 2 S's total to find.
+    // Guess SSSZZ: first 2 S's → yellow, third S → absent (no more S's anywhere).
+    const result = evaluateCells(cells("SSSZZ"), "BEATS", ["GHOST"]);
+    expect(result[0].status).toBe("present"); // first S: yellow
+    expect(result[1].status).toBe("present"); // second S: yellow
+    expect(result[2].status).toBe("absent");  // third S: grey (exhausted)
+  });
+
+  it("cross-word with 0 instances of the letter does not rescue the second duplicate", () => {
+    // Target BEATS has 1 S; cross-word CLOUD has 0 S's.
+    // The cross-word hint cannot provide any S → second S is grey.
+    const result = evaluateCells(cells("SSZZZ"), "BEATS", ["CLOUD"]);
+    expect(result[0].status).toBe("present"); // first S: yellow (from BEATS)
+    expect(result[1].status).toBe("absent");  // second S: grey (CLOUD has no S)
+  });
+
+  it("correctly handles 1 green and 1 yellow for the same letter when target has 2 instances", () => {
+    // Target SALSA has 2 S's (pos 0 and pos 3).
+    // Guess SSSXX: S[0]=S(target[0]) → green; S[1] → yellow (target S at pos 3);
+    // S[2] → absent (both target S's consumed).
+    const result = evaluateCells(cells("SSSXX"), "SALSA", []);
+    expect(result[0].status).toBe("correct"); // S at correct position
+    expect(result[1].status).toBe("present"); // S in word, wrong position
+    expect(result[2].status).toBe("absent");  // no more S's in target
+  });
+
+  it("a letter guessed twice is grey both times when neither target nor cross-words contain it", () => {
+    // No source contains Q — both guessed Q's should be absent.
+    const result = evaluateCells(cells("QQZZZ"), "BEATS", ["CLOUD"]);
+    expect(result[0].status).toBe("absent");
+    expect(result[1].status).toBe("absent");
+  });
+});
+
 describe("evaluateCells — pre-locked cells from previous submissions", () => {
   it("preserves a locked cell as correct without re-evaluating it", () => {
     // B at index 0 was locked on a previous submission

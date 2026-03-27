@@ -385,6 +385,88 @@ describe("Duplicate yellow chips", () => {
 });
 
 // ---------------------------------------------------------------------------
+// Duplicate letter bug: guess contains more of a letter than the total
+// number of that letter across all target words.
+// Regression for: "I guessed two S's and both showed yellow even though
+// there is only one S in the final solution."
+// ---------------------------------------------------------------------------
+
+describe("Duplicate letter bug: guess with 2 of same letter, only 1 in total solution", () => {
+  it("evaluates first S as yellow and second S as grey when only 1 S exists across all targets", () => {
+    // BEATS has 1 S, CLOUD has 0 S's → total S across puzzle = 1.
+    // Guessing SSZZZ for BEATS: first S yellow, second S grey (no more S's anywhere).
+    const targets = ["BEATS", "CLOUD"];
+    const words = makeWords(["SSZZZ", "ZZZZZ"]);
+    const map: Record<string, "present" | "absent"> = {};
+    submitGuess(["SSZZZ", "ZZZZZ"], targets, words, map);
+
+    expect(words[0].cells[0].status).toBe("present"); // first S: yellow
+    expect(words[0].cells[1].status).toBe("absent");  // second S: grey
+  });
+
+  it("guessed section shows only 1 S chip when only 1 S exists across all target words", () => {
+    const targets = ["BEATS", "CLOUD"]; // BEATS: 1 S, CLOUD: 0 S's
+    const words = makeWords(["SSZZZ", "ZZZZZ"]);
+    const map: Record<string, "present" | "absent"> = {};
+    submitGuess(["SSZZZ", "ZZZZZ"], targets, words, map);
+
+    const result = getGuessedLetters(map, words, targets);
+    const sChips = result.filter((r) => r.letter === "S");
+    expect(sChips.length).toBe(1);
+    expect(sChips[0].status).toBe("present");
+  });
+
+  it("shows 2 S chips when both target words each have 1 S (2 total to find)", () => {
+    // BEATS has 1 S, GHOST has 1 S → 2 total S's in the puzzle, both unfound.
+    // Guessing SSZZZ for BEATS: first S yellow (BEATS), second S yellow (cross-word GHOST).
+    // 2 yellow S chips is CORRECT here — there really are 2 S's to find.
+    const targets = ["BEATS", "GHOST"];
+    const words = makeWords(["SSZZZ", "ZZZZZ"]);
+    const map: Record<string, "present" | "absent"> = {};
+    submitGuess(["SSZZZ", "ZZZZZ"], targets, words, map);
+
+    expect(words[0].cells[0].status).toBe("present"); // first S: yellow
+    expect(words[0].cells[1].status).toBe("present"); // second S: yellow (cross-word)
+
+    const result = getGuessedLetters(map, words, targets);
+    const sChips = result.filter((r) => r.letter === "S");
+    expect(sChips.length).toBe(2);
+    expect(sChips.every((c) => c.status === "present")).toBe(true);
+  });
+
+  it("shows 1 S chip when the other target's S is already locked (found)", () => {
+    // BEATS has 1 S (not yet found). GHOST has 1 S already locked (found) at pos 3.
+    // Cross-word pool for BEATS excludes the locked S in GHOST → only 1 S remaining.
+    // Guessing SSZZZ for BEATS: first S yellow (BEATS), second S grey (GHOST's S locked).
+    const targets = ["BEATS", "GHOST"];
+    const words: WordState[] = [
+      { cells: cells("SSZZZ"), solved: false, attempts: 0 },
+      {
+        cells: [
+          { letter: "Z", status: "empty",   locked: false },
+          { letter: "Z", status: "empty",   locked: false },
+          { letter: "Z", status: "empty",   locked: false },
+          { letter: "S", status: "correct", locked: true  }, // S already found in GHOST
+          { letter: "Z", status: "empty",   locked: false },
+        ],
+        solved: false,
+        attempts: 1,
+      },
+    ];
+    const map: Record<string, "present" | "absent"> = {};
+    submitGuess(["SSZZZ", "ZZSZZ"], targets, words, map);
+
+    expect(words[0].cells[0].status).toBe("present"); // first S: yellow (BEATS' S available)
+    expect(words[0].cells[1].status).toBe("absent");  // second S: grey (GHOST's S is locked)
+
+    const result = getGuessedLetters(map, words, targets);
+    const sChips = result.filter((r) => r.letter === "S");
+    expect(sChips.length).toBe(1);
+    expect(sChips[0].status).toBe("present");
+  });
+});
+
+// ---------------------------------------------------------------------------
 // Map maintenance: yellow → grey degradation
 // ---------------------------------------------------------------------------
 
